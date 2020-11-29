@@ -1,5 +1,0 @@
-D:\Build\AgilityManager\DigitalMarketing\Database\DigitalMarketing\bin\Debug\DigitalMarketing.dacpac
-D:\Build\AgilityManager\DigitalMarketing\Database\DigitalMarketing\bin\Debug\DigitalMarketing.dll
-D:\Build\AgilityManager\DigitalMarketing\Database\DigitalMarketing\bin\Debug\DigitalMarketing.pdb
-D:\Build\AgilityManager\DigitalMarketing\Database\DigitalMarketing\obj\Debug\DigitalMarketing.dll
-D:\Build\AgilityManager\DigitalMarketing\Database\DigitalMarketing\obj\Debug\DigitalMarketing.pdb
