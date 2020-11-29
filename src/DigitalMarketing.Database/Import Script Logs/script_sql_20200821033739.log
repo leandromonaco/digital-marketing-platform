@@ -1,0 +1,14 @@
+21/08/2020 3:37:39 pm	This log contains information about the import operation of the script 'script.sql' into project 'DigitalMarketing.Database' on computer 'DESKTOP-HBK45CQ' by user'LeandroMonaco.
+21/08/2020 3:37:39 pm	Started importing file: C:\Users\LeandroMonaco\Documents\script.sql 
+21/08/2020 3:37:39 pm	File name C:\Users\LeandroMonaco\Documents\script.sql (size: 13156)
+21/08/2020 3:37:39 pm	Parsing import script
+21/08/2020 3:37:39 pm	Total number of batches in script: 55
+21/08/2020 3:37:39 pm	Total number of statements in script: 5
+21/08/2020 3:37:39 pm	The script was successfully imported into the project.
+21/08/2020 3:37:39 pm	Analyzing schema objects...
+21/08/2020 3:37:39 pm	Scanning project for duplicate elements
+21/08/2020 3:37:39 pm	Element 'FK_Lead_Tenant' was merged into the existing script: 'D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Database\dbo\Tables\Lead.sql'.
+21/08/2020 3:37:39 pm	Finished duplicate element processing
+21/08/2020 3:37:40 pm	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+21/08/2020 3:37:40 pm	A summary of the import was saved to the following location: D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Database\Import Script Logs\script_sql_20200821033739.log
+21/08/2020 3:37:40 pm	Click Finish to continue...

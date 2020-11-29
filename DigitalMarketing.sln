@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{43220D76-6AE0-4363-83DD-AAC5243CD93A}"
+	ProjectSection(SolutionItems) = preProject
+		docs\readme.md = docs\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{AA41FCB8-AB84-41B9-9693-32EB12DC9ACD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EAB38F5D-59FA-4681-A99F-D4171E7597BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06390F5C-EFE9-47DB-A8DA-BB83F436311B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{4DE8B463-E5D5-42B3-A0A1-BC043EB8256C}"
+	ProjectSection(SolutionItems) = preProject
+		build\.dockerignore = build\.dockerignore
+		build\tye.yaml = build\tye.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{332EC1E1-D93D-4D05-A7C0-3D579E39F000}"
+	ProjectSection(SolutionItems) = preProject
+		libs\elements-wohoo-beautiful-email-notifications-template-LM78SJ-sIPonGzK-09-10.zip = libs\elements-wohoo-beautiful-email-notifications-template-LM78SJ-sIPonGzK-09-10.zip
+		libs\themeforest-ky7oHPZd-foundry-multipurpose-html-variant-page-builder.zip = libs\themeforest-ky7oHPZd-foundry-multipurpose-html-variant-page-builder.zip
+		libs\themeforest-M2heDoK1-materialize-material-design-admin-template.zip = libs\themeforest-M2heDoK1-materialize-material-design-admin-template.zip
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DigitalMarketing.Database", "src\DigitalMarketing.Database\DigitalMarketing.Database.sqlproj", "{6A82A782-F95C-46E6-9D1F-635AF83C2489}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Core", "src\DigitalMarketing.Core\DigitalMarketing.Core.csproj", "{AA8B70D8-2234-4132-89FE-835279693F97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Web.Website", "src\DigitalMarketing.Web\DigitalMarketing.Web.Website\DigitalMarketing.Web.Website.csproj", "{615A5084-9234-4BD0-8293-8FDEE8F33C0F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Test", "test\DigitalMarketing.Test\DigitalMarketing.Test.csproj", "{DC94219B-7E50-439F-BA69-F042FECA09D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Tools.ConfigLoader", "tools\DigitalMarketing.Tools.ConfigLoader\DigitalMarketing.Tools.ConfigLoader.csproj", "{AC1D9608-90A6-474A-A720-C0ECE7590FD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configurations", "configurations", "{CCBE0F19-A4F4-4CA3-B9EF-E5DE316A6EC8}"
+	ProjectSection(SolutionItems) = preProject
+		docs\configurations\local.arystec.com.json = docs\configurations\local.arystec.com.json
+		docs\configurations\local.softwareworker.com.json = docs\configurations\local.softwareworker.com.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates", "libs\Templates\Templates.csproj", "{1DB21420-3947-4CDF-8812-59135D3BF2CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Web.Website.NET5", "src\DigitalMarketing.Web\DigitalMarketing.Web.Website.NET5\DigitalMarketing.Web.Website.NET5.csproj", "{A894087D-98F2-435F-8A06-BAFD43C0E4B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AA8B70D8-2234-4132-89FE-835279693F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8B70D8-2234-4132-89FE-835279693F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8B70D8-2234-4132-89FE-835279693F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8B70D8-2234-4132-89FE-835279693F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615A5084-9234-4BD0-8293-8FDEE8F33C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615A5084-9234-4BD0-8293-8FDEE8F33C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615A5084-9234-4BD0-8293-8FDEE8F33C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615A5084-9234-4BD0-8293-8FDEE8F33C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC94219B-7E50-439F-BA69-F042FECA09D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC94219B-7E50-439F-BA69-F042FECA09D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC94219B-7E50-439F-BA69-F042FECA09D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC94219B-7E50-439F-BA69-F042FECA09D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1D9608-90A6-474A-A720-C0ECE7590FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1D9608-90A6-474A-A720-C0ECE7590FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1D9608-90A6-474A-A720-C0ECE7590FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1D9608-90A6-474A-A720-C0ECE7590FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB21420-3947-4CDF-8812-59135D3BF2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB21420-3947-4CDF-8812-59135D3BF2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB21420-3947-4CDF-8812-59135D3BF2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB21420-3947-4CDF-8812-59135D3BF2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A894087D-98F2-435F-8A06-BAFD43C0E4B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A894087D-98F2-435F-8A06-BAFD43C0E4B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A894087D-98F2-435F-8A06-BAFD43C0E4B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A894087D-98F2-435F-8A06-BAFD43C0E4B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A82A782-F95C-46E6-9D1F-635AF83C2489} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
+		{AA8B70D8-2234-4132-89FE-835279693F97} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
+		{615A5084-9234-4BD0-8293-8FDEE8F33C0F} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
+		{DC94219B-7E50-439F-BA69-F042FECA09D1} = {EAB38F5D-59FA-4681-A99F-D4171E7597BF}
+		{AC1D9608-90A6-474A-A720-C0ECE7590FD3} = {AA41FCB8-AB84-41B9-9693-32EB12DC9ACD}
+		{CCBE0F19-A4F4-4CA3-B9EF-E5DE316A6EC8} = {43220D76-6AE0-4363-83DD-AAC5243CD93A}
+		{1DB21420-3947-4CDF-8812-59135D3BF2CC} = {332EC1E1-D93D-4D05-A7C0-3D579E39F000}
+		{A894087D-98F2-435F-8A06-BAFD43C0E4B5} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {098ED8A9-C1FF-4456-8065-35E3B92CB7D4}
+	EndGlobalSection
+EndGlobal

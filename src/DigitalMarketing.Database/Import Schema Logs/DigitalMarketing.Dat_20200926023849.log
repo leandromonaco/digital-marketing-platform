@@ -1,0 +1,87 @@
+26/09/2020 2:38:49 pm	This log contains information about the import schema operation into project 'DigitalMarketing.Database' on computer 'DESKTOP-HBK45CQ' by user 'LeandroMonaco'.
+26/09/2020 2:38:49 pm	Import of database schema has started.
+26/09/2020 2:38:54 pm	Gathering database credentials
+26/09/2020 2:38:54 pm	Gathering database options
+26/09/2020 2:38:54 pm	Gathering generic database scoped configuration option
+26/09/2020 2:38:54 pm	Gathering users
+26/09/2020 2:38:54 pm	Gathering roles
+26/09/2020 2:38:54 pm	Gathering application roles
+26/09/2020 2:38:54 pm	Gathering role memberships
+26/09/2020 2:38:54 pm	Gathering filegroups
+26/09/2020 2:38:54 pm	Gathering full-text catalogs
+26/09/2020 2:38:54 pm	Gathering assemblies
+26/09/2020 2:38:54 pm	Gathering certificates
+26/09/2020 2:38:54 pm	Gathering asymmetric keys
+26/09/2020 2:38:54 pm	Gathering symmetric keys
+26/09/2020 2:38:54 pm	Gathering encrypted symmetric keys
+26/09/2020 2:38:54 pm	Gathering schemas
+26/09/2020 2:38:54 pm	Gathering XML schema collections
+26/09/2020 2:38:54 pm	Gathering user-defined data types
+26/09/2020 2:38:54 pm	Gathering user-defined types
+26/09/2020 2:38:54 pm	Gathering table types
+26/09/2020 2:38:54 pm	Gathering unique keys for table types
+26/09/2020 2:38:54 pm	Gathering primary keys for table types
+26/09/2020 2:38:54 pm	Gathering indexes for table types
+26/09/2020 2:38:55 pm	Gathering check constraints for table types
+26/09/2020 2:38:55 pm	Gathering default constraints for table types
+26/09/2020 2:38:55 pm	Gathering partition functions
+26/09/2020 2:38:55 pm	Gathering partition schemes
+26/09/2020 2:38:55 pm	Gathering functions
+26/09/2020 2:38:55 pm	Gathering encrypted functions
+26/09/2020 2:38:55 pm	Gathering aggregates
+26/09/2020 2:38:55 pm	Gathering procedures
+26/09/2020 2:38:55 pm	Gathering encrypted procedures
+26/09/2020 2:38:55 pm	Gathering tables
+26/09/2020 2:38:55 pm	Gathering primary keys
+26/09/2020 2:38:55 pm	Gathering unique constraints
+26/09/2020 2:38:55 pm	Gathering foreign keys
+26/09/2020 2:38:55 pm	Gathering default constraints
+26/09/2020 2:38:55 pm	Gathering check constraints
+26/09/2020 2:38:55 pm	Gathering views
+26/09/2020 2:38:55 pm	Gathering encrypted views
+26/09/2020 2:38:55 pm	Gathering indexes
+26/09/2020 2:38:55 pm	Gathering statistics
+26/09/2020 2:38:55 pm	Gathering full-text index stoplists
+26/09/2020 2:38:55 pm	Gathering search property lists
+26/09/2020 2:38:55 pm	Gathering search properties
+26/09/2020 2:38:55 pm	Gathering full-text indexes
+26/09/2020 2:38:55 pm	Gathering column store indexes
+26/09/2020 2:38:55 pm	Gathering spatial indexes
+26/09/2020 2:38:55 pm	Gathering XML indexes
+26/09/2020 2:38:55 pm	Gathering Selective XML indexes
+26/09/2020 2:38:55 pm	Gathering encrypted triggers
+26/09/2020 2:38:55 pm	Gathering triggers
+26/09/2020 2:38:55 pm	Gathering encrypted and clr ddl triggers
+26/09/2020 2:38:55 pm	Gathering ddl triggers
+26/09/2020 2:38:55 pm	Creating edge constraints
+26/09/2020 2:38:55 pm	Gathering synonyms
+26/09/2020 2:38:55 pm	Gathering defaults
+26/09/2020 2:38:55 pm	Gathering data constraint uddt bindings
+26/09/2020 2:38:55 pm	Gathering rules
+26/09/2020 2:38:55 pm	Gathering data constraint uddt bindings
+26/09/2020 2:38:55 pm	Gathering message types
+26/09/2020 2:38:55 pm	Gathering queues
+26/09/2020 2:38:55 pm	Gathering contracts
+26/09/2020 2:38:55 pm	Gathering services
+26/09/2020 2:38:55 pm	Gathering event notifications
+26/09/2020 2:38:55 pm	Gathering remote service bindings
+26/09/2020 2:38:55 pm	Gathering broker priorities
+26/09/2020 2:38:55 pm	Gathering signatures
+26/09/2020 2:38:55 pm	Gathering data compression options
+26/09/2020 2:38:55 pm	Gathering sequence types
+26/09/2020 2:38:55 pm	Gathering security policies
+26/09/2020 2:38:55 pm	Gather column encryption keys
+26/09/2020 2:38:55 pm	Gathering column master keys
+26/09/2020 2:38:55 pm	Gathering external data sources
+26/09/2020 2:38:55 pm	Gathering external file formats
+26/09/2020 2:38:55 pm	Gathering external tables
+26/09/2020 2:38:55 pm	Gathering extended properties
+26/09/2020 2:38:55 pm	Gathering credentials
+26/09/2020 2:38:55 pm	Gathering logins
+26/09/2020 2:38:55 pm	Gathering server audits
+26/09/2020 2:38:55 pm	An exception was encountered while attempting to retrieve the default data path: ''.  As a result, absolute paths may appear in ADD FILE statements.
+26/09/2020 2:38:55 pm	Scanning project for duplicate elements
+26/09/2020 2:38:55 pm	Finished duplicate element processing
+26/09/2020 2:38:56 pm	Finished importing database.
+26/09/2020 2:38:56 pm	A summary of the import was saved to the following location: D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Database\Import Schema Logs\DigitalMarketing.Dat_20200926023849.log
+26/09/2020 2:38:56 pm	Click Finish to continue...

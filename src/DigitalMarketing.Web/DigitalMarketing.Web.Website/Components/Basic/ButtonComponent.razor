@@ -1,0 +1,40 @@
+﻿@using DigitalMarketing.Web.Model
+@inject TenantConfigurationSession SiteState
+
+<style>
+.btn {
+    background: @_backgroundColor;
+    color: @_color;
+}
+
+.btn:hover {
+    background: @_hoverBackgroundColor;
+    color: @_hoverColor;
+}
+</style>
+
+<a class="btn btn-lg" href="@Section.DownloadFile" target="_blank">@Section.ButtonText</a>
+
+
+@code {
+
+    [Parameter]
+    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+
+    string _color;
+    string _backgroundColor;
+    string _hoverColor;
+    string _hoverBackgroundColor;
+
+    // although the title is set on loading, if it is changed by a component we
+    // need to call StateHasChanged to trigger Blazor to rerender since the event
+    // that triggered it is outside this component
+    protected async override void OnInitialized()
+    {
+        _color = "#000000";
+        _backgroundColor = "#808080";
+        _hoverColor = "#808080";
+        _hoverBackgroundColor = "#000000";
+    }
+
+}

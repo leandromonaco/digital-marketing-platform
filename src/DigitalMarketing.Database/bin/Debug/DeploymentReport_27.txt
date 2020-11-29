@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Event] (Table)
+       [dbo].[Tenant] (Table)
+       [dbo].[TenantConfiguration] (Table)
+       [dbo].[TenantFile] (Table)
+       [dbo].[DF__Lead__Id__2A4B4B5E] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Tenant] (Default Constraint)
+       [dbo].[DF_TenantFiles_Id] (Default Constraint)
+       [dbo].[FK_Lead_Tenant] (Foreign Key)
+       [dbo].[FK_TenantConfiguration_Tenant] (Foreign Key)
+       [dbo].[FK_TenantConfiguration_TenantFile] (Foreign Key)
+
+** Supporting actions

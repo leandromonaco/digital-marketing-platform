@@ -1,0 +1,76 @@
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Web.Website.Components.Basic
+@using DigitalMarketing.Web.Model
+@inject TenantConfigurationSession SiteState
+@inject IJSRuntime JSRuntime
+
+@if (SiteState.Settings != null)
+{
+    <section class="cover fullscreen image-slider slider-all-controls">
+        <ul class="slides">
+            @if (IsVideo)
+            {
+                <li class="vid-bg image-bg overlay">
+                    <div class="background-image-holder">
+                        <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
+                    </div>
+                    <div class="fs-vid-background">
+                        <video autoplay muted>
+                            <source src="@Section.BackgroundVideo" type="video/webm">
+                        </video>
+                    </div>
+                    <div class="container v-align-transform">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8">
+                                <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
+                                <h2 class="uppercase mb16">@Section.SubTitle</h2>
+                                <h3 class="lead mb40">
+                                    @Section.Paragraph
+                                </h3>
+                                <ButtonComponent Section="@Section"></ButtonComponent>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="image-bg overlay">
+                    <div class="background-image-holder">
+                        <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
+                    </div>
+                    <div class="container v-align-transform">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8">
+                                <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
+                                <h2 class="uppercase mb16">@Section.SubTitle</h2>
+                                <h3 class="lead mb40">
+                                    @Section.Paragraph
+                                </h3>
+                                <ButtonComponent Section="@Section"></ButtonComponent>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+
+
+
+        </ul>
+    </section>
+
+}
+
+@code {
+
+    [Parameter]
+    public bool IsVideo { get; set; }
+
+    [Parameter]
+    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //await JSRuntime.InvokeAsync<object>("SetCarrousel");
+    }
+}

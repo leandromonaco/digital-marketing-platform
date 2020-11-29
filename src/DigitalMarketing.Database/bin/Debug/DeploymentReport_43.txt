@@ -1,0 +1,35 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Touchpoint]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Touchpoint].[TenantId] is being dropped, data loss could occur.
+       The column [dbo].[Touchpoint].[ProductId] on table [dbo].[Touchpoint] must be added, but the column has no default value
+         and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must
+         either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults
+         as a deployment option.
+
+** User actions
+     Drop
+       [dbo].[FK_Lead_Tenant] (Foreign Key)
+     Table rebuild
+       [dbo].[Touchpoint] (Table)
+     Create
+       [dbo].[Product] (Table)
+       [dbo].[DF_Product_Id] (Default Constraint)
+       [dbo].[FK_Touchpoint_Product] (Foreign Key)
+       [dbo].[FK_Product_Tenant] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [dbo].[DF__Lead__Id__2A4B4B5E] (Default Constraint)
+       [dbo].[FK_Touchpoint_Customer] (Foreign Key)
+     Create
+       [dbo].[FK_Touchpoint_Customer] (Foreign Key)
+
+The column [dbo].[Touchpoint].[TenantId] is being dropped, data loss could occur.
+The column [dbo].[Touchpoint].[ProductId] on table [dbo].[Touchpoint] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

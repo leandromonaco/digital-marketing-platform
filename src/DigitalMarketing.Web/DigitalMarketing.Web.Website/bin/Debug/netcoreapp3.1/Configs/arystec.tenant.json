@@ -1,0 +1,53 @@
+{
+  "Title": "Arystec - Ingeniería y Construcciones",
+  "Components": {
+    "Cover": {
+      "Title": "Ingeniería y Construcciones",
+      "SubTitle": "Mas de 20 años de experiencia",
+      "Paragraph": "Asesoramiento integral en la industria petroquímica.",
+      "BackgroundImage": "tenants/arystec/images/arystec-cover.jpg",
+      "BackgroundVideo": "",
+      "ButtonText": "Descargar Brochure",
+      "DownloadFile": "tenants/arystec/download/Arystec_brochure.pdf"
+    },
+    "CallToAction": {
+      "Title": "Calidad y Profesionalismo",
+      "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
+      "ButtonText": "Descargar Brochure",
+      "DownloadFile": "tenants/arystec/download/Arystec_brochure.pdf"
+    },
+    "Carrousel": {
+      "Title": "Certificaciones",
+      "Images": [
+        "tenants/arystec/images/carrousel/iqnet.png",
+        "tenants/arystec/images/carrousel/iso14001.png",
+        "tenants/arystec/images/carrousel/siclar.png",
+        "tenants/arystec/images/carrousel/iso9001.png",
+        "tenants/arystec/images/carrousel/rina.png"
+      ]
+    },
+    "Gallery": {
+      "Title": "Trabajos",
+      "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
+      "images": [
+        "tenants/arystec/images/gallery/Trabajos_1.jpg",
+        "tenants/arystec/images/gallery/Trabajos_2.jpg",
+        "tenants/arystec/images/gallery/Trabajos_3.jpg",
+        "tenants/arystec/images/gallery/Trabajos_4.jpg",
+        "tenants/arystec/images/gallery/Trabajos_5.jpg",
+        "tenants/arystec/images/gallery/Trabajos_6.jpg",
+        "tenants/arystec/images/gallery/Trabajos_7.jpg",
+        "tenants/arystec/images/gallery/Trabajos_8.jpg",
+        "tenants/arystec/images/gallery/Trabajos_9.jpg",
+        "tenants/arystec/images/gallery/Trabajos_10.jpg",
+        "tenants/arystec/images/gallery/Trabajos_11.jpg",
+        "tenants/arystec/images/gallery/Trabajos_12.jpg"
+      ]
+    },
+    "ContactForm": {
+      "Key": "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",
+      "AuthorizedSenderEmail": "admin@arystec.com",
+      "Map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.5855110387743!2d-58.397048784172895!3d-34.69040916959841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccce80362246f%3A0x8c6c46499d08cba0!2sConcejal%20H.%20Noya%201247%2C%20B1824DXH%20Lan%C3%BAs%20Oeste%2C%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1sen!2sus!4v1589769470962!5m2!1sen!2sus"
+    }
+  }
+}

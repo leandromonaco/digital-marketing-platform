@@ -1,0 +1,20 @@
+AssemblyInformationalVersion:
+InformationalVersion: 1.0.0
+Version: 1.0.0
+TargetFrameworks:
+RunCommand: D:\Build\AgilityManager\DigitalMarketing\src\DigitalMarketing.Web\DigitalMarketing.Web.Website\bin\Debug\netcoreapp3.1\DigitalMarketing.Web.Website.exe
+RunArguments:
+TargetPath: D:\Build\AgilityManager\DigitalMarketing\src\DigitalMarketing.Web\DigitalMarketing.Web.Website\bin\Debug\netcoreapp3.1\DigitalMarketing.Web.Website.dll
+PublishDir: bin\Debug\netcoreapp3.1\publish\
+AssemblyName: DigitalMarketing.Web.Website
+IntermediateOutputPath: obj\Debug\netcoreapp3.1\
+TargetFramework: netcoreapp3.1
+_ShortFrameworkIdentifier:
+_ShortFrameworkVersion:
+_TargetFrameworkVersionWithoutV: 3.1
+FrameworkReference: Microsoft.NETCore.App;Microsoft.AspNetCore.App
+ContainerBaseImage:
+ContainerBaseTag:
+MicrosoftNETPlatformLibrary:
+_AspNetCoreAppSharedFxIsEnabled:
+UsingMicrosoftNETSdkWeb: true

@@ -1,0 +1,27 @@
+﻿@using DigitalMarketing.Web.Model
+@inject TenantConfigurationSession SiteState
+@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Model.Extensions
+@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+@using Microsoft.AspNetCore.Http
+@using DigitalMarketing.Model.Helpers 
+@inject IHttpContextAccessor httpContextAccessor
+
+
+<title>@SiteState.Settings.Title</title>
+
+
+@code
+{
+    // although the title is set on loading, if it is changed by a component we
+    // need to call StateHasChanged to trigger Blazor to rerender since the event
+    // that triggered it is outside this component
+    protected async override void OnInitialized()
+    {
+        SiteHelper.SetContext(httpContextAccessor.HttpContext.Request.Host.Value, SiteState);
+        SiteState.HeadChanged += () =>
+        {
+            StateHasChanged();
+        };
+    }
+}

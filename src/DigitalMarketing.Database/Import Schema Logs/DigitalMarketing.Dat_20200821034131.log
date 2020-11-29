@@ -1,0 +1,83 @@
+21/08/2020 3:41:31 pm	This log contains information about the import schema operation into project 'DigitalMarketing.Database' on computer 'DESKTOP-HBK45CQ' by user 'LeandroMonaco'.
+21/08/2020 3:41:31 pm	Import of database schema has started.
+21/08/2020 3:41:35 pm	Gathering logins
+21/08/2020 3:42:55 pm	Gathering database credentials
+21/08/2020 3:42:55 pm	Gathering database options
+21/08/2020 3:42:55 pm	Gathering generic database scoped configuration option
+21/08/2020 3:42:55 pm	Gathering users
+21/08/2020 3:42:55 pm	Gathering roles
+21/08/2020 3:42:55 pm	Gathering application roles
+21/08/2020 3:42:55 pm	Gathering role memberships
+21/08/2020 3:42:55 pm	Gathering filegroups
+21/08/2020 3:42:55 pm	Gathering full-text catalogs
+21/08/2020 3:42:55 pm	Gathering assemblies
+21/08/2020 3:42:55 pm	Gathering certificates
+21/08/2020 3:42:55 pm	Gathering symmetric keys
+21/08/2020 3:42:55 pm	Gathering encrypted symmetric keys
+21/08/2020 3:42:55 pm	Gathering schemas
+21/08/2020 3:42:55 pm	Gathering XML schema collections
+21/08/2020 3:42:55 pm	Gathering user-defined data types
+21/08/2020 3:42:55 pm	Gathering user-defined types
+21/08/2020 3:42:55 pm	Gathering table types
+21/08/2020 3:42:55 pm	Gathering unique keys for table types
+21/08/2020 3:42:55 pm	Gathering primary keys for table types
+21/08/2020 3:42:55 pm	Gathering indexes for table types
+21/08/2020 3:43:03 pm	Gathering check constraints for table types
+21/08/2020 3:43:03 pm	Gathering default constraints for table types
+21/08/2020 3:43:03 pm	Gathering partition functions
+21/08/2020 3:43:03 pm	Gathering partition schemes
+21/08/2020 3:43:03 pm	Gathering functions
+21/08/2020 3:43:03 pm	Gathering encrypted functions
+21/08/2020 3:43:03 pm	Gathering aggregates
+21/08/2020 3:43:03 pm	Gathering procedures
+21/08/2020 3:43:03 pm	Gathering encrypted procedures
+21/08/2020 3:43:03 pm	Gathering tables
+21/08/2020 3:43:03 pm	Gathering primary keys
+21/08/2020 3:43:03 pm	Gathering unique constraints
+21/08/2020 3:43:03 pm	Gathering foreign keys
+21/08/2020 3:43:03 pm	Gathering default constraints
+21/08/2020 3:43:04 pm	Gathering check constraints
+21/08/2020 3:43:04 pm	Gathering views
+21/08/2020 3:43:04 pm	Gathering encrypted views
+21/08/2020 3:43:04 pm	Gathering indexes
+21/08/2020 3:43:04 pm	Gathering statistics
+21/08/2020 3:43:04 pm	Gathering full-text index stoplists
+21/08/2020 3:43:04 pm	Gathering search property lists
+21/08/2020 3:43:04 pm	Gathering search properties
+21/08/2020 3:43:04 pm	Gathering full-text indexes
+21/08/2020 3:43:04 pm	Gathering column store indexes
+21/08/2020 3:43:04 pm	Gathering spatial indexes
+21/08/2020 3:43:04 pm	Gathering XML indexes
+21/08/2020 3:43:04 pm	Gathering Selective XML indexes
+21/08/2020 3:43:04 pm	Gathering encrypted triggers
+21/08/2020 3:43:04 pm	Gathering triggers
+21/08/2020 3:43:04 pm	Gathering encrypted and clr ddl triggers
+21/08/2020 3:43:04 pm	Gathering ddl triggers
+21/08/2020 3:43:04 pm	Creating edge constraints
+21/08/2020 3:43:04 pm	Gathering synonyms
+21/08/2020 3:43:04 pm	Gathering defaults
+21/08/2020 3:43:04 pm	Gathering data constraint uddt bindings
+21/08/2020 3:43:04 pm	Gathering rules
+21/08/2020 3:43:04 pm	Gathering data constraint uddt bindings
+21/08/2020 3:43:04 pm	Gathering message types
+21/08/2020 3:43:04 pm	Gathering queues
+21/08/2020 3:43:04 pm	Gathering contracts
+21/08/2020 3:43:04 pm	Gathering services
+21/08/2020 3:43:04 pm	Gathering event notifications
+21/08/2020 3:43:04 pm	Gathering remote service bindings
+21/08/2020 3:43:04 pm	Gathering broker priorities
+21/08/2020 3:43:04 pm	Gathering signatures
+21/08/2020 3:43:04 pm	Gathering data compression options
+21/08/2020 3:43:04 pm	Gathering sequence types
+21/08/2020 3:43:04 pm	Gathering security policies
+21/08/2020 3:43:04 pm	Gather column encryption keys
+21/08/2020 3:43:04 pm	Gathering column master keys
+21/08/2020 3:43:04 pm	Gathering external data sources
+21/08/2020 3:43:04 pm	Gathering external tables
+21/08/2020 3:43:04 pm	Gathering extended properties
+21/08/2020 3:43:05 pm	Gathering logins
+21/08/2020 3:43:06 pm	Scanning project for duplicate elements
+21/08/2020 3:43:06 pm	Finished duplicate element processing
+21/08/2020 3:43:06 pm	Finished importing database.
+21/08/2020 3:43:06 pm	A summary of the import was saved to the following location: D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Database\Import Schema Logs\DigitalMarketing.Dat_20200821034131.log
+21/08/2020 3:43:06 pm	Click Finish to continue...

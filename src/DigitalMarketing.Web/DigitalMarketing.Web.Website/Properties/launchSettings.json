@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "DigitalMarketing.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://local.softwareworker.com/"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://local.softwareworker.com:{ServicePort}",
+      "publishAllPorts": true
+    }
+  }
+}

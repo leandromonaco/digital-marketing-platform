@@ -1,0 +1,26 @@
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Web.Website.Components.Basic
+@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+
+
+<section class="pt64 pb64">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="mb8">@Section.Title</h2>
+                <p class="lead mb40 mb-xs-24">
+                    @Section.Paragraph
+                </p>
+                <ButtonComponent Section="@Section"></ButtonComponent>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+@code
+{
+    [Parameter]
+    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+}

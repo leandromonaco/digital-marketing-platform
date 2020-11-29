@@ -1,0 +1,22 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: digitalmarketing
+
+services:
+
+- name: digitalmarketing-web-website
+  project: ../src/DigitalMarketing.Web/DigitalMarketing.Web.Website/DigitalMarketing.Web.Website.csproj
+  bindings:
+  - host: local.softwareworker.com
+
+- name: digitalmarketing-web-website-net5
+  project: ../src/DigitalMarketing.Web/DigitalMarketing.Web.Website.NET5/DigitalMarketing.Web.Website.NET5.csproj
+  bindings:
+  - host: local.softwareworker.com
+
+- name: templates
+  project: ../libs/Templates/Templates.csproj

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xc9jbisftpLSLXBitiyYNRq+kYgWJTCCnGivbGXhogx5137KXzZpj9ZwvSuyFMQSLwmMMv2/ice94hqOp57PJg==",
+  "success": true,
+  "projectFilePath": "D:\\Build\\GitHub\\DigitalMarketingPlatform\\libs\\Templates\\Templates.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LeandroMonaco\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}

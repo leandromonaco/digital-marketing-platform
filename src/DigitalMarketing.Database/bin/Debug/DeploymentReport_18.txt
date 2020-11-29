@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Campaign] (Table)
+       [dbo].[Lead] (Table)
+       [dbo].[Snapshot] (Table)
+       [dbo].[Tenant] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Campaign] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Lead] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Snapshot] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Tenant] (Default Constraint)
+       [dbo].[FK_Campaign_Tenant] (Foreign Key)
+       [dbo].[FK_Lead_Tenant] (Foreign Key)
+
+** Supporting actions

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/BlazorInputFile" Path="/root/.nuget/fallbackpackages2/blazorinputfile/0.2.0/staticwebassets/" />
+</StaticWebAssets>

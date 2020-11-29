@@ -1,0 +1,20 @@
+AssemblyInformationalVersion:
+InformationalVersion: 1.0.0
+Version: 1.0.0
+TargetFrameworks:
+RunCommand: D:\Build\AgilityManager\DigitalMarketing\src\DigitalMarketing.Web\DigitalMarketing.Web.Website.NET5\bin\Debug\net5.0\DigitalMarketing.Web.Website.NET5.exe
+RunArguments:
+TargetPath: D:\Build\AgilityManager\DigitalMarketing\src\DigitalMarketing.Web\DigitalMarketing.Web.Website.NET5\bin\Debug\net5.0\DigitalMarketing.Web.Website.NET5.dll
+PublishDir: bin\Debug\net5.0\publish\
+AssemblyName: DigitalMarketing.Web.Website.NET5
+IntermediateOutputPath: obj\Debug\net5.0\
+TargetFramework: net5.0
+_ShortFrameworkIdentifier:
+_ShortFrameworkVersion:
+_TargetFrameworkVersionWithoutV: 5.0
+FrameworkReference: Microsoft.NETCore.App;Microsoft.AspNetCore.App
+ContainerBaseImage:
+ContainerBaseTag:
+MicrosoftNETPlatformLibrary:
+_AspNetCoreAppSharedFxIsEnabled:
+UsingMicrosoftNETSdkWeb: true
