@@ -20,3 +20,14 @@ services:
 
 - name: templates
   project: ../libs/Templates/Templates.csproj
+
+- name: mssql
+  image: mcr.microsoft.com/mssql/server:2019-latest
+  bindings:
+  - connectionString: Data Source=host.docker.internal,1433;Initial Catalog=DigitalMarketing;Persist Security Info=True;User ID=sa;Password=${env:SA_PASSWORD}
+    port: 1433
+  env:
+  - name: SA_PASSWORD
+    value: S0ftw4r3W0rk3r
+  - name: ACCEPT_EULA
+    value: Y
