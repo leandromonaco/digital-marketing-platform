@@ -2,10 +2,6 @@
 
 @using DigitalMarketing.Web.Website.Components.Basic
 @using DigitalMarketing.Web.Website.Components
-@using DigitalMarketing.Web.Website.Components.CTA
-@using DigitalMarketing.Web.Website.Components.Countdown
-@using DigitalMarketing.Web.Website.Components.Pricing
-@using DigitalMarketing.Web.Website.Components.Tabs
 @using DigitalMarketing.Model.Database
 @using Microsoft.AspNetCore.Http
 @using  DigitalMarketing.Model
@@ -16,7 +12,7 @@
 <div class="nav-container">
     <NavigationBar></NavigationBar>
 </div>
-
+<Alert></Alert>
 @if (SiteState.Settings != null)
 {
     var homePage = SiteState.Settings.Pages[0];
@@ -34,7 +30,7 @@
                 <Cover IsVideo="false" Section="@module"></Cover>
                 break;
             case "CallToAction":
-                <CallToAction1Component Section="@module"></CallToAction1Component>
+                <CallToAction Section="@module"></CallToAction>
                 break;
             case "Carrousel":
                 <Carrousel Section="@module"></Carrousel>
@@ -43,7 +39,7 @@
                 <Gallery Section="@module"></Gallery>
                 break;
             case "Countdown":
-                <Countdown1Component Section="@module"></Countdown1Component>
+                <Countdown Section="@module"></Countdown>
                 break;
             case "ContactForm":
                 <ContactForm Section="@module"></ContactForm>
@@ -52,10 +48,7 @@
                 <ContentImage Section="@module"></ContentImage>
                 break;
             case "PricingPlans":
-                <PricingPlansComponent Section="@module"></PricingPlansComponent>
-                break;
-            case "PricingProduct":
-                <PricingProductComponent Section="@module"></PricingProductComponent>
+                <PricingPlans Section="@module"></PricingPlans>
                 break;
             case "Footer":
                 <Footer Section="@module"></Footer>
