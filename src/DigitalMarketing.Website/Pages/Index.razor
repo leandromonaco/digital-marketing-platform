@@ -1,0 +1,68 @@
+﻿@page "/"
+
+
+@using DigitalMarketing.Web.Website.NET5.Components
+@using DigitalMarketing.Model.Database
+@using Microsoft.AspNetCore.Http
+@using  DigitalMarketing.Model
+@using  DigitalMarketing.Model.Extensions
+@using DigitalMarketing.Model.Helpers
+@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+@inject IHttpContextAccessor httpContextAccessor
+
+<div class="nav-container">
+    <NavigationBar></NavigationBar>
+</div>
+<Alert></Alert>
+
+@if (SiteState.Settings != null)
+{
+    var homePage = SiteState.Settings.Pages[0];
+
+
+    foreach (var module in homePage.Sections)
+    {
+        switch (module.Type)
+        {
+            case "Alert":
+                <Alert></Alert>
+                break;
+            case "Cover":
+                <Cover IsVideo="false" Section="@module"></Cover>
+                break;
+            case "CallToAction":
+                <CallToAction Section="@module"></CallToAction>
+                break;
+            case "Carrousel":
+                <Carrousel Section="@module"></Carrousel>
+                break;
+            case "Gallery":
+                <Gallery Section="@module"></Gallery>
+                break;
+            case "Countdown":
+                <Countdown Section="@module"></Countdown>
+                break;
+            case "ContactForm":
+                <ContactForm Section="@module"></ContactForm>
+                break;
+            case "ContentImage":
+                <ContentImage Section="@module"></ContentImage>
+                break;
+            case "PricingPlans":
+                <PricingPlans Section="@module"></PricingPlans>
+                break;
+            case "Footer":
+                <Footer Section="@module"></Footer>
+                break;
+        }
+    }
+}
+
+@code
+{
+    protected async override void OnInitialized()
+    {
+        SiteHelper.SetContext(httpContextAccessor.HttpContext.Request.Host.Value, SiteState);
+    }
+}
