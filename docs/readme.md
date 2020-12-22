@@ -39,3 +39,6 @@ tye init
 
 Debug mode
 tye build -v Debug
+
+
+tye run --debug
