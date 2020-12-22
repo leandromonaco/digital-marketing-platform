@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DigitalMarketing.Web.Website.NET5": {
+    "DigitalMarketing.Website": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

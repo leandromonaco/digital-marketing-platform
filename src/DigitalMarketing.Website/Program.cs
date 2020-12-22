@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalMarketing.Web.Website.NET5
+namespace DigitalMarketing.Website
 {
     public class Program
     {

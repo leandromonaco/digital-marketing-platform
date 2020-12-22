@@ -43,7 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configurations", "configura
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates", "libs\Templates\Templates.csproj", "{1DB21420-3947-4CDF-8812-59135D3BF2CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Web.Website.NET5", "src\DigitalMarketing.Website\DigitalMarketing.Web.Website.NET5.csproj", "{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Website", "src\DigitalMarketing.Website\DigitalMarketing.Website.csproj", "{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

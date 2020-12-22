@@ -9,7 +9,7 @@ name: digitalmarketing
 services:
 
 - name: DigitalMarketing-Website
-  project: ../src/DigitalMarketing.Website/DigitalMarketing.Web.Website.NET5.csproj
+  project: ../src/DigitalMarketing.Website/DigitalMarketing.Website.csproj
   bindings:
   - host: local.softwareworker.com
 
