@@ -22,6 +22,7 @@ cwebp -q 80 "D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Web\wwwro
 
 https://github.com/dotnet/tye/blob/master/docs/README.md
 https://github.com/dotnet/tye/blob/master/docs/reference/schema.md
+https://github.com/dotnet/tye/blob/master/docs/getting_started.md
 
 Check Version
 tye --version
