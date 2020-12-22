@@ -2,7 +2,7 @@
 @using SendGrid.Helpers.Mail;
 @using DigitalMarketing.Model;
 @using DigitalMarketing.Model.Settings;
-@using DigitalMarketing.Web.Website.Components.Basic
+@using DigitalMarketing.Web.Website.Components
 @using DigitalMarketing.Model.Database
 @using DigitalMarketing.Web.Model
 @using DigitalMarketing.Model.Events
@@ -36,7 +36,7 @@
         </div>
         <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
         <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
-        <RecaptchaComponent @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
+        <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
         <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
     </div>
 
@@ -62,7 +62,7 @@
                     <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.ContactInformation.Email" placeholder="Email">
                     <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.ContactInformation.Phone" placeholder="Telefono">
                     <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
-                    <RecaptchaComponent @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
+                    <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
                     <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
                 </div>
 
@@ -90,7 +90,7 @@
 
 
     //https://github.com/sample-by-jsakamoto/Blazor-UseGoogleReCAPTCHA
-    private RecaptchaComponent reCaptcha;
+    private ReCaptcha reCaptcha;
 
     private bool ValidReCAPTCHA = false;
 
