@@ -24,11 +24,11 @@
                 {
                 <li class="vid-bg image-bg overlay">
                     <div class="background-image-holder">
-                        <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
+                        <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundImage)">
                     </div>
                     <div class="fs-vid-background">
                         <video autoplay muted>
-                            <source src="@Section.BackgroundVideo" type="video/webm">
+                            <source src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundVideo)" type="video/webm">
                         </video>
                     </div>
                     <div class="container v-align-transform">
@@ -49,7 +49,7 @@
                 {
                     <li class="image-bg overlay">
                         <div class="background-image-holder">
-                            <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
+                            <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundImage)">
                         </div>
                         <div class="container v-align-transform">
                             <div class="row">
@@ -71,7 +71,7 @@
             </ul>
         </section>
 
-        <Modal @bind-Open="_isModalOpened" />
+        <Modal @bind-Open="_isModalOpened" Section="@Section" />
 
     }
 

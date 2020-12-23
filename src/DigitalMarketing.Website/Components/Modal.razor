@@ -12,37 +12,33 @@
 }
 </style>
 
-<dialog @ref="_element">
-    <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
-        <i class="ti-close close-modal" @onclick="CancelModal"></i>
-        <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-            <h1 class="mb8">Meet Foundry, Your Design Toolkit.</h1>
-            <p class="lead mb48">
-                Perfect for those advertising a new product or service who wish to drive subscribers.
-            </p>
-            <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+@if (Section != null)
+{
+    <dialog @ref="_element">
+        <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
+            <i class="ti-close close-modal" @onclick="CancelModal"></i>
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
                 <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
                 <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
-                <a class="btn btn-lg" @onclick="ButtonClicked">Download</a>
-            </form>
+                <a class="btn btn-lg" @onclick="ButtonClicked">@Section.ButtonText</a>
+            </div>
         </div>
-    </div>
-</dialog>
+    </dialog>
+}
+
 
 @code {
     private DotNetObjectReference<Modal> _this;
     private ElementReference _element;
 
     [Parameter]
+    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+
+    [Parameter]
     public bool Open { get; set; }
 
-    // This parameter allows to use @bind-Open=... as explained in the previous post
-    // https://www.meziantou.net/two-way-binding-in-blazor.htm
     [Parameter]
     public EventCallback<bool> OpenChanged { get; set; }
-
-    [Parameter]
-    public EventCallback<string> Close { get; set; }
 
     string _color;
     string _backgroundColor;
@@ -62,13 +58,6 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // Initialize the dialog events the first time th ecomponent is rendered
-        if (firstRender)
-        {
-            _this = DotNetObjectReference.Create(this);
-            await JSRuntime.InvokeVoidAsync("blazorInitializeModal", _element, _this);
-        }
-
         if (Open)
         {
             await JSRuntime.InvokeVoidAsync("blazorOpenModal", _element);
@@ -81,28 +70,25 @@
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    [JSInvokable]
-    public async Task OnClose(string returnValue)
+    public async Task OnClose()
     {
         if (Open == true)
         {
             Open = false;
             await OpenChanged.InvokeAsync(Open);
         }
-
-        await Close.InvokeAsync(returnValue);
     }
 
-    void CancelModal()
+    async Task CancelModal()
     {
-        OnClose("Cancelled");
+        await OnClose();
 
     }
 
-    void ButtonClicked()
+    async Task ButtonClicked()
     {
         //TODO: Execute Call-To-Action
-        
-        OnClose("Submitted");
+
+        await OnClose();
     }
 }

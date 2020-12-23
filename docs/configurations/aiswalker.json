@@ -9,16 +9,23 @@
   "Site": {
     "Pages": {
       "Page:1": {
+        "Section:0": {
+          "Type": "Alert",
+          "Paragraph": "Todos nuestros programas están sujetos a los cambios que puedan presentarse debido a la crisis sanitaria por COVID-19. Nuestra empresa responde 100% al reglamento migratorio del gobierno de Nueva Zelanda."
+        },
         "Section:1": {
           "Type": "Cover",
           "Layout": "Video",
           "Title": "",
           "SubTitle": "Estudia y Trabaja en Nueva Zelanda",
-          "Paragraph": "Realizamos una gestión 100% personalizada y atendemos a cada requerimiento para que tu experiencia sea la mejor.",
-          "BackgroundImage": "tenants/aiswalker/cover.jpg",
-          "BackgroundVideo": "tenants/aiswalker/cover.webm",
+          "Paragraph": "Realizamos una gestión 100% personalizada.",
+          "BackgroundImage": "cover.jpg",
+          "BackgroundVideo": "cover.mp4",
           "ButtonText": "Descargar Brochure",
-          "DownloadFile": "tenants/arystec/download/Arystec_brochure.pdf"
+          "Workflow": {
+            "Type": "FileDownload",
+            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+          }
         },
         "Section:2": {
           "Type": "CallToAction",

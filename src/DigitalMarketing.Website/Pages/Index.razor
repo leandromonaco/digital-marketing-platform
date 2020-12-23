@@ -7,6 +7,7 @@
 @using  DigitalMarketing.Model
 @using  DigitalMarketing.Model.Extensions
 @using DigitalMarketing.Model.Helpers
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
 @inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
 @inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
 @inject IHttpContextAccessor httpContextAccessor
@@ -14,10 +15,12 @@
 <div class="nav-container">
     <NavigationBar></NavigationBar>
 </div>
-<Alert></Alert>
+
 
 @if (SiteState.Settings != null)
 {
+    <Title Value="@SiteState.Name"></Title>
+
     var homePage = SiteState.Settings.Pages[0];
 
 
@@ -26,7 +29,7 @@
         switch (module.Type)
         {
             case "Alert":
-                <Alert></Alert>
+                <Alert Section="@module"></Alert>
                 break;
             case "Cover":
                 <Cover Section="@module"></Cover>
