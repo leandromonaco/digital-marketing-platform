@@ -45,6 +45,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates", "libs\Templates
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Website", "src\DigitalMarketing.Website\DigitalMarketing.Website.csproj", "{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "emails", "emails", "{CC8581F0-E252-4E89-8659-5EE895B91E81}"
+	ProjectSection(SolutionItems) = preProject
+		docs\emails\DownloadFile.html = docs\emails\DownloadFile.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +94,7 @@ Global
 		{CCBE0F19-A4F4-4CA3-B9EF-E5DE316A6EC8} = {43220D76-6AE0-4363-83DD-AAC5243CD93A}
 		{1DB21420-3947-4CDF-8812-59135D3BF2CC} = {332EC1E1-D93D-4D05-A7C0-3D579E39F000}
 		{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
+		{CC8581F0-E252-4E89-8659-5EE895B91E81} = {43220D76-6AE0-4363-83DD-AAC5243CD93A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {098ED8A9-C1FF-4456-8065-35E3B92CB7D4}

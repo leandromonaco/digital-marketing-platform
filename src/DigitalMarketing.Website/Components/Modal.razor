@@ -1,4 +1,14 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@using SendGrid;
+@using SendGrid.Helpers.Mail;
+@using DigitalMarketing.Model;
+@using DigitalMarketing.Core.Database
+@using DigitalMarketing.Web.Model
+@using DigitalMarketing.Model.Events
+@using System.Text.Json
+@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+@inject TenantConfigurationSession SiteState
+@inject IJSRuntime JSRuntime
+
 
 <style>
 .btn {
@@ -18,8 +28,8 @@
         <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
             <i class="ti-close close-modal" @onclick="CancelModal"></i>
             <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
-                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
+                <input type="text" name="name" class="validate-required signup-name-field" placeholder="First Name" @bind="_touchPointEvent.PersonalInformation.FirstName">
+                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email" @bind="_touchPointEvent.ContactInformation.Email">
                 <a class="btn btn-lg" @onclick="ButtonClicked">@Section.ButtonText</a>
             </div>
         </div>
@@ -30,6 +40,8 @@
 @code {
     private DotNetObjectReference<Modal> _this;
     private ElementReference _element;
+
+    TouchPointEvent _touchPointEvent = new TouchPointEvent();
 
     [Parameter]
     public DigitalMarketing.Model.Settings.Section Section { get; set; }
@@ -88,6 +100,41 @@
     async Task ButtonClicked()
     {
         //TODO: Execute Call-To-Action
+        _touchPointEvent.EventType = TouchPointEventType.DownloadFile;
+
+        Customer customer = new Customer();
+
+        customer.TenantId = SiteState.TenantId;
+        customer.Name = _touchPointEvent.PersonalInformation.FirstName;
+        customer.Email = _touchPointEvent.ContactInformation.Email;
+
+        await DatabaseRepository.SaveCustomer(customer);
+
+        Touchpoint newEvent = new Touchpoint()
+        {
+            Id = Guid.NewGuid(),
+            CustomerId = customer.Id,
+            Description = JsonSerializer.Serialize<DigitalMarketing.Model.Events.TouchPointEvent>(_touchPointEvent)
+        };
+
+        var client = new SendGridClient(SiteState.Settings.ThirdPartyServices.SendGrid.Key);
+        var fromEmail = new EmailAddress(SiteState.Settings.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
+        var toEmail = new EmailAddress(_touchPointEvent.ContactInformation.Email);
+
+        string html = System.IO.File.ReadAllText(@"D:\Build\GitHub\DigitalMarketingPlatform\docs\emails\DownloadFile.html");
+        html = html.Replace("{FirstName}", _touchPointEvent.PersonalInformation.FirstName)
+                   .Replace("{DownloadUrl}", Section.Workflow.Parameters);
+
+        var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "this is your brochure", string.Empty, html);
+        msg.ReplyTo = new EmailAddress(_touchPointEvent.ContactInformation.Email);
+        var emailResponse = await client.SendEmailAsync(msg);
+
+        if (emailResponse.StatusCode.ToString().Equals("Accepted"))
+        {
+            newEvent.IsEmailDelivered = true;
+        }
+
+        await DatabaseRepository.SaveTouchpoint(newEvent);
 
         await OnClose();
     }
