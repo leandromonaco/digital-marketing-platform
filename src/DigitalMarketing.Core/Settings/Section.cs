@@ -8,6 +8,8 @@ namespace DigitalMarketing.Model.Settings
         [JsonProperty(Required = Required.Default)]
         public string Type { get; set; }
         [JsonProperty(Required = Required.Default)]
+        public string Layout { get; set; }
+        [JsonProperty(Required = Required.Default)]
         public string Title { get; set; }
         [JsonProperty(Required = Required.Default)]
         public string SubTitle { get; set; }

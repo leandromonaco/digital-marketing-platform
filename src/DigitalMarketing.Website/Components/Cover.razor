@@ -20,32 +20,32 @@
     {
         <section class="cover fullscreen image-slider slider-all-controls">
             <ul class="slides">
-                @if (IsVideo)
+                @if (Section.Layout.Equals("Video"))
                 {
-                    <li class="vid-bg image-bg overlay">
-                        <div class="background-image-holder">
-                            <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
-                        </div>
-                        <div class="fs-vid-background">
-                            <video autoplay muted>
-                                <source src="@Section.BackgroundVideo" type="video/webm">
-                            </video>
-                        </div>
-                        <div class="container v-align-transform">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-8">
-                                    <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
-                                    <h2 class="uppercase mb16">@Section.SubTitle</h2>
-                                    <h3 class="lead mb40">
-                                        @Section.Paragraph
-                                    </h3>
-                                    <a class="btn btn-lg" @onclick="e => _isModalOpened = true" target="_blank">@Section.ButtonText</a>
-                                </div>
+                <li class="vid-bg image-bg overlay">
+                    <div class="background-image-holder">
+                        <img alt="Background Image" class="background-image" src="@Section.BackgroundImage">
+                    </div>
+                    <div class="fs-vid-background">
+                        <video autoplay muted>
+                            <source src="@Section.BackgroundVideo" type="video/webm">
+                        </video>
+                    </div>
+                    <div class="container v-align-transform">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8">
+                                <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
+                                <h2 class="uppercase mb16">@Section.SubTitle</h2>
+                                <h3 class="lead mb40">
+                                    @Section.Paragraph
+                                </h3>
+                                <a class="btn btn-lg" @onclick="e => _isModalOpened = true" target="_blank">@Section.ButtonText</a>
                             </div>
                         </div>
-                    </li>
+                    </div>
+                </li>
                 }
-                else
+                else if (Section.Layout.Equals("Image"))
                 {
                     <li class="image-bg overlay">
                         <div class="background-image-holder">
@@ -79,13 +79,10 @@
         public bool _isModalOpened;
 
         [Parameter]
-        public bool IsVideo { get; set; }
-
-        [Parameter]
         public DigitalMarketing.Model.Settings.Section Section { get; set; }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            //await JSRuntime.InvokeAsync<object>("SetCarrousel");
+            await JSRuntime.InvokeAsync<object>("SetCarrousel");
         }
     }

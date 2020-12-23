@@ -22,4 +22,16 @@
     <Folder Include="wwwroot\tenants\softwareworker\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\tenants\aiswalker\cover.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\tenants\aiswalker\cover.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\tenants\aiswalker\cover.webm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
