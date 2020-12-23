@@ -3,7 +3,7 @@
 @using DigitalMarketing.Model;
 @using DigitalMarketing.Model.Settings;
 @using DigitalMarketing.Website.Components
-@using DigitalMarketing.Model.Database
+@using DigitalMarketing.Core.Database
 @using DigitalMarketing.Web.Model
 @using DigitalMarketing.Model.Events
 @using System.Text.Json
@@ -17,33 +17,20 @@
 
     @if (IsIFrame)
     {
-        @if (_products != null)
-        {
-    <div class="form-email">
-        <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.PersonalInformation.FirstName" placeholder="Primer Nombre">
-        <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.ContactInformation.Email" placeholder="Email">
-        <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.ContactInformation.Phone" placeholder="Telefono">
-        <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.ContactInformation.City" placeholder="Ciudad">
-        <div class="select-option">
-            <i class="ti-angle-down"></i>
-            <select name="product" @bind="_productId">
-                <option selected value="@(new Guid("00000000-0000-0000-0000-000000000000"))">Seleccionar Programa</option>
-                @foreach (var product in _products)
-                {
-                    <option value="@product.Id">@product.Name</option>
-                }
-            </select>
+        <div class="form-email">
+            <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.PersonalInformation.FirstName" placeholder="Primer Nombre">
+            <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.ContactInformation.Email" placeholder="Email">
+            <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.ContactInformation.Phone" placeholder="Telefono">
+            <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.ContactInformation.City" placeholder="Ciudad">
+            <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
+            <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
+            <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
+            <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
         </div>
-        <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
-        <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
-        <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
-        <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
-    </div>
 
-            @if (_isSent)
-            {
-                <p>Gracias por contactarnos, nos pondremos en contacto a la brevedad.</p>
-            }
+        @if (_isSent)
+        {
+            <p>Gracias por contactarnos, nos pondremos en contacto a la brevedad.</p>
         }
     }
     else
@@ -84,7 +71,6 @@
     DigitalMarketing.Model.Events.TouchPointEvent _touchPointEvent = new DigitalMarketing.Model.Events.TouchPointEvent() { EventType = TouchPointEventType.AskQuestion };
 
     protected bool _isSent;
-    protected List<Product> _products;
     protected string _message;
     protected Guid _productId;
 
@@ -108,7 +94,6 @@
 
     protected async override void OnInitialized()
     {
-        _products = await DatabaseRepository.GetProductsAsync(SiteState.TenantId);
         StateHasChanged();
     }
 
@@ -129,7 +114,7 @@
                 customData.Message = _message;
                 customData.ProductId = _productId;
                 _touchPointEvent.CustomData = customData;
-                var productName = _products.Where(p => p.Id.Equals(_productId)).FirstOrDefault()?.Name;
+
 
                 if (result.Success)
                 {
@@ -139,12 +124,11 @@
 
 
                     var plainTextContent = $@"<b>Nombre:</b> {_touchPointEvent.PersonalInformation.FirstName} <br/>
-                                  <b>Email:</b> {_touchPointEvent.ContactInformation.Email} <br/>
-                                  <b>Telefono:</b> {_touchPointEvent.ContactInformation.Phone} <br/>
-                                  <b>Ciudad:</b> {_touchPointEvent.ContactInformation.City} <br/>
-                                  <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
-                                  <b>Producto:</b> {productName} <br/>
-                                  <b>Mensaje:</b> {_message} <br/>";
+                              <b>Email:</b> {_touchPointEvent.ContactInformation.Email} <br/>
+                              <b>Telefono:</b> {_touchPointEvent.ContactInformation.Phone} <br/>
+                              <b>Ciudad:</b> {_touchPointEvent.ContactInformation.City} <br/>
+                              <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
+                              <b>Mensaje:</b> {_message} <br/>";
                     var htmlContent = plainTextContent;
 
                     Customer customer = new Customer();

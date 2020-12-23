@@ -9,7 +9,7 @@ Update Model after DB Schema changes
     dotnet tool install -g dotnet-ef --version 3.0.0
 2 - Update EF command (if required)
     dotnet tool update -g dotnet-ef --version 3.1.4
-3 - Navigate C:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Model
+3 - Navigate D:\Build\GitHub\DigitalMarketingPlatform\src\DigitalMarketing.Core
 4 - Update EF Model Classes
     dotnet ef dbcontext scaffold "Data Source=localhost,1433;Initial Catalog=DigitalMarketing;Persist Security Info=True;User ID=sa;Password=S0ftw4r3W0rk3r" Microsoft.EntityFrameworkCore.SqlServer -o Database -f
 	

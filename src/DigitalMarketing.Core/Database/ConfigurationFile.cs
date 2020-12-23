@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DigitalMarketing.Model.Database
+namespace DigitalMarketing.Core.Database
 {
     public partial class ConfigurationFile
     {

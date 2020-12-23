@@ -1,4 +1,4 @@
-﻿using DigitalMarketing.Model.Database;
+﻿using DigitalMarketing.Core.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -49,10 +49,20 @@ namespace DigitalMarketing.Model
             await dataContext.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetProductsAsync(Guid tenantId)
+        public async Task ImportStagingConfigurationAsync(string filename, DateTime lastModified, string jsonContent)
         {
-            using DigitalMarketingContext dataContext = new DigitalMarketingContext();
-            return await dataContext.Product.Where(p => p.TenantId.Equals(tenantId)).ToListAsync();
+            using (DigitalMarketingContext dataContext = new DigitalMarketingContext()) 
+            {
+                var label = filename.Replace(".json", "");
+                var stagingTenantConfiguration = dataContext.TenantConfiguration.Include(tc => tc.Tenant)
+                                                                                .Where(tc => tc.File.Filename.Equals("tenant.staging.json") &&
+                                                                                             tc.Tenant.Label.Equals(label)).FirstOrDefault();
+
+                stagingTenantConfiguration.LastModified = lastModified;
+                stagingTenantConfiguration.Content = jsonContent;
+                dataContext.Entry(stagingTenantConfiguration).State = EntityState.Modified;
+                await dataContext.SaveChangesAsync();
+            }
         }
     }
 }

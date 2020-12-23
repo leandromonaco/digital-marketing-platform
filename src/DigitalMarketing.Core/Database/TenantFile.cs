@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalMarketing.Core.Database;
+using System;
 using System.Collections.Generic;
 
 namespace DigitalMarketing.Model.Database

@@ -39,22 +39,25 @@ namespace DigitalMarketing.Model.Helpers
             TenantConfigurationModel settings = null;
             TenantConfigurationModel cacheEntry = new TenantConfigurationModel();
 
-            var cacheId = isTest ? $"{tenant.Id}-staging" : $"{tenant.Id}-production";
+            //TODO: Caching
+            //var cacheId = isTest ? $"{tenant.Id}-staging" : $"{tenant.Id}-production";
 
-            if (!_cache.TryGetValue(cacheId, out cacheEntry))
-            {
-                settings = tenant.LoadConfiguration(isTest);
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
-                .SetSize(1)
-                .SetSlidingExpiration(TimeSpan.FromHours(24));
+            //if (!_cache.TryGetValue(cacheId, out cacheEntry))
+            //{
+            //    settings = tenant.LoadConfiguration(isTest);
+            //    var cacheEntryOptions = new MemoryCacheEntryOptions()
+            //    .SetSize(1)
+            //    .SetSlidingExpiration(TimeSpan.FromHours(24));
 
-                // Save data in cache.
-                _cache.Set(cacheId, settings, cacheEntryOptions);
-            }
-            else
-            {
-                settings = cacheEntry;
-            }
+            //    // Save data in cache.
+            //    _cache.Set(cacheId, settings, cacheEntryOptions);
+            //}
+            //else
+            //{
+            //    settings = cacheEntry;
+            //}
+
+            settings = tenant.LoadConfiguration(isTest);
 
             SiteState.TenantId = tenant.Id;
             SiteState.Name = tenant.Name;

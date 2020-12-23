@@ -1,0 +1,22 @@
+﻿@page "/upload"
+
+@using System.IO
+@using System.Text
+@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+
+<h3>FileUpload</h3>
+
+<InputFile OnChange="@HandleFileChosenAsync"></InputFile>
+
+@code {
+
+    private async Task HandleFileChosenAsync(InputFileChangeEventArgs eventArgs)
+    {
+        using var fileStream = eventArgs.File.OpenReadStream(maxAllowedSize: 5 * 1024 * 1024);
+        using (var reader = new StreamReader(fileStream, Encoding.UTF8))
+        {
+            string jsonContent = await reader.ReadToEndAsync();
+            await DatabaseRepository.ImportStagingConfigurationAsync(eventArgs.File.Name, eventArgs.File.LastModified.DateTime, jsonContent);
+        }
+    }
+}

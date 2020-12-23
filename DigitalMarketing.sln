@@ -37,10 +37,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Tools.Conf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configurations", "configurations", "{CCBE0F19-A4F4-4CA3-B9EF-E5DE316A6EC8}"
 	ProjectSection(SolutionItems) = preProject
-		docs\configurations\aiswalker.local.json = docs\configurations\aiswalker.local.json
-		docs\configurations\arystec.local.json = docs\configurations\arystec.local.json
-		docs\configurations\protechexteriors.local.json = docs\configurations\protechexteriors.local.json
-		docs\configurations\softwareworker.local.json = docs\configurations\softwareworker.local.json
+		docs\configurations\aiswalker.json = docs\configurations\aiswalker.json
+		docs\configurations\arystec.json = docs\configurations\arystec.json
+		docs\configurations\protechexteriors.json = docs\configurations\protechexteriors.json
+		docs\configurations\softwareworker.json = docs\configurations\softwareworker.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates", "libs\Templates\Templates.csproj", "{1DB21420-3947-4CDF-8812-59135D3BF2CC}"

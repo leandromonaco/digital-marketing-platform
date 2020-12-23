@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
-namespace DigitalMarketing.Model.Database
+namespace DigitalMarketing.Core.Database
 {
     public partial class DigitalMarketingContext : DbContext
     {
@@ -18,8 +19,6 @@ namespace DigitalMarketing.Model.Database
 
         public virtual DbSet<ConfigurationFile> ConfigurationFile { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<CustomerBak> CustomerBak { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Tenant> Tenant { get; set; }
         public virtual DbSet<TenantConfiguration> TenantConfiguration { get; set; }
         public virtual DbSet<Touchpoint> Touchpoint { get; set; }
@@ -71,35 +70,6 @@ namespace DigitalMarketing.Model.Database
                     .HasConstraintName("FK_Customer_Tenant");
             });
 
-            modelBuilder.Entity<CustomerBak>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("CustomerBAK");
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(150);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(300);
-
-                entity.HasOne(d => d.Tenant)
-                    .WithMany(p => p.Product)
-                    .HasForeignKey(d => d.TenantId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Product_Tenant");
-            });
 
             modelBuilder.Entity<Tenant>(entity =>
             {
@@ -122,6 +92,8 @@ namespace DigitalMarketing.Model.Database
                 entity.Property(e => e.Content)
                     .IsRequired()
                     .HasColumnType("ntext");
+
+                entity.Property(e => e.LastModified).HasColumnType("datetime");
 
                 entity.HasOne(d => d.File)
                     .WithMany(p => p.TenantConfiguration)

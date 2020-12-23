@@ -1,4 +1,4 @@
-﻿using DigitalMarketing.Model.Database;
+﻿using DigitalMarketing.Core.Database;
 using DigitalMarketing.Model.Settings;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
