@@ -63,6 +63,6 @@
 {
     protected async override void OnInitialized()
     {
-        SiteHelper.SetContext(httpContextAccessor.HttpContext.Request.Host.Value, SiteState);
+        SiteHelper.IdentifyTenant(httpContextAccessor.HttpContext.Request.Host.Value, SiteState);
     }
 }

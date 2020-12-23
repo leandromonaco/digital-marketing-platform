@@ -28,11 +28,10 @@ namespace DigitalMarketing.Test
             //Run as admin
             using (StreamWriter w = File.AppendText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts")))
             {
-                //w.WriteLine("127.0.0.1 softwareworker.com");
-                //w.WriteLine("127.0.0.1 aiswalker.softwareworker.com");
-                //w.WriteLine("127.0.0.1 protechexteriors.softwareworker.com");
-                //w.WriteLine("127.0.0.1 arystec.softwareworker.com");
-                w.WriteLine("127.0.0.1 local.softwareworker.com");
+                w.WriteLine("127.0.0.1 softwareworker.local");
+                w.WriteLine("127.0.0.1 aiswalker.local");
+                w.WriteLine("127.0.0.1 protechexteriors.local");
+                w.WriteLine("127.0.0.1 arystec.local");
             }
         }
 

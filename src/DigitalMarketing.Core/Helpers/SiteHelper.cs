@@ -29,7 +29,7 @@ namespace DigitalMarketing.Model.Helpers
             return domainSplit[0].ToString();
         }
 
-        public static async void SetContext(string host, TenantConfigurationSession SiteState)
+        public static async void IdentifyTenant(string host, TenantConfigurationSession SiteState)
         {
             DatabaseRepository databaseRepository = new DatabaseRepository();
             bool isTest;

@@ -18,28 +18,29 @@ namespace DigitalMarketing.Model.Extensions
             {
                 json = tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.staging.json")).FirstOrDefault().Content;
                 parsedConfig = JsonConvert.DeserializeObject<TenantConfigurationModel>(json);
-                parsedConfig.Pages = new List<Page>();
-                var jObject = JObject.Parse(json);
-                foreach (var page in jObject["Site"]["Pages"])
-                {
-                    var p = new Page();
-
-                    p.Sections = page
-                                .Children()
-                                .Children()
-                                .Children()
-                                .Select(i => i.ToObject<Section>())
-                                .ToList();
-
-                    parsedConfig.Pages.Add(p);
-                }
-               
             }
             else
             {
                 parsedConfig = JsonConvert.DeserializeObject<TenantConfigurationModel>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
             }
-            
+
+            //Retrieve Pages
+            parsedConfig.Pages = new List<Page>();
+            var jObject = JObject.Parse(json);
+            foreach (var page in jObject["Site"]["Pages"])
+            {
+                var p = new Page();
+
+                p.Sections = page
+                            .Children()
+                            .Children()
+                            .Children()
+                            .Select(i => i.ToObject<Section>())
+                            .ToList();
+
+                parsedConfig.Pages.Add(p);
+            }
+
             return parsedConfig;
         }
     }

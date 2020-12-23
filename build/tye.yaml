@@ -11,7 +11,14 @@ services:
 - name: DigitalMarketing-Website
   project: ../src/DigitalMarketing.Website/DigitalMarketing.Website.csproj
   bindings:
-  - host: local.softwareworker.com
+  - name: s
+    host: softwareworker.local
+  - name: a
+    host: aiswalker.local
+  - name: p
+    host: protechexteriors.local
+  - name: ar
+    host: arystec.local
 
 - name: Templates
   project: ../libs/Templates/Templates.csproj
