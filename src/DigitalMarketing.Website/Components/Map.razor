@@ -1,12 +1,19 @@
-﻿@using DigitalMarketing.Web.Model
-@inject TenantConfigurationSession SiteState
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
 
 <section class="p0">
     <div class="map-holder pt180 pb180">
-        <iframe src="@SiteState.Settings.ThirdPartyServices.GoogleMaps.Url"></iframe>
+        <iframe src="@Configuration.ThirdPartyServices.GoogleMaps.Url"></iframe>
     </div>
 </section>
 
 @code {
+    [Parameter]
+    public Tenant Tenant { get; set; }
 
+    [Parameter]
+    public Section Section { get; set; }
+
+    [Parameter]
+    public TenantConfigurationModel Configuration { get; set; }
 }

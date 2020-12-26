@@ -32,8 +32,6 @@ namespace DigitalMarketing.Website
             services.AddServerSideBlazor();
             services.AddHttpContextAccessor();
             services.AddSingleton<DatabaseRepository>();
-            // declare the HeadState for DI
-            services.AddScoped<TenantConfigurationSession>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("es") };
             services.Configure<RequestLocalizationOptions>(options =>

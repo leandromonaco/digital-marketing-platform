@@ -1,8 +1,8 @@
 ﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
 @using Microsoft.Extensions.Localization
 @inject IJSRuntime JSRuntime
 @inject IStringLocalizer<Countdown> L
-@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
 
 <section class="cover fullscreen image-bg overlay">
     <div class="background-image-holder">
@@ -68,7 +68,10 @@
 
 @code {
     [Parameter]
-    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

@@ -1,4 +1,5 @@
-﻿@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
 
 <footer class="footer-2 bg-dark text-center-xs">
     <div class="container">
@@ -26,3 +27,10 @@
 </footer>
 
 
+@code {
+    [Parameter]
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
+}

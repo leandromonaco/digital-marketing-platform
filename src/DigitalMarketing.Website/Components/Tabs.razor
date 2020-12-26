@@ -1,5 +1,6 @@
-﻿@inject IJSRuntime JSRuntime
-@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
+@inject IJSRuntime JSRuntime
 
 <section>
     <div class="container">
@@ -308,6 +309,12 @@
 
 
 @code {
+    [Parameter]
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JSRuntime.InvokeAsync<object>("SetTabs");

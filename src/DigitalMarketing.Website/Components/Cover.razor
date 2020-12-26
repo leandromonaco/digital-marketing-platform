@@ -1,7 +1,5 @@
 ﻿@using DigitalMarketing.Model.Settings
-@using DigitalMarketing.Website.Components
-@using DigitalMarketing.Web.Model
-@inject TenantConfigurationSession SiteState
+@using DigitalMarketing.Core.Database
 @inject IJSRuntime JSRuntime
 
 <style>
@@ -16,19 +14,19 @@
         }
 </style>
 
-    @if (SiteState.Settings != null)
-    {
-        <section class="cover fullscreen image-slider slider-all-controls">
-            <ul class="slides">
-                @if (Section.Layout.Equals("Video"))
-                {
+@if (Tenant != null && Section != null)
+{
+    <section class="cover fullscreen image-slider slider-all-controls">
+        <ul class="slides">
+            @if (Section.Layout.Equals("Video"))
+            {
                 <li class="vid-bg image-bg overlay">
                     <div class="background-image-holder">
-                        <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundImage)">
+                        <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundImage)">
                     </div>
                     <div class="fs-vid-background">
                         <video autoplay muted>
-                            <source src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundVideo)" type="video/webm">
+                            <source src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundVideo)" type="video/webm">
                         </video>
                     </div>
                     <div class="container v-align-transform">
@@ -44,45 +42,48 @@
                         </div>
                     </div>
                 </li>
-                }
-                else if (Section.Layout.Equals("Image"))
-                {
-                    <li class="image-bg overlay">
-                        <div class="background-image-holder">
-                            <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{SiteState.Label}/", Section.BackgroundImage)">
-                        </div>
-                        <div class="container v-align-transform">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-8">
-                                    <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
-                                    <h2 class="uppercase mb16">@Section.SubTitle</h2>
-                                    <h3 class="lead mb40">
-                                        @Section.Paragraph
-                                    </h3>
-                                    <a class="btn btn-lg" @onclick="e => _isModalOpened = true" target="_blank">@Section.ButtonText</a>
-                                </div>
+            }
+            else if (Section.Layout.Equals("Image"))
+            {
+                <li class="image-bg overlay">
+                    <div class="background-image-holder">
+                        <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundImage)">
+                    </div>
+                    <div class="container v-align-transform">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8">
+                                <h1 class="mb40 mb-xs-16 large">@Section.Title</h1>
+                                <h2 class="uppercase mb16">@Section.SubTitle</h2>
+                                <h3 class="lead mb40">
+                                    @Section.Paragraph
+                                </h3>
+                                <a class="btn btn-lg" @onclick="e => _isModalOpened = true" target="_blank">@Section.ButtonText</a>
                             </div>
                         </div>
-                    </li>
-                }
+                    </div>
+                </li>
+            }
 
 
 
-            </ul>
-        </section>
+        </ul>
+    </section>
 
-        <Modal @bind-Open="_isModalOpened" Section="@Section" />
+    <Modal @bind-Open="_isModalOpened" Section="@Section" />
 
+}
+
+@code {
+    public bool _isModalOpened;
+
+    [Parameter]
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeAsync<object>("SetCarrousel");
     }
-
-    @code {
-        public bool _isModalOpened;
-
-        [Parameter]
-        public DigitalMarketing.Model.Settings.Section Section { get; set; }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await JSRuntime.InvokeAsync<object>("SetCarrousel");
-        }
-    }
+}

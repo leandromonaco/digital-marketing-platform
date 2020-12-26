@@ -2,14 +2,14 @@
 
 
 @using DigitalMarketing.Website.Components
-@using DigitalMarketing.Model.Database
+@using DigitalMarketing.Core.Database
+@using DigitalMarketing.Model.Settings
 @using Microsoft.AspNetCore.Http
 @using  DigitalMarketing.Model
 @using  DigitalMarketing.Model.Extensions
 @using DigitalMarketing.Model.Helpers
 @using Microsoft.AspNetCore.Components.Web.Extensions.Head
 @inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
-@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
 @inject IHttpContextAccessor httpContextAccessor
 
 <div class="nav-container">
@@ -17,11 +17,11 @@
 </div>
 
 
-@if (SiteState.Settings != null)
+@if (_tenant != null && _configuration != null)
 {
-    <Title Value="@SiteState.Name"></Title>
+    <Title Value="@_tenant.Name"></Title>
 
-    var homePage = SiteState.Settings.Pages[0];
+    var homePage = _configuration.Pages[0];
 
 
     foreach (var module in homePage.Sections)
@@ -29,34 +29,37 @@
         switch (module.Type)
         {
             case "Alert":
-                <Alert Section="@module"></Alert>
+                <Alert Tenant="@_tenant" Section="@module"></Alert>
                 break;
             case "Cover":
-                <Cover Section="@module"></Cover>
+                <Cover Tenant="@_tenant" Section="@module"></Cover>
                 break;
             case "CallToAction":
-                <CallToAction Section="@module"></CallToAction>
+                <CallToAction Tenant="@_tenant" Section="@module"></CallToAction>
                 break;
             case "Carrousel":
-                <Carrousel Section="@module"></Carrousel>
+                <Carrousel Tenant="@_tenant" Section="@module"></Carrousel>
                 break;
             case "Gallery":
-                <Gallery Section="@module"></Gallery>
+                <Gallery Tenant="@_tenant" Section="@module"></Gallery>
                 break;
             case "Countdown":
-                <Countdown Section="@module"></Countdown>
+                <Countdown Tenant="@_tenant" Section="@module"></Countdown>
                 break;
             case "ContactForm":
-                <ContactForm Section="@module"></ContactForm>
+                <ContactForm Tenant="@_tenant" Configuration="@_configuration" Section="@module"></ContactForm>
+                break;
+            case "Map":
+                <Map Tenant="@_tenant" Configuration="@_configuration" Section="@module"></Map>
                 break;
             case "ContentImage":
-                <ContentImage Section="@module"></ContentImage>
+                <ContentImage Tenant="@_tenant" Section="@module"></ContentImage>
                 break;
             case "PricingPlans":
-                <PricingPlans Section="@module"></PricingPlans>
+                <PricingPlans Tenant="@_tenant" Section="@module"></PricingPlans>
                 break;
             case "Footer":
-                <Footer Section="@module"></Footer>
+                <Footer Tenant="@_tenant" Section="@module"></Footer>
                 break;
         }
     }
@@ -64,8 +67,12 @@
 
 @code
 {
+    Tenant _tenant;
+    TenantConfigurationModel _configuration;
+
     protected async override void OnInitialized()
     {
-        SiteHelper.IdentifyTenant(httpContextAccessor.HttpContext.Request.Host.Value, SiteState);
+        _tenant = await SiteHelper.IdentifyTenant(httpContextAccessor.HttpContext.Request.Host.Value);
+        _configuration = _tenant.LoadConfiguration(httpContextAccessor.HttpContext.Request.Host.Value);
     }
 }

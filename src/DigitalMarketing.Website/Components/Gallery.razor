@@ -1,5 +1,5 @@
 ﻿@using DigitalMarketing.Model.Settings
-@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+@using DigitalMarketing.Core.Database
 @inject IJSRuntime JSRuntime
 
 <section class="bg-dark">
@@ -37,7 +37,10 @@
 
 @code {
     [Parameter]
-    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

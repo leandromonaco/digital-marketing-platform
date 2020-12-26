@@ -1,91 +1,96 @@
 ﻿@using DigitalMarketing.Model.Settings
-@using DigitalMarketing.Website.Components
-@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+@using DigitalMarketing.Core.Database
 
+@if (Tenant != null && Section != null)
+{
+    <section class="pt64 pb64">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="mb8">@Section.Title</h2>
+                    <p class="lead mb40 mb-xs-24">
+                        @Section.Paragraph
+                    </p>
+                    <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+                </div>
+            </div>
 
-<section class="pt64 pb64">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="mb8">@Section.Title</h2>
-                <p class="lead mb40 mb-xs-24">
-                    @Section.Paragraph
+        </div>
+
+    </section>
+
+    <section class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h3 class="mb0 inline-block p32 p0-xs">Purchase Early-Bird tickets for 20% off</h3>
+                    <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">Purchase Tickets</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row mb64 mb-xs-24">
+                <div class="col-sm-12 text-center spread-children-large">
+                    <img alt="Pic" src="img/avatar1.png">
+                    <img alt="Pic" src="img/avatar2.png">
+                    <img alt="Pic" src="img/avatar3.png">
+                    <img alt="Pic" src="img/avatar4.png">
+                    <img alt="Pic" src="img/avatar5.png">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <h2>Built by professionals, just for you.</h2>
+                    <p class="mb40 mb-xs-24">
+                        Foundry is a remarkably complete template offering you a plethora of handcrafted design elements. Whether promoting a product, service or portfolio - Foundry's unique and flexible style has you covered.
+                    </p>
+                    <a class="mb0 btn btn-lg btn-filled" href="#" @onclick="e => _isModalOpened = true">Purchase Foundry</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="bg-primary">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                <h1 class="mb8">Meet Foundry, Your Design Toolkit.</h1>
+                <p class="lead mb48">
+                    Perfect for those advertising a new product or service who wish to drive subscribers.
                 </p>
-                <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+                <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                    <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
+                    <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
+                    <a class="btn btn-lg">Keep Me Informed</a>
+                    <p class="sub text-center">
+                        By signing up, you agree to our
+                        <a href="#">Terms Of Service</a>
+                    </p>
+                </form>
             </div>
+
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <Modal Tenant="@Tenant" Section="@Section" @bind-Open="_isModalOpened" />
+}
 
-<section class="bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h3 class="mb0 inline-block p32 p0-xs">Purchase Early-Bird tickets for 20% off</h3>
-                <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">Purchase Tickets</a>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section>
-    <div class="container">
-        <div class="row mb64 mb-xs-24">
-            <div class="col-sm-12 text-center spread-children-large">
-                <img alt="Pic" src="img/avatar1.png">
-                <img alt="Pic" src="img/avatar2.png">
-                <img alt="Pic" src="img/avatar3.png">
-                <img alt="Pic" src="img/avatar4.png">
-                <img alt="Pic" src="img/avatar5.png">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-                <h2>Built by professionals, just for you.</h2>
-                <p class="mb40 mb-xs-24">
-                    Foundry is a remarkably complete template offering you a plethora of handcrafted design elements. Whether promoting a product, service or portfolio - Foundry's unique and flexible style has you covered.
-                </p>
-                <a class="mb0 btn btn-lg btn-filled" href="#" @onclick="e => _isModalOpened = true">Purchase Foundry</a>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="bg-primary">
-    <div class="container">
-        <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-            <h1 class="mb8">Meet Foundry, Your Design Toolkit.</h1>
-            <p class="lead mb48">
-                Perfect for those advertising a new product or service who wish to drive subscribers.
-            </p>
-            <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-                <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
-                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
-                <a class="btn btn-lg">Keep Me Informed</a>
-                <p class="sub text-center">
-                    By signing up, you agree to our
-                    <a href="#">Terms Of Service</a>
-                </p>
-            </form>
-        </div>
-
-    </div>
-
-</section>
-
-<Modal @bind-Open="_isModalOpened" />
 
 @code
 {
     public bool _isModalOpened;
 
     [Parameter]
-    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
 }

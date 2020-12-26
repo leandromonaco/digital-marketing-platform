@@ -1,8 +1,18 @@
-﻿<div class="alert alert-danger alert-dismissible" role="alert">
-    @Section.Paragraph
-</div>
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
+
+@if (Tenant != null && Section != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        @Section.Paragraph
+    </div>
+}
+
 
 @code {
     [Parameter]
-    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
 }

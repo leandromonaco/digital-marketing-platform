@@ -1,4 +1,5 @@
-﻿@inject DigitalMarketing.Web.Model.TenantConfigurationSession SiteState
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
 
 <section>
     <div class="container">
@@ -127,5 +128,9 @@
 </section>
 
 @code {
+    [Parameter]
+    public Tenant Tenant { get; set; }
 
+    [Parameter]
+    public Section Section { get; set; }
 }

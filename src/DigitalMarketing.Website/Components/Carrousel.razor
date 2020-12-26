@@ -1,40 +1,46 @@
 ﻿@using DigitalMarketing.Model.Settings
-@using DigitalMarketing.Web.Model
+@using DigitalMarketing.Core.Database
 @inject IJSRuntime JSRuntime
-@inject TenantConfigurationSession SiteState
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h4 class="uppercase mb64 mb-xs-40">@Section.Title</h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="logo-carousel">
-                <ul class="slides">
-                    @foreach (var image in @Section.Images)
-                    {
-                        <li>
-                            <a href="#">
-                                <img alt="Logo" src="@image">
-                            </a>
-                        </li>
-                    }
-                </ul>
+@if (Tenant != null && Section != null)
+{
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h4 class="uppercase mb64 mb-xs-40">@Section.Title</h4>
+                </div>
             </div>
 
+            <div class="row">
+                <div class="logo-carousel">
+                    <ul class="slides">
+                        @foreach (var image in @Section.Images)
+                        {
+                            <li>
+                                <a href="#">
+                                    <img alt="Logo" src="@image">
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
+    </section>
+}
 
-</section>
 
 
 @code {
     [Parameter]
-    public DigitalMarketing.Model.Settings.Section Section { get; set; }
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

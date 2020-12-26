@@ -1,15 +1,14 @@
 ﻿@using SendGrid;
 @using SendGrid.Helpers.Mail;
 @using DigitalMarketing.Model;
+@using DigitalMarketing.Model.Settings
 @using DigitalMarketing.Core.Database
-@using DigitalMarketing.Web.Model
 @using DigitalMarketing.Model.Events
 @using System.Text.Json
 @using System.Dynamic
 @inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
-@inject TenantConfigurationSession SiteState
 
-@if (SiteState.Settings != null)
+@if (Tenant != null && Section != null)
 {
 
     @if (IsIFrame)
@@ -35,7 +34,7 @@
         <section class="bg-dark image-square right">
             <div class="col-md-6 p0 image">
                 <div class="map-holder background-image-holder">
-                    <iframe src="@SiteState.Settings.ThirdPartyServices.GoogleMaps.Url"></iframe>
+                    <iframe src="@Configuration.ThirdPartyServices.GoogleMaps.Url"></iframe>
                 </div>
             </div>
             <div class="col-md-6 content">
@@ -64,6 +63,15 @@
 @code {
     [Parameter]
     public bool IsIFrame { get; set; }
+
+    [Parameter]
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
+
+    [Parameter]
+    public TenantConfigurationModel Configuration { get; set; }
 
     DigitalMarketing.Model.Events.TouchPointEvent _touchPointEvent = new DigitalMarketing.Model.Events.TouchPointEvent() { EventType = TouchPointEventType.AskQuestion };
 
@@ -96,8 +104,6 @@
 
     private async Task SendMessage()
     {
-
-
         if (ValidReCAPTCHA)
         {
             var response = await reCaptcha.GetResponseAsync();
@@ -115,22 +121,22 @@
 
                 if (result.Success)
                 {
-                    var client = new SendGridClient(SiteState.Settings.ThirdPartyServices.SendGrid.Key);
-                    var authorizedSenderEmail = new EmailAddress(SiteState.Settings.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
+                    var client = new SendGridClient(Configuration.ThirdPartyServices.SendGrid.Key);
+                    var authorizedSenderEmail = new EmailAddress(Configuration.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
                     var subject = "Webpage Contact";
 
 
                     var plainTextContent = $@"<b>Nombre:</b> {_touchPointEvent.FirstName} <br/>
-                              <b>Email:</b> {_touchPointEvent.Email} <br/>
-                              <b>Telefono:</b> {_touchPointEvent.Phone} <br/>
-                              <b>Ciudad:</b> {_touchPointEvent.City} <br/>
-                              <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
-                              <b>Mensaje:</b> {_message} <br/>";
+                      <b>Email:</b> {_touchPointEvent.Email} <br/>
+                      <b>Telefono:</b> {_touchPointEvent.Phone} <br/>
+                      <b>Ciudad:</b> {_touchPointEvent.City} <br/>
+                      <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
+                      <b>Mensaje:</b> {_message} <br/>";
                     var htmlContent = plainTextContent;
 
                     Customer customer = new Customer();
 
-                    customer.TenantId = SiteState.TenantId;
+                    customer.TenantId = Tenant.Id;
                     customer.Name = _touchPointEvent.FirstName;
                     customer.Email = _touchPointEvent.Email;
 

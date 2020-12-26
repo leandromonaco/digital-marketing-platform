@@ -1,4 +1,5 @@
 ﻿using DigitalMarketing.Core.Database;
+using DigitalMarketing.Model.Helpers;
 using DigitalMarketing.Model.Settings;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -9,10 +10,12 @@ namespace DigitalMarketing.Model.Extensions
 {
     public static class ConfigurationExtensions
     {
-        public static TenantConfigurationModel LoadConfiguration(this Tenant tenant, bool isTest)
+        public static TenantConfigurationModel LoadConfiguration(this Tenant tenant, string host)
         {
             TenantConfigurationModel parsedConfig = null;
             string json = null;
+
+            bool isTest = SiteHelper.IsTestUrl(host);
 
             if (isTest)
             {

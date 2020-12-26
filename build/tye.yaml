@@ -11,13 +11,17 @@ services:
 - name: DigitalMarketing-Website
   project: ../src/DigitalMarketing.Website/DigitalMarketing.Website.csproj
   bindings:
-  - name: s
+  - name: softwareworker
+    port: 52090
     host: softwareworker.local
-  - name: a
+  - name: aiswalker
+    port: 52091
     host: aiswalker.local
-  - name: p
+  - name: protechexteriors
+    port: 52092
     host: protechexteriors.local
-  - name: ar
+  - name: arystec
+    port: 52093
     host: arystec.local
 
 - name: Templates
