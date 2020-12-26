@@ -15,10 +15,10 @@
     @if (IsIFrame)
     {
         <div class="form-email">
-            <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.PersonalInformation.FirstName" placeholder="Primer Nombre">
-            <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.ContactInformation.Email" placeholder="Email">
-            <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.ContactInformation.Phone" placeholder="Telefono">
-            <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.ContactInformation.City" placeholder="Ciudad">
+            <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.FirstName" placeholder="Primer Nombre">
+            <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.Email" placeholder="Email">
+            <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.Phone" placeholder="Telefono">
+            <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.City" placeholder="Ciudad">
             <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
             <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
             <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
@@ -42,9 +42,9 @@
 
                 <div class="form-email">
                     <h6 class="uppercase text-center">Contacto</h6>
-                    <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.PersonalInformation.FirstName" placeholder="Primer Nombre">
-                    <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.ContactInformation.Email" placeholder="Email">
-                    <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.ContactInformation.Phone" placeholder="Telefono">
+                    <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.FirstName" placeholder="Primer Nombre">
+                    <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.Email" placeholder="Email">
+                    <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.Phone" placeholder="Telefono">
                     <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
                     <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
                     <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
@@ -120,10 +120,10 @@
                     var subject = "Webpage Contact";
 
 
-                    var plainTextContent = $@"<b>Nombre:</b> {_touchPointEvent.PersonalInformation.FirstName} <br/>
-                              <b>Email:</b> {_touchPointEvent.ContactInformation.Email} <br/>
-                              <b>Telefono:</b> {_touchPointEvent.ContactInformation.Phone} <br/>
-                              <b>Ciudad:</b> {_touchPointEvent.ContactInformation.City} <br/>
+                    var plainTextContent = $@"<b>Nombre:</b> {_touchPointEvent.FirstName} <br/>
+                              <b>Email:</b> {_touchPointEvent.Email} <br/>
+                              <b>Telefono:</b> {_touchPointEvent.Phone} <br/>
+                              <b>Ciudad:</b> {_touchPointEvent.City} <br/>
                               <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
                               <b>Mensaje:</b> {_message} <br/>";
                     var htmlContent = plainTextContent;
@@ -131,8 +131,8 @@
                     Customer customer = new Customer();
 
                     customer.TenantId = SiteState.TenantId;
-                    customer.Name = _touchPointEvent.PersonalInformation.FirstName;
-                    customer.Email = _touchPointEvent.ContactInformation.Email;
+                    customer.Name = _touchPointEvent.FirstName;
+                    customer.Email = _touchPointEvent.Email;
 
                     await DatabaseRepository.SaveCustomer(customer);
 
@@ -144,7 +144,7 @@
                     };
 
                     var msg = MailHelper.CreateSingleEmail(authorizedSenderEmail, authorizedSenderEmail, subject, plainTextContent, htmlContent);
-                    msg.ReplyTo = new EmailAddress(_touchPointEvent.ContactInformation.Email);
+                    msg.ReplyTo = new EmailAddress(_touchPointEvent.Email);
                     var emailResponse = await client.SendEmailAsync(msg);
 
                     if (emailResponse.StatusCode.ToString().Equals("Accepted"))

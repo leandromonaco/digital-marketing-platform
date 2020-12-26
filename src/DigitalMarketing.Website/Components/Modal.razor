@@ -28,8 +28,8 @@
         <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
             <i class="ti-close close-modal" @onclick="CancelModal"></i>
             <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                <input type="text" name="name" class="validate-required signup-name-field" placeholder="First Name" @bind="_touchPointEvent.PersonalInformation.FirstName">
-                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email" @bind="_touchPointEvent.ContactInformation.Email">
+                <input type="text" name="name" class="validate-required signup-name-field" placeholder="First Name" @bind="_touchPointEvent.FirstName">
+                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email" @bind="_touchPointEvent.Email">
                 <a class="btn btn-lg" @onclick="ButtonClicked">@Section.ButtonText</a>
             </div>
         </div>
@@ -105,8 +105,8 @@
         Customer customer = new Customer();
 
         customer.TenantId = SiteState.TenantId;
-        customer.Name = _touchPointEvent.PersonalInformation.FirstName;
-        customer.Email = _touchPointEvent.ContactInformation.Email;
+        customer.Name = _touchPointEvent.FirstName;
+        customer.Email = _touchPointEvent.Email;
 
         await DatabaseRepository.SaveCustomer(customer);
 
@@ -119,14 +119,14 @@
 
         var client = new SendGridClient(SiteState.Settings.ThirdPartyServices.SendGrid.Key);
         var fromEmail = new EmailAddress(SiteState.Settings.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
-        var toEmail = new EmailAddress(_touchPointEvent.ContactInformation.Email);
+        var toEmail = new EmailAddress(_touchPointEvent.Email);
 
         string html = System.IO.File.ReadAllText(@"D:\Build\GitHub\DigitalMarketingPlatform\docs\emails\DownloadFile.html");
-        html = html.Replace("{FirstName}", _touchPointEvent.PersonalInformation.FirstName)
+        html = html.Replace("{FirstName}", _touchPointEvent.FirstName)
                    .Replace("{DownloadUrl}", Section.Workflow.Parameters);
 
         var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "this is your brochure", string.Empty, html);
-        msg.ReplyTo = new EmailAddress(_touchPointEvent.ContactInformation.Email);
+        msg.ReplyTo = new EmailAddress(_touchPointEvent.Email);
         var emailResponse = await client.SendEmailAsync(msg);
 
         if (emailResponse.StatusCode.ToString().Equals("Accepted"))
