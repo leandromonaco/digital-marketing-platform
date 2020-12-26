@@ -15,6 +15,7 @@ namespace DigitalMarketing.Model.Settings
         public string ButtonText { get; set; }
         public string DownloadFile { get; set; }
         public string Date { get; set; }
+        public string Url { get; set; }
         public List<string> Images { get; set; }
         public Workflow Workflow { get; set; }
     }

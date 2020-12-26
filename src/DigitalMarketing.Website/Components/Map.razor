@@ -3,7 +3,7 @@
 
 <section class="p0">
     <div class="map-holder pt180 pb180">
-        <iframe src="@Configuration.ThirdPartyServices.GoogleMaps.Url"></iframe>
+        <iframe src="@Section.Url"></iframe>
     </div>
 </section>
 
@@ -13,7 +13,4 @@
 
     [Parameter]
     public Section Section { get; set; }
-
-    [Parameter]
-    public TenantConfigurationModel Configuration { get; set; }
 }
