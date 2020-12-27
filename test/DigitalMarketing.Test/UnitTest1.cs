@@ -1,8 +1,8 @@
 using DigitalMarketing.Model.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Text.Json;
 
 namespace DigitalMarketing.Test
 {
@@ -43,7 +43,7 @@ namespace DigitalMarketing.Test
             {
                 json = r.ReadToEnd();
             }
-            var parsedConfig = JsonConvert.DeserializeObject<TenantConfigurationModel>(json);
+            var parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(json);
         }
 
         //TODO: Add script to setup dependencies

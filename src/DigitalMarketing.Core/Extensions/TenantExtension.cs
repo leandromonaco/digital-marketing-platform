@@ -1,10 +1,9 @@
 ﻿using DigitalMarketing.Core.Database;
 using DigitalMarketing.Model.Helpers;
 using DigitalMarketing.Model.Settings;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 
 namespace DigitalMarketing.Model.Extensions
 {
@@ -20,28 +19,31 @@ namespace DigitalMarketing.Model.Extensions
             if (isTest)
             {
                 json = tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.staging.json")).FirstOrDefault().Content;
-                parsedConfig = JsonConvert.DeserializeObject<TenantConfigurationModel>(json);
+                parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(json);
             }
             else
             {
-                parsedConfig = JsonConvert.DeserializeObject<TenantConfigurationModel>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
+                parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
             }
 
-            //Retrieve Pages
-            parsedConfig.Pages = new List<Page>();
-            var jObject = JObject.Parse(json);
-            foreach (var page in jObject["Site"]["Pages"])
+            using (JsonDocument doc = JsonDocument.Parse(json))
             {
-                var p = new Page();
+                JsonElement root = doc.RootElement;
 
-                p.Sections = page
-                            .Children()
-                            .Children()
-                            .Children()
-                            .Select(i => i.ToObject<Section>())
-                            .ToList();
+                var pages = root.GetProperty("Pages").EnumerateObject();
+                parsedConfig.Pages = new List<Page>();
+                foreach (var page in pages)
+                {
+                    var p = new Page { Sections = new List<Section>() };
 
-                parsedConfig.Pages.Add(p);
+                    var sections = page.Value.GetProperty("Sections").EnumerateObject();
+                    foreach (var section in sections)
+                    {
+                        var s = JsonSerializer.Deserialize<Section>(section.Value.ToString());
+                        p.Sections.Add(s);
+                    }
+                    parsedConfig.Pages.Add(p);
+                }
             }
 
             return parsedConfig;

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace DigitalMarketing.Model.Settings
+﻿namespace DigitalMarketing.Model.Settings
 {
     public class Workflow
     {

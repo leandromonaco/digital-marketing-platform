@@ -1,14 +1,14 @@
 {
-  "Title": "Arystec - Ingeniería y Construcciones",
+  "Title": "AIS Walker",
   "Colors": {
     "Primary": "#333333",
     "Secondary": "#333333",
     "Light": "#333333",
     "Dark": "#333333"
   },
-  "Site": {
-    "Pages": {
-      "Page:1": {
+  "Pages": {
+    "Page:1": {
+      "Sections": {
         "Section:0": {
           "Type": "Alert",
           "Paragraph": "Todos nuestros programas están sujetos a los cambios que puedan presentarse debido a la crisis sanitaria por COVID-19. Nuestra empresa responde 100% al reglamento migratorio del gobierno de Nueva Zelanda."
@@ -49,7 +49,7 @@
           "Type": "Gallery",
           "Title": "Trabajos",
           "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
-          "images": [
+          "Images": [
             "tenants/arystec/images/gallery/Trabajos_1.jpg",
             "tenants/arystec/images/gallery/Trabajos_2.jpg",
             "tenants/arystec/images/gallery/Trabajos_3.jpg",
