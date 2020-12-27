@@ -1,3 +1,4 @@
+using DigitalMarketing.Core.Http;
 using DigitalMarketing.Model;
 using DigitalMarketing.Web.Model;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +40,9 @@ namespace DigitalMarketing.Website
                 options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
                 options.SupportedUICultures = supportedCultures;
             });
+
+            services.AddHttpClient();
+            services.AddTransient<IHttpService, HttpService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

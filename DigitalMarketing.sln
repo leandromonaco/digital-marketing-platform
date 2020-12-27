@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "emails", "emails", "{CC8581
 		docs\emails\DownloadFile.html = docs\emails\DownloadFile.html
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalMarketing.API", "src\DigitalMarketing.API\DigitalMarketing.API.csproj", "{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,10 @@ Global
 		{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{1DB21420-3947-4CDF-8812-59135D3BF2CC} = {332EC1E1-D93D-4D05-A7C0-3D579E39F000}
 		{35B6B31A-1A2E-4DFB-8D40-60F70B0F35ED} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
 		{CC8581F0-E252-4E89-8659-5EE895B91E81} = {43220D76-6AE0-4363-83DD-AAC5243CD93A}
+		{5E38E7B9-48A8-4B74-8C74-9EAD026AC905} = {06390F5C-EFE9-47DB-A8DA-BB83F436311B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {098ED8A9-C1FF-4456-8065-35E3B92CB7D4}

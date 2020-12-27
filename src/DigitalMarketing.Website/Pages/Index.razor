@@ -8,6 +8,7 @@
 @using  DigitalMarketing.Model
 @using  DigitalMarketing.Model.Extensions
 @using DigitalMarketing.Model.Helpers
+@using DigitalMarketing.Core.Http
 @using Microsoft.AspNetCore.Components.Web.Extensions.Head
 @inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
 @inject IHttpContextAccessor httpContextAccessor
@@ -67,11 +68,15 @@
 
 @code
 {
+    [Inject]
+    public IHttpService HttpService { get; set; }
+
     Tenant _tenant;
     TenantConfigurationModel _configuration;
 
     protected async override void OnInitialized()
     {
+        var test = await HttpService.GetAsync("http://localhost:52090");
         _tenant = await SiteHelper.IdentifyTenant(httpContextAccessor.HttpContext.Request.Host.Value);
         _configuration = _tenant.LoadConfiguration(httpContextAccessor.HttpContext.Request.Host.Value);
     }

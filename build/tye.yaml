@@ -1,9 +1,3 @@
-# tye application configuration file
-# read all about it at https://github.com/dotnet/tye
-#
-# when you've given us a try, we'd love to know what you think:
-#    https://aka.ms/AA7q20u
-#
 name: digitalmarketing
 
 services:
@@ -12,17 +6,22 @@ services:
   project: ../src/DigitalMarketing.Website/DigitalMarketing.Website.csproj
   bindings:
   - name: softwareworker
-    port: 52090
+    port: 52091
     host: softwareworker.local
   - name: aiswalker
-    port: 52091
+    port: 52092
     host: aiswalker.local
   - name: protechexteriors
-    port: 52092
+    port: 52093
     host: protechexteriors.local
   - name: arystec
-    port: 52093
+    port: 52094
     host: arystec.local
+
+- name: DigitalMarketing-API
+  project: ../src/DigitalMarketing.API/DigitalMarketing.API.csproj
+  bindings:
+  - port: 52090
 
 - name: Templates
   project: ../libs/Templates/Templates.csproj
@@ -37,3 +36,13 @@ services:
     value: S0ftw4r3W0rk3r
   - name: ACCEPT_EULA
     value: Y
+
+- name: redis
+  image: redis
+  bindings:
+  - port: 6379
+    connectionString: "${host}:${port}"
+
+- name: redis-cli
+  image: redis
+  args: "redis-cli -h redis MONITOR"
