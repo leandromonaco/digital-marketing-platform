@@ -8,6 +8,7 @@
   },
   "Pages": {
     "Page:1": {
+      "Name": "home",
       "Sections": {
         "Section:1": {
           "Type": "Cover",

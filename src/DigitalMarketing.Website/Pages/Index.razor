@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/{pagename?}"
 
 
 @using DigitalMarketing.Website.Components
@@ -19,47 +19,47 @@
 
 @if (_tenant != null && _configuration != null)
 {
-    <Title Value="@_configuration.Title"></Title>
+    @*<Title Value="@_configuration.Title"></Title>*@
 
-    var homePage = _configuration.Pages[0];
+    var p = _configuration.Pages.Where(p => p.Name.Equals(PageName)).FirstOrDefault();
 
 
-    foreach (var module in homePage.Sections)
+    foreach (var s in p.Sections)
     {
-        switch (module.Type)
+        switch (s.Type)
         {
             case "Alert":
-                <Alert Tenant="@_tenant" Section="@module"></Alert>
+                <Alert Tenant="@_tenant" Section="@s"></Alert>
                 break;
             case "Cover":
-                <Cover Tenant="@_tenant" Section="@module"></Cover>
+                <Cover Tenant="@_tenant" Section="@s"></Cover>
                 break;
             case "CallToAction":
-                <CallToAction Tenant="@_tenant" Section="@module"></CallToAction>
+                <CallToAction Tenant="@_tenant" Section="@s"></CallToAction>
                 break;
             case "Carrousel":
-                <Carrousel Tenant="@_tenant" Section="@module"></Carrousel>
+                <Carrousel Tenant="@_tenant" Section="@s"></Carrousel>
                 break;
             case "Gallery":
-                <Gallery Tenant="@_tenant" Section="@module"></Gallery>
+                <Gallery Tenant="@_tenant" Section="@s"></Gallery>
                 break;
             case "Countdown":
-                <Countdown Tenant="@_tenant" Section="@module"></Countdown>
+                <Countdown Tenant="@_tenant" Section="@s"></Countdown>
                 break;
             case "ContactForm":
-                <ContactForm Tenant="@_tenant" Configuration="@_configuration" Section="@module"></ContactForm>
+                <ContactForm Tenant="@_tenant" Configuration="@_configuration" Section="@s"></ContactForm>
                 break;
             case "Map":
-                <Map Tenant="@_tenant" Section="@module"></Map>
+                <Map Tenant="@_tenant" Section="@s"></Map>
                 break;
             case "ContentImage":
-                <ContentImage Tenant="@_tenant" Section="@module"></ContentImage>
+                <ContentImage Tenant="@_tenant" Section="@s"></ContentImage>
                 break;
             case "PricingPlans":
-                <PricingPlans Tenant="@_tenant" Section="@module"></PricingPlans>
+                <PricingPlans Tenant="@_tenant" Section="@s"></PricingPlans>
                 break;
             case "Footer":
-                <Footer Tenant="@_tenant" Section="@module"></Footer>
+                <Footer Tenant="@_tenant" Section="@s"></Footer>
                 break;
         }
     }
@@ -67,19 +67,22 @@
 
 @code
 {
+    [Parameter]
+    public string PageName { get; set; }
+
     //[Inject]
     //public IHttpService HttpService { get; set; }
 
     [Inject]
     public IHttpContextAccessor HttpContextAccessor { get; set; }
 
-
-
     Tenant _tenant;
     TenantConfigurationModel _configuration;
 
     protected async override void OnInitialized()
     {
+        PageName = PageName ?? "home";
+
         //var test = await HttpService.GetAsync("http://localhost:52090");
         _tenant = await SiteHelper.IdentifyTenant(HttpContextAccessor.HttpContext.Request.Host.Value);
         _configuration = _tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);

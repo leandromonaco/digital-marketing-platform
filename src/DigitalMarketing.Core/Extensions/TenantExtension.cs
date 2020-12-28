@@ -34,7 +34,8 @@ namespace DigitalMarketing.Model.Extensions
                 parsedConfig.Pages = new List<Page>();
                 foreach (var page in pages)
                 {
-                    var p = new Page { Sections = new List<Section>() };
+                    var p = JsonSerializer.Deserialize<Page>(page.Value.ToString());
+                    p.Sections = new List<Section>();
 
                     var sections = page.Value.GetProperty("Sections").EnumerateObject();
                     foreach (var section in sections)
