@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigitalMarketing.Model
 {
-    public class DatabaseRepository
+    internal class DatabaseRepository
     {
         public async Task<Tenant> GetTenantAsync(string label)
         {

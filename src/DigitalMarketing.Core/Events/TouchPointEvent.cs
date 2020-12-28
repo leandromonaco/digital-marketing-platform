@@ -19,6 +19,8 @@ namespace DigitalMarketing.Model.Events
         public string Country { get; set; }
         public string Source { get; set; }
         public TouchPointEventType EventType { get; set; }
+        public string Message { get; set; }
         public ExpandoObject CustomData { get; set; }
+        
     }
 }

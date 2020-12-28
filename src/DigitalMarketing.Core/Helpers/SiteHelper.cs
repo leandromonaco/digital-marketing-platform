@@ -40,33 +40,26 @@ namespace DigitalMarketing.Model.Helpers
 
         public static async Task<Tenant> IdentifyTenant(string host)
         {
-            DatabaseRepository databaseRepository = new DatabaseRepository();
-           
-            var label = SiteHelper.GetLabel(host);
-            var tenant = await databaseRepository.GetTenantAsync(label);
+            Tenant tenant;
+       
+            var cacheId = host;
+            var isCached = _cache.TryGetValue(cacheId, out tenant);
+
+            if (!isCached)
+            {
+                //Get Tenant from Database
+                DatabaseRepository databaseRepository = new DatabaseRepository();
+                var label = SiteHelper.GetLabel(host);
+                tenant = await databaseRepository.GetTenantAsync(label);
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSize(1)
+                                                                     .SetSlidingExpiration(TimeSpan.FromHours(24));
+
+                // Save data in cache.
+                _cache.Set(cacheId, tenant, cacheEntryOptions);
+            }
+
             return tenant;
-
-            //TenantConfigurationModel cacheEntry = new TenantConfigurationModel();
-
-            //TODO: Caching
-            //var cacheId = isTest ? $"{tenant.Id}-staging" : $"{tenant.Id}-production";
-
-            //if (!_cache.TryGetValue(cacheId, out cacheEntry))
-            //{
-            //    settings = tenant.LoadConfiguration(isTest);
-            //    var cacheEntryOptions = new MemoryCacheEntryOptions()
-            //    .SetSize(1)
-            //    .SetSlidingExpiration(TimeSpan.FromHours(24));
-
-            //    // Save data in cache.
-            //    _cache.Set(cacheId, settings, cacheEntryOptions);
-            //}
-            //else
-            //{
-            //    settings = cacheEntry;
-            //}
-
-     
         }
     }
 }

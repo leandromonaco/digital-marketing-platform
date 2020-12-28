@@ -8,7 +8,7 @@ namespace DigitalMarketing.Model.Settings
         public string Title { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
         public List<Page> Pages { get; set; }
-        public ThirdPartyServices ThirdPartyServices { get; set; }
+        public ThirdPartyConfiguration ThirdPartyConfiguration { get; set; }
 
     }
 }

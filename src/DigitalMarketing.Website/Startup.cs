@@ -31,8 +31,6 @@ namespace DigitalMarketing.Website
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            
-            services.AddSingleton<DatabaseRepository>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("es") };
             services.Configure<RequestLocalizationOptions>(options =>

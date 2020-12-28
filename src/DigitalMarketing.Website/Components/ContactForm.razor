@@ -3,10 +3,12 @@
 @using DigitalMarketing.Model;
 @using DigitalMarketing.Model.Settings
 @using DigitalMarketing.Core.Database
+@using DigitalMarketing.Core.Controller
 @using DigitalMarketing.Model.Events
 @using System.Text.Json
 @using System.Dynamic
-@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+@using  DigitalMarketing.Model.Extensions
+@using Microsoft.AspNetCore.Http
 
 @if (Tenant != null && Section != null)
 {
@@ -19,7 +21,7 @@
             <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.Phone" placeholder="Telefono">
             <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.City" placeholder="Ciudad">
             <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
-            <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
+            <textarea class="validate-required" name="message" rows="4" @bind="_touchPointEvent.Message" placeholder="Mensaje"></textarea>
             <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
             <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
         </div>
@@ -44,7 +46,9 @@
                     <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.FirstName" placeholder="Primer Nombre">
                     <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.Email" placeholder="Email">
                     <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.Phone" placeholder="Telefono">
-                    <textarea class="validate-required" name="message" rows="4" @bind="_message" placeholder="Mensaje"></textarea>
+                    <input type="text" class="validate-required" name="city" @bind="_touchPointEvent.City" placeholder="Ciudad">
+                    <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
+                    <textarea class="validate-required" name="message" rows="4" @bind="_touchPointEvent.Message" placeholder="Mensaje"></textarea>
                     <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
                     <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
                 </div>
@@ -67,13 +71,12 @@
     [Parameter]
     public Section Section { get; set; }
 
-    [Parameter]
-    public TenantConfigurationModel Configuration { get; set; }
+    [Inject]
+    public IHttpContextAccessor HttpContextAccessor { get; set; }
 
     DigitalMarketing.Model.Events.TouchPointEvent _touchPointEvent = new DigitalMarketing.Model.Events.TouchPointEvent() { EventType = TouchPointEventType.AskQuestion };
 
     protected bool _isSent;
-    protected string _message;
     protected Guid _productId;
 
 
@@ -110,53 +113,10 @@
                 StateHasChanged();
                 var result = await DigitalMarketing.Web.Model.reCaptchaValidator.Validate(response);
 
-                dynamic customData = new ExpandoObject();
-                customData.Message = _message;
-                customData.ProductId = _productId;
-                _touchPointEvent.CustomData = customData;
-
-
                 if (result.Success)
                 {
-                    var client = new SendGridClient(Configuration.ThirdPartyServices.SendGrid.Key);
-                    var authorizedSenderEmail = new EmailAddress(Configuration.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
-                    var subject = "Webpage Contact";
-
-
-                    var plainTextContent = $@"<b>Nombre:</b> {_touchPointEvent.FirstName} <br/>
-                      <b>Email:</b> {_touchPointEvent.Email} <br/>
-                      <b>Telefono:</b> {_touchPointEvent.Phone} <br/>
-                      <b>Ciudad:</b> {_touchPointEvent.City} <br/>
-                      <b>Como nos conocio:</b> {_touchPointEvent.Source} <br/>
-                      <b>Mensaje:</b> {_message} <br/>";
-                    var htmlContent = plainTextContent;
-
-                    Customer customer = new Customer();
-
-                    customer.TenantId = Tenant.Id;
-                    customer.Name = _touchPointEvent.FirstName;
-                    customer.Email = _touchPointEvent.Email;
-
-                    await DatabaseRepository.SaveCustomer(customer);
-
-                    Touchpoint newEvent = new Touchpoint()
-                    {
-                        Id = Guid.NewGuid(),
-                        CustomerId = customer.Id,
-                        Description = JsonSerializer.Serialize<DigitalMarketing.Model.Events.TouchPointEvent>(_touchPointEvent)
-                    };
-
-                    var msg = MailHelper.CreateSingleEmail(authorizedSenderEmail, authorizedSenderEmail, subject, plainTextContent, htmlContent);
-                    msg.ReplyTo = new EmailAddress(_touchPointEvent.Email);
-                    var emailResponse = await client.SendEmailAsync(msg);
-
-                    if (emailResponse.StatusCode.ToString().Equals("Accepted"))
-                    {
-                        newEvent.IsEmailDelivered = true;
-                    }
-
-                    await DatabaseRepository.SaveTouchpoint(newEvent);
-
+                    var configuration = Tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
+                    await ApiController.SendMessage(Tenant.Id, configuration.ThirdPartyConfiguration.SendGrid, _touchPointEvent);
                     _isSent = true;
                 }
                 else

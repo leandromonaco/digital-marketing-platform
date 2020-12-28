@@ -29,7 +29,10 @@
           "Title": "Calidad y Profesionalismo",
           "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
           "ButtonText": "Descargar Brochure",
-          "DownloadFile": "tenants/arystec/download/Arystec_brochure.pdf"
+          "Workflow": {
+            "Type": "FileDownload",
+            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+          }
         },
         "Section:3": {
           "Type": "Carrousel",
@@ -82,7 +85,7 @@
       }
     }
   },
-  "ThirdPartyServices": {
+  "ThirdPartyConfiguration": {
     "SendGrid": {
       "Key": "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",
       "AuthorizedSenderEmail": "admin@arystec.com"

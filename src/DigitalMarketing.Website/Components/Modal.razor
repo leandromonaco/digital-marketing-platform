@@ -3,9 +3,11 @@
 @using DigitalMarketing.Model;
 @using DigitalMarketing.Model.Settings
 @using DigitalMarketing.Core.Database
+@using DigitalMarketing.Core.Controller
 @using DigitalMarketing.Model.Events
 @using System.Text.Json
-@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
+@using  DigitalMarketing.Model.Extensions
+@using Microsoft.AspNetCore.Http
 @inject IJSRuntime JSRuntime
 
 
@@ -49,13 +51,13 @@
     public Section Section { get; set; }
 
     [Parameter]
-    public TenantConfigurationModel Configuration { get; set; }
-
-    [Parameter]
     public bool Open { get; set; }
 
     [Parameter]
     public EventCallback<bool> OpenChanged { get; set; }
+
+    [Inject]
+    public IHttpContextAccessor HttpContextAccessor { get; set; }
 
     string _color;
     string _backgroundColor;
@@ -104,43 +106,17 @@
 
     async Task ButtonClicked()
     {
-        //TODO: Execute Call-To-Action
-        _touchPointEvent.EventType = TouchPointEventType.DownloadFile;
+        var configuration = Tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
 
-        Customer customer = new Customer();
-
-        customer.TenantId = Tenant.Id;
-        customer.Name = _touchPointEvent.FirstName;
-        customer.Email = _touchPointEvent.Email;
-
-        await DatabaseRepository.SaveCustomer(customer);
-
-        Touchpoint newEvent = new Touchpoint()
+        switch (Section.Workflow.Type)
         {
-            Id = Guid.NewGuid(),
-            CustomerId = customer.Id,
-            Description = JsonSerializer.Serialize<DigitalMarketing.Model.Events.TouchPointEvent>(_touchPointEvent)
-        };
-
-        var client = new SendGridClient(Configuration.ThirdPartyServices.SendGrid.Key);
-        var fromEmail = new EmailAddress(Configuration.ThirdPartyServices.SendGrid.AuthorizedSenderEmail);
-        var toEmail = new EmailAddress(_touchPointEvent.Email);
-
-        string html = System.IO.File.ReadAllText(@"D:\Build\GitHub\DigitalMarketingPlatform\docs\emails\DownloadFile.html");
-        html = html.Replace("{FirstName}", _touchPointEvent.FirstName)
-                   .Replace("{DownloadUrl}", Section.Workflow.Parameters);
-
-        var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "this is your brochure", string.Empty, html);
-        msg.ReplyTo = new EmailAddress(_touchPointEvent.Email);
-        var emailResponse = await client.SendEmailAsync(msg);
-
-        if (emailResponse.StatusCode.ToString().Equals("Accepted"))
-        {
-            newEvent.IsEmailDelivered = true;
+            case "FileDownload":
+                await ApiController.DownloadFile(Tenant.Id, configuration.ThirdPartyConfiguration.SendGrid, _touchPointEvent, Section.Workflow.Parameters);
+                break;
+            default:
+                throw new Exception("Invalid Workflow");
+                break;
         }
-
-        await DatabaseRepository.SaveTouchpoint(newEvent);
-
         await OnClose();
     }
 }

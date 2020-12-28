@@ -33,7 +33,10 @@
           "Title": "Calidad y Profesionalismo",
           "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
           "ButtonText": "Descargar Brochure",
-          "DownloadFile": "tenants/arystec/download/Arystec_brochure.pdf"
+          "Workflow": {
+            "Type": "FileDownload",
+            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+          }
         },
         "Section:3": {
           "Type": "Carrousel",
@@ -75,13 +78,23 @@
           "TermsAndConditions": ""
         },
         "Section:6": {
-          "Type": "Map",
-          "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.8599731069594!2d174.76371671590485!3d-36.84582948705011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fbc827b3ff%3A0x7082c80ee4d0805d!2s99%20Queen%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1608961113527!5m2!1sen!2snz"
+          "Type": "ContentImage",
+          "Layout": "ImageLeft"
         },
         "Section:7": {
+          "Type": "Tabs",
+          "Layout": ""
+        },
+        "Section:8": {
           "Type": "ContactForm",
-          "Layout": "Iframe"
+          "Layout": "Map",
+          "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.8599731069594!2d174.76371671590485!3d-36.84582948705011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fbc827b3ff%3A0x7082c80ee4d0805d!2s99%20Queen%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1608961113527!5m2!1sen!2snz"
+        },
+        "Section:9": {
+          "Type": "Footer",
+          "Layout": ""
         }
+
       }
     },
     "Page:2": {
@@ -94,7 +107,7 @@
       }
     }
   },
-  "ThirdPartyServices": {
+  "ThirdPartyConfiguration": {
     "SendGrid": {
       "Key": "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",
       "AuthorizedSenderEmail": "help@aiswalker.net"

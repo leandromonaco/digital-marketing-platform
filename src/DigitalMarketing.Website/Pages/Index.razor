@@ -10,7 +10,6 @@
 @using DigitalMarketing.Model.Helpers
 @using DigitalMarketing.Core.Http
 @using Microsoft.AspNetCore.Components.Web.Extensions.Head
-@inject DigitalMarketing.Model.DatabaseRepository DatabaseRepository
 
 <div class="nav-container">
     <NavigationBar></NavigationBar>
@@ -21,48 +20,55 @@
 {
     @*<Title Value="@_configuration.Title"></Title>*@
 
+    if (string.IsNullOrEmpty(PageName) || 
+       (!string.IsNullOrEmpty(PageName)  && PageName.Equals("undefined")))
+    {
+        PageName = "home";
+    }
     var p = _configuration.Pages.Where(p => p.Name.Equals(PageName)).FirstOrDefault();
-
 
     foreach (var s in p.Sections)
     {
         switch (s.Type)
         {
             case "Alert":
-                <Alert Tenant="@_tenant" Section="@s"></Alert>
-                break;
-            case "Cover":
-                <Cover Tenant="@_tenant" Section="@s"></Cover>
-                break;
-            case "CallToAction":
-                <CallToAction Tenant="@_tenant" Section="@s"></CallToAction>
-                break;
-            case "Carrousel":
-                <Carrousel Tenant="@_tenant" Section="@s"></Carrousel>
-                break;
-            case "Gallery":
-                <Gallery Tenant="@_tenant" Section="@s"></Gallery>
-                break;
-            case "Countdown":
-                <Countdown Tenant="@_tenant" Section="@s"></Countdown>
-                break;
-            case "ContactForm":
-                <ContactForm Tenant="@_tenant" Configuration="@_configuration" Section="@s"></ContactForm>
-                break;
-            case "Map":
-                <Map Tenant="@_tenant" Section="@s"></Map>
-                break;
-            case "ContentImage":
-                <ContentImage Tenant="@_tenant" Section="@s"></ContentImage>
-                break;
-            case "PricingPlans":
-                <PricingPlans Tenant="@_tenant" Section="@s"></PricingPlans>
-                break;
-            case "Footer":
-                <Footer Tenant="@_tenant" Section="@s"></Footer>
-                break;
+                    <Alert Tenant="@_tenant" Section="@s"></Alert>
+                    break;
+                case "Cover":
+                    <Cover Tenant="@_tenant" Section="@s"></Cover>
+                    break;
+                case "CallToAction":
+                    <CallToAction Tenant="@_tenant" Section="@s"></CallToAction>
+                    break;
+                case "Carrousel":
+                    <Carrousel Tenant="@_tenant" Section="@s"></Carrousel>
+                    break;
+                case "Gallery":
+                    <Gallery Tenant="@_tenant" Section="@s"></Gallery>
+                    break;
+                case "Countdown":
+                    <Countdown Tenant="@_tenant" Section="@s"></Countdown>
+                    break;
+                case "ContactForm":
+                    <ContactForm Tenant="@_tenant" Section="@s"></ContactForm>
+                    break;
+                case "Tabs":
+                    <Tabs Tenant="@_tenant" Section="@s"></Tabs>
+                    break;
+                case "Map":
+                    <Map Tenant="@_tenant" Section="@s"></Map>
+                    break;
+                case "ContentImage":
+                    <ContentImage Tenant="@_tenant" Section="@s"></ContentImage>
+                    break;
+                case "PricingPlans":
+                    <PricingPlans Tenant="@_tenant" Section="@s"></PricingPlans>
+                    break;
+                case "Footer":
+                    <Footer Tenant="@_tenant" Section="@s"></Footer>
+                    break;
+            }
         }
-    }
 }
 
 @code
@@ -81,8 +87,6 @@
 
     protected async override void OnInitialized()
     {
-        PageName = PageName ?? "home";
-
         //var test = await HttpService.GetAsync("http://localhost:52090");
         _tenant = await SiteHelper.IdentifyTenant(HttpContextAccessor.HttpContext.Request.Host.Value);
         _configuration = _tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
