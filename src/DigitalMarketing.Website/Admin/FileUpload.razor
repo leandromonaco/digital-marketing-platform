@@ -2,7 +2,9 @@
 
 @using System.IO
 @using System.Text
-@using DigitalMarketing.Core.Controller 
+@using DigitalMarketing.Core.Controller
+@using DigitalMarketing.Model.Helpers
+@using Microsoft.AspNetCore.Http
 
 <h3>FileUpload</h3>
 
@@ -10,14 +12,17 @@
 
 @code {
 
+    [Inject]
+    public IHttpContextAccessor HttpContextAccessor { get; set; }
+
     private async Task HandleFileChosenAsync(InputFileChangeEventArgs eventArgs)
     {
+        await SiteHelper.ClearCache(HttpContextAccessor.HttpContext.Request.Host.Value);
         using var fileStream = eventArgs.File.OpenReadStream(maxAllowedSize: 5 * 1024 * 1024);
         using (var reader = new StreamReader(fileStream, Encoding.UTF8))
         {
             string jsonContent = await reader.ReadToEndAsync();
             await ApiController.ImportStagingConfigurationAsync(eventArgs.File.Name, eventArgs.File.LastModified.DateTime, jsonContent);
         }
-        //TODO: Clear Cache
     }
 }

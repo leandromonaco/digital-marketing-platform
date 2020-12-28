@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DigitalMarketing.Tools.WebPConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Build\\GitHub\\DigitalMarketingPlatform\\src\\DigitalMarketing.Website\\wwwroot\\tenants\\aiswalker\""
+    }
+  }
+}

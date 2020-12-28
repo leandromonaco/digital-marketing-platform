@@ -61,5 +61,10 @@ namespace DigitalMarketing.Model.Helpers
 
             return tenant;
         }
+
+        public static async Task ClearCache(string host)
+        {
+            _cache.Remove(host);
+        }
     }
 }

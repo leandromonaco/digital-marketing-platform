@@ -31,6 +31,8 @@ namespace DigitalMarketing.Website
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddResponseCompression();
+
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("es") };
             services.Configure<RequestLocalizationOptions>(options =>
@@ -47,6 +49,10 @@ namespace DigitalMarketing.Website
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //https://web.dev/uses-text-compression/?utm_source=lighthouse&utm_medium=devtools
+            //https://docs.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-5.0
+            app.UseResponseCompression();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

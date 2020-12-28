@@ -14,12 +14,6 @@ Update Model after DB Schema changes
     dotnet ef dbcontext scaffold "Data Source=localhost,1433;Initial Catalog=DigitalMarketing;Persist Security Info=True;User ID=sa;Password=S0ftw4r3W0rk3r" Microsoft.EntityFrameworkCore.SqlServer -o Database -f
 	
 	
-libwebp-1.1.0-windows-x64
-https://developers.google.com/speed/webp/docs/using
-
-cd D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Tools\WebP_Converter\tools
-cwebp -q 80 "D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Web\wwwroot\tenants\arystec\images\arystec-cover.jpg" -o "D:\Build\AgilityManager\DigitalMarketing\DigitalMarketing.Web\wwwroot\tenants\arystec\images\arystec-cover.webp"
-
 https://github.com/dotnet/tye/blob/master/docs/README.md
 https://github.com/dotnet/tye/blob/master/docs/reference/schema.md
 https://github.com/dotnet/tye/blob/master/docs/getting_started.md

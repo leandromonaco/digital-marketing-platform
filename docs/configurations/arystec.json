@@ -16,7 +16,7 @@
           "Title": "",
           "SubTitle": "Ingeniería y Construcciones",
           "Paragraph": "Asesoramiento integral en la industria petroquímica con mas de 20 años de experiencia",
-          "BackgroundImage": "cover.jpg",
+          "BackgroundImage": "cover.webp",
           "BackgroundVideo": "",
           "ButtonText": "Descargar Brochure",
           "Workflow": {
@@ -38,11 +38,11 @@
           "Type": "Carrousel",
           "Title": "Certificaciones",
           "Images": [
-            "tenants/arystec/images/carrousel/iqnet.png",
-            "tenants/arystec/images/carrousel/iso14001.png",
-            "tenants/arystec/images/carrousel/siclar.png",
-            "tenants/arystec/images/carrousel/iso9001.png",
-            "tenants/arystec/images/carrousel/rina.png"
+            "tenants/arystec/certificaciones_iqnet.webp",
+            "tenants/arystec/certificaciones_iso14001.webp",
+            "tenants/arystec/certificaciones_siclar.webp",
+            "tenants/arystec/certificaciones_iso9001.webp",
+            "tenants/arystec/certificaciones_rina.webp"
           ]
         },
         "Section:4": {
@@ -50,24 +50,24 @@
           "Title": "Trabajos",
           "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
           "Images": [
-            "tenants/arystec/images/gallery/Trabajos_1.jpg",
-            "tenants/arystec/images/gallery/Trabajos_2.jpg",
-            "tenants/arystec/images/gallery/Trabajos_3.jpg",
-            "tenants/arystec/images/gallery/Trabajos_4.jpg",
-            "tenants/arystec/images/gallery/Trabajos_5.jpg",
-            "tenants/arystec/images/gallery/Trabajos_6.jpg",
-            "tenants/arystec/images/gallery/Trabajos_7.jpg",
-            "tenants/arystec/images/gallery/Trabajos_8.jpg",
-            "tenants/arystec/images/gallery/Trabajos_9.jpg",
-            "tenants/arystec/images/gallery/Trabajos_10.jpg",
-            "tenants/arystec/images/gallery/Trabajos_11.jpg",
-            "tenants/arystec/images/gallery/Trabajos_12.jpg"
+            "tenants/arystec/Trabajos_1.webp",
+            "tenants/arystec/Trabajos_2.webp",
+            "tenants/arystec/Trabajos_3.webp",
+            "tenants/arystec/Trabajos_4.webp",
+            "tenants/arystec/Trabajos_5.webp",
+            "tenants/arystec/Trabajos_6.webp",
+            "tenants/arystec/Trabajos_7.webp",
+            "tenants/arystec/Trabajos_8.webp",
+            "tenants/arystec/Trabajos_9.webp",
+            "tenants/arystec/Trabajos_10.webp",
+            "tenants/arystec/Trabajos_11.webp",
+            "tenants/arystec/Trabajos_12.webp"
           ]
         },
         "Section:5": {
           "Type": "Countdown",
           "Title": "Win a FREE All-Blacks Jersey!",
-          "BackgroundImage": "tenants/aiswalker/Rugby_Ball.png",
+          "BackgroundImage": "tenants/aiswalker/Rugby_Ball.webp",
           "Paragraph": "We''ll be launching our new site in the coming weeks. Hit the form below to get notified as we launch. Thanks for your interest!",
           "ButtonText": "Keep Me Informed",
           "Date": "2020/12/01",
