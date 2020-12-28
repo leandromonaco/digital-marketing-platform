@@ -31,7 +31,7 @@ namespace DigitalMarketing.Website
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddHttpContextAccessor();
+            
             services.AddSingleton<DatabaseRepository>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("es") };
@@ -41,8 +41,9 @@ namespace DigitalMarketing.Website
                 options.SupportedUICultures = supportedCultures;
             });
 
-            services.AddHttpClient();
-            services.AddTransient<IHttpService, HttpService>();
+            //services.AddHttpClient();
+            //services.AddTransient<IHttpService, HttpService>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
