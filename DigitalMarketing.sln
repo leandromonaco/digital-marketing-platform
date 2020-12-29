@@ -53,9 +53,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "emails", "emails", "{CC8581
 		Email3.txt = Email3.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalMarketing.API", "src\DigitalMarketing.API\DigitalMarketing.API.csproj", "{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.API", "src\DigitalMarketing.API\DigitalMarketing.API.csproj", "{5E38E7B9-48A8-4B74-8C74-9EAD026AC905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalMarketing.Tools.WebPConverter", "tools\DigitalMarketing.Tools.WebPConverter\DigitalMarketing.Tools.WebPConverter.csproj", "{97030693-FA1A-49B9-824A-1A7302C52BA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalMarketing.Tools.WebPConverter", "tools\DigitalMarketing.Tools.WebPConverter\DigitalMarketing.Tools.WebPConverter.csproj", "{97030693-FA1A-49B9-824A-1A7302C52BA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

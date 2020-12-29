@@ -6,20 +6,20 @@
     "Light": "#333333",
     "Dark": "#333333"
   },
-  "Pages": {
-    "Page:1": {
+  "Pages": [
+    {
       "Name": "home",
-      "Sections": {
-        "Section:0": {
+      "Sections": [
+        {
           "Type": "Alert",
           "Paragraph": "Todos nuestros programas están sujetos a los cambios que puedan presentarse debido a la crisis sanitaria por COVID-19. Nuestra empresa responde 100% al reglamento migratorio del gobierno de Nueva Zelanda."
         },
-        "Section:1": {
+        {
           "Type": "Cover",
           "Layout": "Image",
           "Title": "",
           "SubTitle": "Estudia y Trabaja en Nueva Zelanda",
-          "Paragraph": "Realizamos una gestión 100% personalizada.",
+          "Paragraph": "Realizamos una gestión 100% personalizada. Tenemos programas para todas las edades.",
           "BackgroundImage": "cover.webp",
           "BackgroundVideo": "cover.mp4",
           "ButtonText": "Descargar Brochure",
@@ -28,85 +28,107 @@
             "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
           }
         },
-        "Section:2": {
-          "Type": "CallToAction",
-          "Title": "Calidad y Profesionalismo",
-          "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
+        {
+          "Type": "ContentVideo",
+          "Layout": "VideoLeft",
+          "Theme": "bg-white",
+          "Title": "Nueva Zelanda te espera para vivir la mejor experiencia de tu vida",
+          "Paragraph": "Realizamos una gestión 100% personalizada. Tenemos programas para todas las edades.",
+          "BackgroundVideo": "tenants/aiswalker/intro.mp4",
           "ButtonText": "Descargar Brochure",
           "Workflow": {
             "Type": "FileDownload",
             "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
           }
         },
-        "Section:3": {
-          "Type": "Carrousel",
-          "Title": "Certificaciones",
-          "Images": [
-            "tenants/arystec/images/carrousel/iqnet.png",
-            "tenants/arystec/images/carrousel/iso14001.png",
-            "tenants/arystec/images/carrousel/siclar.png",
-            "tenants/arystec/images/carrousel/iso9001.png",
-            "tenants/arystec/images/carrousel/rina.png"
-          ]
-        },
-        "Section:4": {
+        {
           "Type": "Gallery",
-          "Title": "Trabajos",
-          "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
+          "Title": "Galeria de Fotos",
+          "Paragraph": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
           "Images": [
-            "tenants/arystec/images/gallery/Trabajos_1.jpg",
-            "tenants/arystec/images/gallery/Trabajos_2.jpg",
-            "tenants/arystec/images/gallery/Trabajos_3.jpg",
-            "tenants/arystec/images/gallery/Trabajos_4.jpg",
-            "tenants/arystec/images/gallery/Trabajos_5.jpg",
-            "tenants/arystec/images/gallery/Trabajos_6.jpg",
-            "tenants/arystec/images/gallery/Trabajos_7.jpg",
-            "tenants/arystec/images/gallery/Trabajos_8.jpg",
-            "tenants/arystec/images/gallery/Trabajos_9.jpg",
-            "tenants/arystec/images/gallery/Trabajos_10.jpg",
-            "tenants/arystec/images/gallery/Trabajos_11.jpg",
-            "tenants/arystec/images/gallery/Trabajos_12.jpg"
+            "tenants/aiswalker/galeria1.webp",
+            "tenants/aiswalker/galeria2.webp",
+            "tenants/aiswalker/galeria3.webp",
+            "tenants/aiswalker/galeria4.webp",
+            "tenants/aiswalker/galeria5.webp",
+            "tenants/aiswalker/galeria6.webp",
+            "tenants/aiswalker/galeria7.webp",
+            "tenants/aiswalker/galeria8.webp",
+            "tenants/aiswalker/galeria9.webp",
+            "tenants/aiswalker/galeria10.webp",
+            "tenants/aiswalker/galeria11.webp",
+            "tenants/aiswalker/galeria12.webp"
           ]
         },
-        "Section:5": {
-          "Type": "Countdown",
-          "Title": "Win a FREE All-Blacks Jersey!",
-          "BackgroundImage": "tenants/aiswalker/Rugby_Ball.webp",
-          "Paragraph": "We''ll be launching our new site in the coming weeks. Hit the form below to get notified as we launch. Thanks for your interest!",
-          "ButtonText": "Keep Me Informed",
-          "Date": "2020/12/01",
-          "TermsAndConditions": ""
+        {
+          "Type": "Testimonials",
+          "Layout": "",
+          "Theme": "bg-white",
+          "Title": "Testimonios",
+          "Testimonials": [
+            {
+              "Name": "Pepe"
+            },
+            {
+              "Name": "Pepe"
+            }
+          ]
         },
-        "Section:6": {
+        {
+          "Type": "Carrousel",
+          "Layout": "",
+          "Theme": "bg-dark",
+          "Title": "Nuestras Instituciones",
+          "Images": [
+            "tenants/arystec/certificaciones_iqnet.webp",
+            "tenants/arystec/certificaciones_iso14001.webp",
+            "tenants/arystec/certificaciones_siclar.webp",
+            "tenants/arystec/certificaciones_iso9001.webp",
+            "tenants/arystec/certificaciones_rina.webp"
+          ]
+        },
+        {
+          "Type": "CallToAction",
+          "Layout": "Modal1",
+          "Title": "Calidad y Profesionalismo",
+          "Paragraph": "Atendemos a cada detalle",
+          "ButtonText": "Descargar Brochure",
+          "Workflow": {
+            "Type": "FileDownload",
+            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+          }
+        },
+        {
           "Type": "ContentImage",
-          "Layout": "ImageLeft"
+          "Layout": "ImageLeft",
+          "Theme": "bg-dark"
         },
-        "Section:7": {
+        {
+          "Type": "ContentImage",
+          "Layout": "ImageRight",
+          "Theme": "bg-white"
+        },
+        {
           "Type": "Tabs",
           "Layout": ""
         },
-        "Section:8": {
+        {
           "Type": "ContactForm",
           "Layout": "Map",
           "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.8599731069594!2d174.76371671590485!3d-36.84582948705011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fbc827b3ff%3A0x7082c80ee4d0805d!2s99%20Queen%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1608961113527!5m2!1sen!2snz"
-        },
-        "Section:9": {
-          "Type": "Footer",
-          "Layout": ""
         }
-
-      }
+  ]
     },
-    "Page:2": {
+    {
       "Name": "contact",
-      "Sections": {
-        "Section:1": {
+      "Sections": [
+        {
           "Type": "ContactForm",
           "Layout": "Iframe"
         }
-      }
+      ]
     }
-  },
+  ],
   "ThirdPartyConfiguration": {
     "SendGrid": {
       "Key": "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",

@@ -1,12 +1,7 @@
-﻿@using SendGrid;
-@using SendGrid.Helpers.Mail;
-@using DigitalMarketing.Model;
-@using DigitalMarketing.Model.Settings
+﻿@using DigitalMarketing.Model.Settings
 @using DigitalMarketing.Core.Database
 @using DigitalMarketing.Core.Controller
 @using DigitalMarketing.Model.Events
-@using System.Text.Json
-@using System.Dynamic
 @using  DigitalMarketing.Model.Extensions
 @using Microsoft.AspNetCore.Http
 
@@ -23,7 +18,7 @@
             <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
             <textarea class="validate-required" name="message" rows="4" @bind="_touchPointEvent.Message" placeholder="Mensaje"></textarea>
             <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
-            <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
+            <a class="btn" @onclick="SendMessage">Enviar</a>
         </div>
 
         @if (_isSent)
@@ -50,7 +45,7 @@
                     <input type="text" class="validate-required" name="source" @bind="_touchPointEvent.Source" placeholder="Como nos conocio">
                     <textarea class="validate-required" name="message" rows="4" @bind="_touchPointEvent.Message" placeholder="Mensaje"></textarea>
                     <ReCaptcha @ref="reCaptcha" SiteKey="6Ldau70ZAAAAAP6AxAKe-4iT8Ckfunmi6AJqjF14" OnSuccess="OnSuccess" OnExpired="OnExpired" />
-                    <a class="btn btn-filled btn-lg mb0" @onclick="SendMessage">Enviar</a>
+                    <a class="btn" @onclick="SendMessage">Enviar</a>
                 </div>
 
                 @if (_isSent)
@@ -74,11 +69,10 @@
     [Inject]
     public IHttpContextAccessor HttpContextAccessor { get; set; }
 
-    DigitalMarketing.Model.Events.TouchPointEvent _touchPointEvent = new DigitalMarketing.Model.Events.TouchPointEvent() { EventType = TouchPointEventType.AskQuestion };
+    TouchPointEvent _touchPointEvent;
 
     protected bool _isSent;
     protected Guid _productId;
-
 
     //https://github.com/sample-by-jsakamoto/Blazor-UseGoogleReCAPTCHA
     private ReCaptcha reCaptcha;
@@ -99,6 +93,7 @@
 
     protected async override void OnInitialized()
     {
+        _touchPointEvent = new TouchPointEvent() { EventType = TouchPointEventType.AskQuestion };
         StateHasChanged();
     }
 

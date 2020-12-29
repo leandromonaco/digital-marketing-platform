@@ -17,7 +17,7 @@ namespace DigitalMarketing.Tools.WebPConverter
                 if (fileInfo.Extension.Equals(".jpg") || fileInfo.Extension.Equals(".png"))
                 {
                     string strCmdText;
-                    strCmdText = @$"-q 80 ""{filename}"" -o ""{fileInfo.DirectoryName}\{fileInfo.Name.Replace(fileInfo.Extension, ".webp")}""";
+                    strCmdText = @$"-q 20 ""{filename}"" -o ""{fileInfo.DirectoryName}\{fileInfo.Name.Replace(fileInfo.Extension, ".webp")}""";
                     System.Diagnostics.Process.Start($"{Environment.CurrentDirectory}\\WebP_Converter\\tools\\cwebp.exe", strCmdText);
                 }
             }

@@ -4,31 +4,62 @@
 @inject IJSRuntime JSRuntime
 @inject IStringLocalizer<Countdown> L
 
-<section class="cover fullscreen image-bg overlay">
-    <div class="background-image-holder">
-        <img alt="image" class="background-image" src="@Section.BackgroundImage">
-    </div>
-    <div class="container v-align-transform">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="text-center">
-                    <h3 class="uppercase mb40 mb-xs-24">@Section.Title</h3>
-                    <div class="countdown mb40" data-date="@Section.Date"></div>
+@if (Section.Layout.Equals("BackgroundImage"))
+{
+    <section class="cover fullscreen image-bg overlay">
+        <div class="background-image-holder">
+            <img alt="image" class="background-image" src="@Section.BackgroundImage">
+        </div>
+        <div class="container v-align-transform">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <h3 class="uppercase mb40 mb-xs-24">@Section.Title</h3>
+                        <div class="countdown mb40" data-date="@Section.Date"></div>
+                    </div>
                 </div>
             </div>
+
+            <div class="row">
+
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                    <h1 class="mb8">Meet Foundry, Your Design Toolkit.</h1>
+                    <p class="lead mb48">
+                        Perfect for those advertising a new product or service who wish to drive subscribers.
+                    </p>
+                    <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                        <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
+                        <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
+                        <a class="btn btn-lg">Keep Me Informed</a>
+                        <p class="sub text-center">
+                            By signing up, you agree to our
+                            <a href="#">Terms Of Service</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row">
-
-            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                <h1 class="mb8">Meet Foundry, Your Design Toolkit.</h1>
-                <p class="lead mb48">
-                    Perfect for those advertising a new product or service who wish to drive subscribers.
+    </section>
+}
+else if (Section.Layout.Equals("ImageLeft"))
+{
+    <section class="image-edge bg-secondary">
+        <div class="col-md-6 col-sm-4 p0">
+            <img alt="Screenshot" class="mb-xs-24" style="float:right" src="@Section.BackgroundImage">
+        </div>
+        <div class="container">
+            <div class="col-md-5 col-md-offset-1 col-sm-7 col-sm-offset-1 v-align-transform right">
+                <h3 class="uppercase mb40 mb-xs-24">@Section.Title</h3>
+                <div class="countdown mb40" data-date="@Section.Date"></div>
+                <p>
+                    @Section.Paragraph
                 </p>
-                <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-                    <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
-                    <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
-                    <a class="btn btn-lg">Keep Me Informed</a>
+                <form class="form-newsletter" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                    <input type="text" name="name" class="validate-required signup-name-field" placeholder="@L["Name"]">
+                    <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email">
+                    <a class="btn btn-lg">@Section.ButtonText</a>
                     <p class="sub text-center">
                         By signing up, you agree to our
                         <a href="#">Terms Of Service</a>
@@ -37,34 +68,9 @@
             </div>
         </div>
 
-    </div>
+    </section>
 
-</section>
-
-<section class="image-edge bg-secondary">
-    <div class="col-md-6 col-sm-4 p0">
-        <img alt="Screenshot" class="mb-xs-24" style="float:right" src="@Section.BackgroundImage">
-    </div>
-    <div class="container">
-        <div class="col-md-5 col-md-offset-1 col-sm-7 col-sm-offset-1 v-align-transform right">
-            <h3 class="uppercase mb40 mb-xs-24">@Section.Title</h3>
-            <div class="countdown mb40" data-date="@Section.Date"></div>
-            <p>
-                @Section.Paragraph
-            </p>
-            <form class="form-newsletter" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-                <input type="text" name="name" class="validate-required signup-name-field" placeholder="@L["Name"]">
-                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email">
-                <a class="btn btn-lg">@Section.ButtonText</a>
-                <p class="sub text-center">
-                    By signing up, you agree to our
-                    <a href="#">Terms Of Service</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
-</section>
+}
 
 @code {
     [Parameter]

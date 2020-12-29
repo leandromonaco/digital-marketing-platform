@@ -3,51 +3,54 @@
 
 @if (Tenant != null && Section != null)
 {
-    <section class="bg-primary">
-        <div class="container">
-            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                <h1 class="mb8">@Section.Title</h1>
-                <p class="lead mb48">
-                    @Section.Paragraph
-                </p>
-                <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-                    <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
-                    <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
-                    <a class="btn btn-lg">@Section.ButtonText</a>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="pt64 pb64">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2 class="mb8">@Section.Title</h2>
-                    <p class="lead mb40 mb-xs-24">
+    @if (Section.Layout.Equals("LeadForm"))
+    {
+        <section class="bg-primary">
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                    <h3 class="mb8">@Section.Title</h3>
+                    <p class="lead mb48">
                         @Section.Paragraph
                     </p>
-                    <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+                    <form class="form-newsletter thirds" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                        <input type="text" name="name" class="validate-required signup-name-field" placeholder="Your Name">
+                        <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email Address">
+                        <a class="btn btn-lg">@Section.ButtonText</a>
+                    </form>
                 </div>
             </div>
+        </section>
+    }
+    else if (Section.Layout.Equals("Modal1"))
+    {
+        <section class="pt64 pb64">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3 class="mb8">@Section.Title</h3>
+                        <p class="lead mb40 mb-xs-24">
+                            @Section.Paragraph
+                        </p>
+                        <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+                    </div>
+                </div>
 
-        </div>
-
-    </section>
-
-    <section class="bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h3 class="mb0 inline-block p32 p0-xs">@Section.Title</h3>
-                    <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+            </div>
+        </section>
+    }
+    else if (Section.Layout.Equals("Modal2"))
+    {
+        <section class="bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3 class="mb0 inline-block p32 p0-xs">@Section.Title</h3>
+                        <a class="btn btn-lg btn-white mb8 mt-xs-24" href="#" @onclick="e => _isModalOpened = true">@Section.ButtonText</a>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-
+        </section>
+    }
 
     <Modal Tenant="@Tenant" Section="@Section" @bind-Open="_isModalOpened" />
 }

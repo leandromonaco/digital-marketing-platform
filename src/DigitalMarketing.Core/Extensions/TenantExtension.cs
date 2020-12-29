@@ -26,27 +26,6 @@ namespace DigitalMarketing.Model.Extensions
                 parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
             }
 
-            using (JsonDocument doc = JsonDocument.Parse(json))
-            {
-                JsonElement root = doc.RootElement;
-
-                var pages = root.GetProperty("Pages").EnumerateObject();
-                parsedConfig.Pages = new List<Page>();
-                foreach (var page in pages)
-                {
-                    var p = JsonSerializer.Deserialize<Page>(page.Value.ToString());
-                    p.Sections = new List<Section>();
-
-                    var sections = page.Value.GetProperty("Sections").EnumerateObject();
-                    foreach (var section in sections)
-                    {
-                        var s = JsonSerializer.Deserialize<Section>(section.Value.ToString());
-                        p.Sections.Add(s);
-                    }
-                    parsedConfig.Pages.Add(p);
-                }
-            }
-
             return parsedConfig;
         }
     }

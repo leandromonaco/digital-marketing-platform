@@ -6,6 +6,7 @@ namespace DigitalMarketing.Model.Settings
     {
         public string Type { get; set; }
         public string Layout { get; set; }
+        public string Theme { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
         public string Paragraph { get; set; }

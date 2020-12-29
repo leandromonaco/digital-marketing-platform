@@ -6,11 +6,11 @@
     "Light": "#333333",
     "Dark": "#333333"
   },
-  "Pages": {
-    "Page:1": {
+  "Pages": [
+    {
       "Name": "home",
-      "Sections": {
-        "Section:1": {
+      "Sections": [
+        {
           "Type": "Cover",
           "Layout": "Image",
           "Title": "",
@@ -24,17 +24,7 @@
             "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
           }
         },
-        "Section:2": {
-          "Type": "CallToAction",
-          "Title": "Calidad y Profesionalismo",
-          "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
-          "ButtonText": "Descargar Brochure",
-          "Workflow": {
-            "Type": "FileDownload",
-            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
-          }
-        },
-        "Section:3": {
+        {
           "Type": "Carrousel",
           "Title": "Certificaciones",
           "Images": [
@@ -45,7 +35,7 @@
             "tenants/arystec/certificaciones_rina.webp"
           ]
         },
-        "Section:4": {
+        {
           "Type": "Gallery",
           "Title": "Trabajos",
           "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
@@ -64,27 +54,25 @@
             "tenants/arystec/Trabajos_12.webp"
           ]
         },
-        "Section:5": {
-          "Type": "Countdown",
-          "Title": "Win a FREE All-Blacks Jersey!",
-          "BackgroundImage": "tenants/aiswalker/Rugby_Ball.webp",
-          "Paragraph": "We''ll be launching our new site in the coming weeks. Hit the form below to get notified as we launch. Thanks for your interest!",
-          "ButtonText": "Keep Me Informed",
-          "Date": "2020/12/01",
-          "TermsAndConditions": ""
+        {
+          "Type": "CallToAction",
+          "Layout": "Modal1",
+          "Title": "Calidad y Profesionalismo",
+          "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
+          "ButtonText": "Descargar Brochure",
+          "Workflow": {
+            "Type": "FileDownload",
+            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+          }
         },
-        "Section:6": {
-          "Type": "Map",
-          "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.5855110387743!2d-58.397048784172895!3d-34.69040916959841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccce80362246f%3A0x8c6c46499d08cba0!2sConcejal%20H.%20Noya%201247%2C%20B1824DXH%20Lan%C3%BAs%20Oeste%2C%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1sen!2sus!4v1589769470962!5m2!1sen!2sus"
-        },
-        "Section:7": {
+        {
           "Type": "ContactForm",
           "Layout": "Map",
           "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.5855110387743!2d-58.397048784172895!3d-34.69040916959841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccce80362246f%3A0x8c6c46499d08cba0!2sConcejal%20H.%20Noya%201247%2C%20B1824DXH%20Lan%C3%BAs%20Oeste%2C%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1sen!2sus!4v1589769470962!5m2!1sen!2sus"
         }
-      }
+      ]
     }
-  },
+  ],
   "ThirdPartyConfiguration": {
     "SendGrid": {
       "Key": "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",
