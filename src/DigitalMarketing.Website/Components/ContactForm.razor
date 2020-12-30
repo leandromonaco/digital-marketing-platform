@@ -7,7 +7,6 @@
 
 @if (Tenant != null && Section != null)
 {
-
     @if (Section.Layout.Equals("Iframe"))
     {
         <div class="form-email">
@@ -28,16 +27,15 @@
     }
     else if (Section.Layout.Equals("Map"))
     {
-        <section class="bg-dark image-square right">
+        <section class="@Section.Theme image-square right">
             <div class="col-md-6 p0 image">
                 <div class="map-holder background-image-holder">
                     <iframe src="@Section.Url"></iframe>
                 </div>
             </div>
             <div class="col-md-6 content">
-
                 <div class="form-email">
-                    <h6 class="uppercase text-center">Contacto</h6>
+                    <h3 class="text-center">Contacto</h3>
                     <input type="text" class="validate-required" name="name" @bind="_touchPointEvent.FirstName" placeholder="Primer Nombre">
                     <input type="text" class="validate-required validate-email" name="email" @bind="_touchPointEvent.Email" placeholder="Email">
                     <input type="text" class="validate-required" name="phone" @bind="_touchPointEvent.Phone" placeholder="Telefono">

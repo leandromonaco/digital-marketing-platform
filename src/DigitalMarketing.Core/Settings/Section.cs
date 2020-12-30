@@ -16,6 +16,8 @@ namespace DigitalMarketing.Model.Settings
         public string DownloadFile { get; set; }
         public string Date { get; set; }
         public string Url { get; set; }
+        public List<Testimonial> Testimonials { get; set; }
+        public List<AccordionItem> AccordionItems { get; set; }
         public List<string> Images { get; set; }
         public Workflow Workflow { get; set; }
     }

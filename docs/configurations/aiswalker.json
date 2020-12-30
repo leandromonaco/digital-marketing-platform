@@ -32,8 +32,8 @@
           "Type": "ContentVideo",
           "Layout": "VideoLeft",
           "Theme": "bg-white",
-          "Title": "Nueva Zelanda te espera para vivir la mejor experiencia de tu vida",
-          "Paragraph": "Realizamos una gestión 100% personalizada. Tenemos programas para todas las edades.",
+          "Title": "Nueva Zelanda te espera",
+          "Paragraph": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
           "BackgroundVideo": "tenants/aiswalker/intro.mp4",
           "ButtonText": "Descargar Brochure",
           "Workflow": {
@@ -67,29 +67,35 @@
           "Title": "Testimonios",
           "Testimonials": [
             {
-              "Name": "Pepe"
+              "Name": "Pablo Contreras",
+              "Title": "Programa Gira de Estudios",
+              "Picture": "tenants/aiswalker/testimonials_pablo_contreras.webp",
+              "Comment": "Simplemente increíble todo!!!! La organización , las actividades , la preocupación , el positivismo para todo y el animo son cosas que de verdad son muy destacables y la verdad todas esas cosas te dejan con ganas de querer ir una y mil veces más aparte de todo lo que se aprende allá de culturas distintas , inglés , otras realidades y mil cosas más las cuales son simplemente maravillosas!"
             },
             {
-              "Name": "Pepe"
+              "Name": "Marcia Alejandra Anabalon Suarez",
+              "Title": "Programa ?",
+              "Picture": "tenants/aiswalker/testimonials_marcia_anabalon.webp",
+              "Comment": "Totalmente recomendable !! Mi hija lo paso excelente , gracias por tanta preocupación a desde el principio ! Nada al azar ... anímense !!"
+            },
+            {
+              "Name": "Karen Acuña",
+              "Title": "Programa ?",
+              "Picture": "tenants/aiswalker/testimonials_karen_acuna.webp",
+              "Comment": "Acompañamiento durante todo el proceso de aplicación.... siempre atentos a las dudas y requerimientos..muy agradecida de todas las gestiones realizadas...especial agradecimiento a Joselyn que me guió en todo...100% recomendables..😊🇨🇱🇳🇿"
+            },
+            {
+              "Name": "Denisse Tapia Cabrera",
+              "Title": "Programa Familia",
+              "Picture": "tenants/aiswalker/testimonials_denisse_tapia.webp",
+              "Comment": "Como estudiantes del programa familia, hemos recibido un excelente servicio y atencion de parte de Paola, su equipo de trabajo y especialmente su familia, lo que demuestra la alta calidad humana de la empresa AIS.Walker... gracias por todo, principalmente la atencion y dedicacion con Leonor, quien esta feliz con la experiencia vivida"
             }
-          ]
-        },
-        {
-          "Type": "Carrousel",
-          "Layout": "",
-          "Theme": "bg-dark",
-          "Title": "Nuestras Instituciones",
-          "Images": [
-            "tenants/arystec/certificaciones_iqnet.webp",
-            "tenants/arystec/certificaciones_iso14001.webp",
-            "tenants/arystec/certificaciones_siclar.webp",
-            "tenants/arystec/certificaciones_iso9001.webp",
-            "tenants/arystec/certificaciones_rina.webp"
           ]
         },
         {
           "Type": "CallToAction",
           "Layout": "Modal1",
+          "Theme": "bg-dark",
           "Title": "Calidad y Profesionalismo",
           "Paragraph": "Atendemos a cada detalle",
           "ButtonText": "Descargar Brochure",
@@ -99,25 +105,68 @@
           }
         },
         {
-          "Type": "ContentImage",
-          "Layout": "ImageLeft",
-          "Theme": "bg-dark"
+          "Type": "Carrousel",
+          "Layout": "",
+          "Theme": "bg-white",
+          "Title": "Nuestras Instituciones",
+          "Images": [
+            "tenants/aiswalker/Instituciones_Kingston.webp",
+            "tenants/aiswalker/Instituciones_Kingston.webp",
+            "tenants/aiswalker/Instituciones_Kingston.webp",
+            "tenants/aiswalker/Instituciones_Kingston.webp",
+            "tenants/aiswalker/Instituciones_Kingston.webp"
+          ]
         },
         {
-          "Type": "ContentImage",
-          "Layout": "ImageRight",
-          "Theme": "bg-white"
-        },
-        {
-          "Type": "Tabs",
-          "Layout": ""
+          "Type": "Accordion",
+          "Layout": "",
+          "Theme": "bg-dark",
+          "AccordionItems": [
+            {
+              "Title": "¿Qué requisitos hay para los programas?",
+              "Paragraph": "Si tienes entre 12 y 70 años, puedes incluirte en nuestros programas de turismo e inglés intensivo."
+            },
+            {
+              "Title": "Soy profesional, ¿puedo trabajar en NZ?",
+              "Paragraph": "Depende de tu profesión y nivel de inglés, Nuestro programa de estudia y trabaja en Nueva Zelanda es fundamental el nivel avanzado de inglés, ya que para buscar trabajo se necesita un buen manejo del idioma. Si tu nivel de inglés es básico, recomendamos que tomes un programa de 8 semanas de ingles intensivo con nosotros en NZ."
+            },
+            {
+              "Title": "¿Necesito un mínimo de inglés para viajar?",
+              "Paragraph": "Solo para programas de Colegio. Para los programas de estudia y trabaja RECOMENDAMOS un nivel avanzado de inglés."
+            },
+            {
+              "Title": "¿Cuál es la edad máxima y mínima para los programas?",
+              "Paragraph": "Entre 12 y 70 años."
+            },
+            {
+              "Title": "¿Dónde están ubicados?",
+              "Paragraph": "No tenemos oficinas en Chile, somos residentes en NZ y un equipo de agentes y coordinadores personalizados en Chile."
+            },
+            {
+              "Title": "¿En cuánto tiempo se aprende inglés?",
+              "Paragraph": "Depende de la responsabilidad de cada alumno, cuanto tiempo al día se comunique en inglés y el esfuerzo personal en el instituto de inglés."
+            },
+            {
+              "Title": "¿Puedo trabajar en Nueva Zelanda?",
+              "Paragraph": "Hay 3 maneras: <br>1.- Un empleador te ofrezca empleo en NZ <br>2.- Con el programa Estudia y trabaja que requiere un nivel de inglés intermedio o alto. <br>3.- El programa Working Holiday que se postula una vez al año."
+            },
+            {
+              "Title": "¿Hay becas?",
+              "Paragraph": "Hoy no contamos con becas de estudio. Esperamos contar con novedades luego de la pandemia."
+            },
+            {
+              "Title": "¿Cuándo abren las visas Working Holiday para Chile?",
+              "Paragraph": "Las visas Working Holiday generalmente están disponibles todos los años en el mes de octubre. La decisión en 2020 ha sido demorada hasta 2021 debido a la situación con COVID-19. El tiempo de visado que te permite trabajar y estudiar es por 12 meses. Hay 940 cupos para personas de 18 a 35 años."
+            }
+          ]
         },
         {
           "Type": "ContactForm",
           "Layout": "Map",
+          "Theme": "bg-white",
           "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.8599731069594!2d174.76371671590485!3d-36.84582948705011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fbc827b3ff%3A0x7082c80ee4d0805d!2s99%20Queen%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1608961113527!5m2!1sen!2snz"
         }
-  ]
+      ]
     },
     {
       "Name": "contact",

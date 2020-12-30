@@ -10,16 +10,20 @@
                 <div class="text-slider slider-paging-controls text-center relative">
                     <div class="flex-viewport" style="overflow: hidden; position: relative;">
                         <ul class="slides" style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-1665px, 0px, 0px);">
-                            <li class="clone" aria-hidden="true" style="width: 555px; float: left; display: block;">
-                                <h5>There is only once choice when it comes to our marketing collateral, Foundry always deliver inspiring work on-time and budget.</h5>
-                                <div class="quote-author">
-                                    <img alt="Author" class="image-xs mb16" src="img/avatar6.png" draggable="false">
-                                    <h6 class="uppercase mb0">Natasha Canter</h6>
-                                    <span>Vault</span>
-                                </div>
-                            </li>
+                            @foreach (var testimonial in Section.Testimonials)
+                            {
+                                <li class="clone" aria-hidden="true" style="width: 555px; float: left; display: block;">
+                                    <h5>@testimonial.Comment</h5>
+                                    <div class="quote-author">
+                                        <img alt="Author" class="image-xs mb16" src="@testimonial.Picture" draggable="false">
+                                        <h6 class="uppercase mb0">@testimonial.Name</h6>
+                                        <span>@testimonial.Title</span>
+                                    </div>
+                                </li>
+                            }
                         </ul>
-                    </div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol>
+                    </div>
+                    @*<ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol>*@
                 </div>
             </div>
         </div>

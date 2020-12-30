@@ -359,7 +359,19 @@ function SetTabs() {
 
 }
 
-
+function SetAccordions() {
+    $('.accordion li').click(function () {
+        if ($(this).closest('.accordion').hasClass('one-open')) {
+            $(this).closest('.accordion').find('li').removeClass('active');
+            $(this).addClass('active');
+        } else {
+            $(this).toggleClass('active');
+        }
+        if (typeof window.mr_parallax !== "undefined") {
+            setTimeout(mr_parallax.windowLoad, 500);
+        }
+    });
+}
 //Modal
 //function blazorInitializeModal(dialog, reference) {
 //    dialog.addEventListener("close", async e => {

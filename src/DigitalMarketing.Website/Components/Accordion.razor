@@ -1,0 +1,49 @@
+﻿@using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Core.Database
+@inject IJSRuntime JSRuntime
+
+<section class="@Section.Theme">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h3 class="mb16">Preguntas Frecuentes</h3>
+            </div>
+        </div>
+        <!--end of row-->
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <ul class="accordion accordion-2">
+                    @foreach (var item in Section.AccordionItems)
+                    {
+                        <li class="">
+                            <div class="title">
+                                <h5 class="inline-block mb0">@item.Title</h5>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    @((MarkupString)item.Paragraph)
+                                </p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <!--end of accordion-->
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+@code {
+    [Parameter]
+    public Tenant Tenant { get; set; }
+
+    [Parameter]
+    public Section Section { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeAsync<object>("SetCarrousel");
+    }
+}

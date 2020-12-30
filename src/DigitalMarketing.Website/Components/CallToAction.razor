@@ -5,7 +5,7 @@
 {
     @if (Section.Layout.Equals("LeadForm"))
     {
-        <section class="bg-primary">
+        <section class="@Section.Theme">
             <div class="container">
                 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
                     <h3 class="mb8">@Section.Title</h3>
@@ -23,7 +23,7 @@
     }
     else if (Section.Layout.Equals("Modal1"))
     {
-        <section class="pt64 pb64">
+        <section class="@Section.Theme">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
@@ -40,7 +40,7 @@
     }
     else if (Section.Layout.Equals("Modal2"))
     {
-        <section class="bg-primary">
+        <section class="@Section.Theme">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">

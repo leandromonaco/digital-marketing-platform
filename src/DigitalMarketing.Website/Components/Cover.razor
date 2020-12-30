@@ -13,8 +13,8 @@
                         <img alt="Background Image" class="background-image" src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundImage)">
                     </div>
                     <div class="fs-vid-background">
-                        <video autoplay muted>
-                            <source src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundVideo)" type="video/webm">
+                        <video playsinline autoplay muted loop>
+                            <source src="@string.Concat($"tenants/{Tenant.Label}/", Section.BackgroundVideo)" type="video/mp4">
                         </video>
                     </div>
                     <div class="container v-align-transform">

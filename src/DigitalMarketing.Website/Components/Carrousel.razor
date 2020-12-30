@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h4 class="uppercase mb64 mb-xs-40">@Section.Title</h4>
+                    <h3 class="mb64 mb-xs-40">@Section.Title</h3>
                 </div>
             </div>
 
@@ -42,6 +42,6 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JSRuntime.InvokeAsync<object>("SetCarrousel");
+        await JSRuntime.InvokeAsync<object>("SetAccordions");
     }
 }
