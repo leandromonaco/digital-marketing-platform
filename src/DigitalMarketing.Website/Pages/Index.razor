@@ -10,6 +10,7 @@
 @using DigitalMarketing.Model.Helpers
 @using DigitalMarketing.Core.Http
 @using Microsoft.AspNetCore.Components.Web.Extensions.Head
+@inject IJSRuntime JSRuntime
 
 <div class="nav-container">
     <NavigationBar></NavigationBar>
@@ -99,5 +100,76 @@
         //var test = await HttpService.GetAsync("http://localhost:52090");
         _tenant = await SiteHelper.IdentifyTenant(HttpContextAccessor.HttpContext.Request.Host.Value);
         _configuration = _tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
+
+        var themes = new List<string>() { "bg-primary",
+                                          "bg-secondary",
+                                          "bg-light",
+                                          "bg-dark",
+                                          "bg-primary-button",
+                                          "bg-secondary-button",
+                                          "bg-light-button",
+                                          "bg-dark-button"};
+
+        foreach (var theme in themes)
+        {
+            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-background", GetColor($"--{theme}-background"));
+            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-color", GetColor($"--{theme}-color"));
+            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-border-color", GetColor($"--{theme}-border-color"));
+        }
+    }
+
+    protected string GetColor(string theme)
+    {
+        switch (theme)
+        {
+            case "--bg-primary-background":
+            case "--bg-secondary-color":
+            case "--bg-secondary-border-color":
+
+            case "--bg-secondary-button-background":
+            case "--bg-primary-button-color":
+            case "--bg-primary-button-border-color":
+
+                return _configuration.Colors.Primary;
+
+            case "--bg-secondary-background":
+            case "--bg-primary-color":
+            case "--bg-primary-border-color":
+
+            case "--bg-primary-button-background":
+            case "--bg-secondary-button-color":
+            case "--bg-secondary-button-border-color":
+
+                return _configuration.Colors.Secondary;
+
+            case "--bg-light-background":
+            case "--bg-dark-color":
+            case "--bg-dark-border-color":
+
+            case "--bg-dark-button-background":
+            case "--bg-light-button-color":
+            case "--bg-light-button-border-color":
+
+                return _configuration.Colors.Light;
+
+            case "--bg-dark-background":
+            case "--bg-light-color":
+            case "--bg-light-border-color":
+
+            case "--bg-light-button-background":
+            case "--bg-dark-button-color":
+            case "--bg-dark-button-border-color":
+
+                return _configuration.Colors.Dark;
+
+            default:
+
+                return string.Empty;
+        }
+    }
+
+    protected async void OnAfterRenderAsync()
+    {
+
     }
 }

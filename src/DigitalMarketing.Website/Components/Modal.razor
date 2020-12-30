@@ -10,19 +10,6 @@
 @using Microsoft.AspNetCore.Http
 @inject IJSRuntime JSRuntime
 
-
-<style>
-.btn {
-    background: @_backgroundColor;
-    color: @_color;
-}
-
-.btn:hover {
-    background: @_hoverBackgroundColor;
-    color: @_hoverColor;
-}
-</style>
-
 @if (Section != null)
 {
     <dialog @ref="_element">
@@ -59,20 +46,12 @@
     [Inject]
     public IHttpContextAccessor HttpContextAccessor { get; set; }
 
-    string _color;
-    string _backgroundColor;
-    string _hoverColor;
-    string _hoverBackgroundColor;
-
     // although the title is set on loading, if it is changed by a component we
     // need to call StateHasChanged to trigger Blazor to rerender since the event
     // that triggered it is outside this component
     protected async override void OnInitialized()
     {
-        _color = "#000000";
-        _backgroundColor = "#808080";
-        _hoverColor = "#808080";
-        _hoverBackgroundColor = "#000000";
+
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

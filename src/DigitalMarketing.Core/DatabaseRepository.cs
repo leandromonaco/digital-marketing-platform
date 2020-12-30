@@ -49,19 +49,31 @@ namespace DigitalMarketing.Model
             await dataContext.SaveChangesAsync();
         }
 
-        public async Task ImportStagingConfigurationAsync(string filename, DateTime lastModified, string jsonContent)
+        public async Task ImportStagingConfigurationAsync(string filename, DateTime lastModified, string jsonContent, bool isPromoted)
         {
             using (DigitalMarketingContext dataContext = new DigitalMarketingContext()) 
             {
                 var label = filename.Replace(".json", "");
-                var stagingTenantConfiguration = dataContext.TenantConfiguration.Include(tc => tc.Tenant)
+                var tenantConfiguration = dataContext.TenantConfiguration.Include(tc => tc.Tenant)
                                                                                 .Where(tc => tc.File.Filename.Equals("tenant.staging.json") &&
                                                                                              tc.Tenant.Label.Equals(label)).FirstOrDefault();
 
-                stagingTenantConfiguration.LastModified = lastModified;
-                stagingTenantConfiguration.Content = jsonContent;
-                dataContext.Entry(stagingTenantConfiguration).State = EntityState.Modified;
+                tenantConfiguration.LastModified = lastModified;
+                tenantConfiguration.Content = jsonContent;
+                dataContext.Entry(tenantConfiguration).State = EntityState.Modified;
                 await dataContext.SaveChangesAsync();
+
+                if (isPromoted)
+                {
+                    tenantConfiguration = dataContext.TenantConfiguration.Include(tc => tc.Tenant)
+                                                                               .Where(tc => tc.File.Filename.Equals("tenant.production.json") &&
+                                                                                            tc.Tenant.Label.Equals(label)).FirstOrDefault();
+
+                    tenantConfiguration.LastModified = lastModified;
+                    tenantConfiguration.Content = jsonContent;
+                    dataContext.Entry(tenantConfiguration).State = EntityState.Modified;
+                    await dataContext.SaveChangesAsync();
+                }
             }
         }
     }

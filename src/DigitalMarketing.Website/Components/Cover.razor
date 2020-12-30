@@ -4,7 +4,7 @@
 
 @if (Tenant != null && Section != null)
 {
-    <section class="cover fullscreen image-slider slider-all-controls">
+    <section class="@Section.Theme cover fullscreen image-slider slider-all-controls">
         <ul class="slides">
             @if (Section.Layout.Equals("Video"))
             {

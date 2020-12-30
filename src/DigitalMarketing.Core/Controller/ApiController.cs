@@ -16,10 +16,10 @@ namespace DigitalMarketing.Core.Controller
 {
     public class ApiController
     {
-        public static async Task ImportStagingConfigurationAsync(string filename, DateTime lastModified, string jsonContent)
+        public static async Task ImportStagingConfigurationAsync(string filename, DateTime lastModified, string jsonContent, bool isPromoted)
         {
             DatabaseRepository databaseRepository = new DatabaseRepository();
-            await databaseRepository.ImportStagingConfigurationAsync(filename, lastModified, jsonContent);
+            await databaseRepository.ImportStagingConfigurationAsync(filename, lastModified, jsonContent, isPromoted);
         }
 
         public static async Task DownloadFile(Guid tenantId, SendGridConfiguration sendGridConfiguration, TouchPointEvent touchPointEvent, string downloadUrl) 

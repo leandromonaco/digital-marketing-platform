@@ -1,10 +1,10 @@
 {
   "Title": "AIS Walker",
   "Colors": {
-    "Primary": "#333333",
-    "Secondary": "#333333",
-    "Light": "#333333",
-    "Dark": "#333333"
+    "Primary": "#FFC912",
+    "Secondary": "#181818",
+    "Light": "#FFFFFF",
+    "Dark": "#181818"
   },
   "Pages": [
     {
@@ -17,6 +17,7 @@
         {
           "Type": "Cover",
           "Layout": "Image",
+          "Theme": "bg-dark",
           "Title": "",
           "SubTitle": "Estudia y Trabaja en Nueva Zelanda",
           "Paragraph": "Realizamos una gestión 100% personalizada. Tenemos programas para todas las edades.",
@@ -31,7 +32,7 @@
         {
           "Type": "ContentVideo",
           "Layout": "VideoLeft",
-          "Theme": "bg-white",
+          "Theme": "bg-light",
           "Title": "Nueva Zelanda te espera",
           "Paragraph": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
           "BackgroundVideo": "tenants/aiswalker/intro.mp4",
@@ -63,7 +64,7 @@
         {
           "Type": "Testimonials",
           "Layout": "",
-          "Theme": "bg-white",
+          "Theme": "bg-light",
           "Title": "Testimonios",
           "Testimonials": [
             {
@@ -107,7 +108,7 @@
         {
           "Type": "Carrousel",
           "Layout": "",
-          "Theme": "bg-white",
+          "Theme": "bg-light",
           "Title": "Nuestras Instituciones",
           "Images": [
             "tenants/aiswalker/Instituciones_Kingston.webp",
@@ -163,7 +164,7 @@
         {
           "Type": "ContactForm",
           "Layout": "Map",
-          "Theme": "bg-white",
+          "Theme": "bg-light",
           "Url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.8599731069594!2d174.76371671590485!3d-36.84582948705011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fbc827b3ff%3A0x7082c80ee4d0805d!2s99%20Queen%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1608961113527!5m2!1sen!2snz"
         }
       ]

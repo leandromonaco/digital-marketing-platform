@@ -1,10 +1,10 @@
 {
   "Title": "Arystec - Ingeniería y Construcciones",
   "Colors": {
-    "Primary": "#333333",
-    "Secondary": "#333333",
-    "Light": "#333333",
-    "Dark": "#333333"
+    "Primary": "#0B385D",
+    "Secondary": "#181818",
+    "Light": "#FFFFFF",
+    "Dark": "#0B385D"
   },
   "Pages": [
     {
@@ -13,6 +13,7 @@
         {
           "Type": "Cover",
           "Layout": "Image",
+          "Theme": "bg-dark",
           "Title": "",
           "SubTitle": "Ingeniería y Construcciones",
           "Paragraph": "Asesoramiento integral en la industria petroquímica con mas de 20 años de experiencia",
@@ -26,6 +27,7 @@
         },
         {
           "Type": "Carrousel",
+          "Theme": "bg-light",
           "Title": "Certificaciones",
           "Images": [
             "tenants/arystec/certificaciones_iqnet.webp",
@@ -37,6 +39,7 @@
         },
         {
           "Type": "Gallery",
+          "Theme": "bg-dark",
           "Title": "Trabajos",
           "Paragraph": " La experiencia nacional e internacional de nuestro staff asegura la finalización exitosa de los trabajos encomendados, cumpliendo con la legislación vigente y minimizando los costos de ejecución.",
           "Images": [
@@ -57,6 +60,7 @@
         {
           "Type": "CallToAction",
           "Layout": "Modal1",
+          "Theme": "bg-light",
           "Title": "Calidad y Profesionalismo",
           "Paragraph": " Obras Técnicamente Confiables y Operativamente Seguras",
           "ButtonText": "Descargar Brochure",
