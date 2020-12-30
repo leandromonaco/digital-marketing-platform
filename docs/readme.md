@@ -1,3 +1,5 @@
+Plugin usage examples: https://preview.themeforest.net/item/jumpstart-app-and-software-template/full_screen_preview/24207799
+
 Install Docker Desktop: https://www.docker.com/products/docker-desktop
 Use Linux Containers
 docker run -e "ACCEPT_EULA=Y" --name "sw-sql" -e "SA_PASSWORD=S0ftw4r3W0rk3r" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest 
