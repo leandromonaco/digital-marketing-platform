@@ -314,9 +314,4 @@
 
     [Parameter]
     public Section Section { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JSRuntime.InvokeAsync<object>("SetTabs");
-    }
 }

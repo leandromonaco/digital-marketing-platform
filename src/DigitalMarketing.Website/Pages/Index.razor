@@ -4,6 +4,7 @@
 @using DigitalMarketing.Website.Components
 @using DigitalMarketing.Core.Database
 @using DigitalMarketing.Model.Settings
+@using DigitalMarketing.Website.Model
 @using Microsoft.AspNetCore.Http
 @using  DigitalMarketing.Model
 @using  DigitalMarketing.Model.Extensions
@@ -94,8 +95,13 @@
 
     Tenant _tenant;
     TenantConfigurationModel _configuration;
+    List<ColorVariable> _colorVariables;
 
-    protected async override void OnInitialized()
+    /// <summary>
+    /// https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-5.0
+    /// </summary>
+    /// <returns></returns>
+    protected override async Task OnInitializedAsync()
     {
         //var test = await HttpService.GetAsync("http://localhost:52090");
         _tenant = await SiteHelper.IdentifyTenant(HttpContextAccessor.HttpContext.Request.Host.Value);
@@ -110,11 +116,13 @@
                                           "bg-light-button",
                                           "bg-dark-button"};
 
+        _colorVariables = new List<ColorVariable>();
+
         foreach (var theme in themes)
         {
-            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-background", GetColor($"--{theme}-background"));
-            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-color", GetColor($"--{theme}-color"));
-            await JSRuntime.InvokeVoidAsync("document.documentElement.style.setProperty", $"--{theme}-border-color", GetColor($"--{theme}-border-color"));
+            _colorVariables.Add(new ColorVariable() { Name = $"--{theme}-background", Value = GetColor($"--{theme}-background") });
+            _colorVariables.Add(new ColorVariable() { Name = $"--{theme}-color", Value = GetColor($"--{theme}-color") });
+            _colorVariables.Add(new ColorVariable() { Name = $"--{theme}-border-color", Value = GetColor($"--{theme}-border-color") });
         }
     }
 
@@ -168,8 +176,17 @@
         }
     }
 
-    protected async void OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("SetColors", _colorVariables);
+            await JSRuntime.InvokeVoidAsync("SetAccordion");
+            await JSRuntime.InvokeVoidAsync("SetCarrousel");
+            await JSRuntime.InvokeVoidAsync("SetGallery");
+            await JSRuntime.InvokeVoidAsync("SetTabs");
+            await JSRuntime.InvokeVoidAsync("SetCountdown");
+            StateHasChanged();
+        }
     }
 }

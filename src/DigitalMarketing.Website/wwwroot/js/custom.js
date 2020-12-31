@@ -51,196 +51,8 @@ var My;
 })(My || (My = {}));
 //# sourceMappingURL=script.js.map
 
-
-function SetNavBar() {
-
-    // Navigation
-
-    if (!$('nav').hasClass('fixed') && !$('nav').hasClass('absolute')) {
-
-        // Make nav container height of nav
-
-        $('.nav-container').css('min-height', $('nav').outerHeight(true));
-
-        $(window).resize(function () {
-            $('.nav-container').css('min-height', $('nav').outerHeight(true));
-        });
-
-        // Compensate the height of parallax element for inline nav
-
-        if ($(window).width() > 768) {
-            $('.parallax:nth-of-type(1) .background-image-holder').css('top', -($('nav').outerHeight(true)));
-        }
-
-        // Adjust fullscreen elements
-
-        if ($(window).width() > 768) {
-            $('section.fullscreen:nth-of-type(1)').css('height', ($(window).height() - $('nav').outerHeight(true)));
-        }
-
-    } else {
-        $('body').addClass('nav-is-overlay');
-    }
-
-    if ($('nav').hasClass('bg-dark')) {
-        $('.nav-container').addClass('bg-dark');
-    }
-
-
-    // Fix nav to top while scrolling
-
-    mr_nav = $('body .nav-container nav:first');
-    mr_navOuterHeight = $('body .nav-container nav:first').outerHeight();
-    mr_fixedAt = typeof mr_nav.attr('data-fixed-at') !== typeof undefined ? parseInt(mr_nav.attr('data-fixed-at').replace('px', '')) : parseInt($('section:nth-of-type(1)').outerHeight());
-    window.addEventListener("scroll", updateNav, false);
-
-    // Menu dropdown positioning
-
-    $('.menu > li > ul').each(function () {
-        var menu = $(this).offset();
-        var farRight = menu.left + $(this).outerWidth(true);
-        if (farRight > $(window).width() && !$(this).hasClass('mega-menu')) {
-            $(this).addClass('make-right');
-        } else if (farRight > $(window).width() && $(this).hasClass('mega-menu')) {
-            var isOnScreen = $(window).width() - menu.left;
-            var difference = $(this).outerWidth(true) - isOnScreen;
-            $(this).css('margin-left', -(difference));
-        }
-    });
-
-    // Mobile Menu
-
-    $('.mobile-toggle').click(function () {
-        $('.nav-bar').toggleClass('nav-open');
-        $(this).toggleClass('active');
-    });
-
-    $('.menu li').click(function (e) {
-        if (!e) e = window.event;
-        e.stopPropagation();
-        if ($(this).find('ul').length) {
-            $(this).toggleClass('toggle-sub');
-        } else {
-            $(this).parents('.toggle-sub').removeClass('toggle-sub');
-        }
-    });
-
-    $('.menu li a').click(function () {
-        if ($(this).hasClass('inner-link')) {
-            $(this).closest('.nav-bar').removeClass('nav-open');
-        }
-    });
-
-    $('.module.widget-handle').click(function () {
-        $(this).toggleClass('toggle-widget-handle');
-    });
-
-    $('.search-widget-handle .search-form input').click(function (e) {
-        if (!e) e = window.event;
-        e.stopPropagation();
-    });
-
-    // Offscreen Nav
-
-    if ($('.offscreen-toggle').length) {
-        $('body').addClass('has-offscreen-nav');
-    }
-    else {
-        $('body').removeClass('has-offscreen-nav');
-    }
-
-    $('.offscreen-toggle').click(function () {
-        $('.main-container').toggleClass('reveal-nav');
-        $('nav').toggleClass('reveal-nav');
-        $('.offscreen-container').toggleClass('reveal-nav');
-    });
-
-    $('.main-container').click(function () {
-        if ($(this).hasClass('reveal-nav')) {
-            $(this).removeClass('reveal-nav');
-            $('.offscreen-container').removeClass('reveal-nav');
-            $('nav').removeClass('reveal-nav');
-        }
-    });
-
-    $('.offscreen-container a').click(function () {
-        $('.offscreen-container').removeClass('reveal-nav');
-        $('.main-container').removeClass('reveal-nav');
-        $('nav').removeClass('reveal-nav');
-    });
-
-
-}
-
-
-function updateNav() {
-
-    var scrollY = mr_scrollTop;
-
-    if (scrollY <= 0) {
-        if (mr_navFixed) {
-            mr_navFixed = false;
-            mr_nav.removeClass('fixed');
-        }
-        if (mr_outOfSight) {
-            mr_outOfSight = false;
-            mr_nav.removeClass('outOfSight');
-        }
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-        return;
-    }
-
-    if (scrollY > mr_navOuterHeight + mr_fixedAt) {
-        if (!mr_navScrolled) {
-            mr_nav.addClass('scrolled');
-            mr_navScrolled = true;
-            return;
-        }
-    } else {
-        if (scrollY > mr_navOuterHeight) {
-            if (!mr_navFixed) {
-                mr_nav.addClass('fixed');
-                mr_navFixed = true;
-            }
-
-            if (scrollY > mr_navOuterHeight + 10) {
-                if (!mr_outOfSight) {
-                    mr_nav.addClass('outOfSight');
-                    mr_outOfSight = true;
-                }
-            } else {
-                if (mr_outOfSight) {
-                    mr_outOfSight = false;
-                    mr_nav.removeClass('outOfSight');
-                }
-            }
-        } else {
-            if (mr_navFixed) {
-                mr_navFixed = false;
-                mr_nav.removeClass('fixed');
-            }
-            if (mr_outOfSight) {
-                mr_outOfSight = false;
-                mr_nav.removeClass('outOfSight');
-            }
-        }
-
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-
-    }
-}
-
-// Countdown Timers
-
 function SetCountdown()
 {
-
     if ($('.countdown').length) {
         $('.countdown').each(function () {
             var date = $(this).attr('data-date');
@@ -251,6 +63,14 @@ function SetCountdown()
             });
         });
     }
+
+}
+
+function SetColors(colorVariables) {
+
+    colorVariables.forEach((colorVariable) => {
+        document.documentElement.style.setProperty(colorVariable.name, colorVariable.value)
+    });
 
 }
 
@@ -276,7 +96,6 @@ function SetGallery()
     }, 200);
 
 }
-
 
 function SetCarrousel() {
 
@@ -330,7 +149,6 @@ function SetCarrousel() {
 
 }
 
-
 function SetTabs() {
 
     // Tabbed Content
@@ -359,7 +177,7 @@ function SetTabs() {
 
 }
 
-function SetAccordions() {
+function SetAccordion() {
     $('.accordion li').click(function () {
         if ($(this).closest('.accordion').hasClass('one-open')) {
             $(this).closest('.accordion').find('li').removeClass('active');
@@ -372,12 +190,6 @@ function SetAccordions() {
         }
     });
 }
-//Modal
-//function blazorInitializeModal(dialog, reference) {
-//    dialog.addEventListener("close", async e => {
-//        await reference.invokeMethodAsync("OnClose", dialog.returnValue);
-//    });
-//}
 
 function blazorOpenModal(dialog) {
     if (!dialog.open) {
@@ -390,84 +202,3 @@ function blazorCloseModal(dialog) {
         dialog.close();
     }
 }
-
-//function SetPlayButton() {
-
-//    // Compensate the height of parallax element for inline nav
-
-//    if ($(window).width() > 768) {
-//        $('.parallax:nth-of-type(1) .background-image-holder').css('top', -($('nav').outerHeight(true)));
-//    }
-
-//    // Prepare embedded video modals
-
-//    $('iframe[data-provider]').each(function () {
-//        var provider = jQuery(this).attr('data-provider');
-//        var videoID = jQuery(this).attr('data-video-id');
-//        var autoplay = jQuery(this).attr('data-autoplay');
-//        var vidURL = '';
-
-//        if (provider == 'vimeo') {
-//            vidURL = "http://player.vimeo.com/video/" + videoID + "?badge=0&title=0&byline=0&title=0&autoplay=" + autoplay;
-//            $(this).attr('data-src', vidURL);
-//        } else if (provider == 'youtube') {
-//            vidURL = "https://www.youtube.com/embed/" + videoID + "?showinfo=0&autoplay=" + autoplay;
-//            $(this).attr('data-src', vidURL);
-//        } else {
-//            console.log('Only Vimeo and Youtube videos are supported at this time');
-//        }
-//    });
-
-//    // Multipurpose Modals
-
-//    jQuery('.foundry_modal[modal-link]').remove();
-
-//    if ($('.foundry_modal').length && (!jQuery('.modal-screen').length)) {
-//        // Add a div.modal-screen if there isn't already one there.
-//        var modalScreen = jQuery('<div />').addClass('modal-screen').appendTo('body');
-
-//    }
-
-//    jQuery('.foundry_modal').click(function () {
-//        jQuery(this).addClass('modal-acknowledged');
-//    });
-
-//    jQuery(document).on('wheel mousewheel scroll', '.foundry_modal, .modal-screen', function (evt) {
-//        $(this).get(0).scrollTop += (evt.originalEvent.deltaY);
-//        return false;
-//    });
-
-//    $('.modal-container:not([modal-link])').each(function (index) {
-//        if (jQuery(this).find('iframe[src]').length) {
-//            jQuery(this).find('.foundry_modal').addClass('iframe-modal');
-//            var iframe = jQuery(this).find('iframe');
-//            iframe.attr('data-src', iframe.attr('src'));
-//            iframe.attr('src', '');
-
-//        }
-//        jQuery(this).find('.btn-modal').attr('modal-link', index);
-
-//        // Only clone and append to body if there isn't already one there
-//        if (!jQuery('.foundry_modal[modal-link="' + index + '"]').length) {
-//            jQuery(this).find('.foundry_modal').clone().appendTo('body').attr('modal-link', index).prepend(jQuery('<i class="ti-close close-modal">'));
-//        }
-//    });
-
-//    $('.btn-modal').unbind('click').click(function () {
-//        var linkedModal = jQuery('.foundry_modal[modal-link="' + jQuery(this).attr('modal-link') + '"]'),
-//            autoplayMsg = "";
-//        jQuery('.modal-screen').toggleClass('reveal-modal');
-//        if (linkedModal.find('iframe').length) {
-//            if (linkedModal.find('iframe').attr('data-autoplay') === '1') {
-//                var autoplayMsg = '&autoplay=1'
-//            }
-//            linkedModal.find('iframe').attr('src', (linkedModal.find('iframe').attr('data-src') + autoplayMsg));
-//        }
-//        if (linkedModal.find('video').length) {
-//            linkedModal.find('video').get(0).play();
-//        }
-//        linkedModal.toggleClass('reveal-modal');
-//        return false;
-//    });
-    
-//}

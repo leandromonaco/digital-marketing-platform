@@ -78,9 +78,4 @@ else if (Section.Layout.Equals("ImageLeft"))
 
     [Parameter]
     public Section Section { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JSRuntime.InvokeAsync<object>("SetCountdown");
-    }
 }
