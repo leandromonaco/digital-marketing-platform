@@ -1,5 +1,14 @@
 {
   "Title": "AIS Walker",
+  "Channels": {
+    "Address": "",
+    "Phone": "",
+    "Email": "help@aiswalker.net",
+    "Facebook": "https://www.facebook.com/aiswalker",
+    "Instagram": "https://www.instagram.com/aiswalkernz/",
+    "Twitter": "",
+    "YouTube": "https://www.youtube.com/channel/UCDYziJyASoaY66bTIwPLxMw"
+  },
   "Colors": {
     "Primary": "#FFC912",
     "Secondary": "#181818",

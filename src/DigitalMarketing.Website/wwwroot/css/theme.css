@@ -627,6 +627,9 @@ a.btn:hover {
     filter: contrast(1.5) brightness(0.5);
 }
 
+input {
+    color: black;
+}
 /*!---------- 5. SECTIONS ----------*/
 section,
 footer {
