@@ -51,6 +51,15 @@ var My;
 })(My || (My = {}));
 //# sourceMappingURL=script.js.map
 
+function SetVideo() {
+    $('section').closest('body').find('.local-video-container .play-button').click(function () {
+        $(this).siblings('.background-image-holder').removeClass('fadeIn');
+        $(this).siblings('.background-image-holder').css('z-index', -1);
+        $(this).css('opacity', 0);
+        $(this).siblings('video').get(0).play();
+    });
+}
+
 function SetCountdown()
 {
     if ($('.countdown').length) {

@@ -183,6 +183,7 @@
     {
         if (firstRender)
         {
+            await JSRuntime.InvokeVoidAsync("SetVideo");
             await JSRuntime.InvokeVoidAsync("SetColors", _colorVariables);
             await JSRuntime.InvokeVoidAsync("SetAccordion");
             await JSRuntime.InvokeVoidAsync("SetCarrousel");

@@ -46,11 +46,11 @@ namespace DigitalMarketing.Core.Controller
             var fromEmail = new EmailAddress(sendGridConfiguration.AuthorizedSenderEmail);
             var toEmail = new EmailAddress(touchPointEvent.Email);
 
-            string html = System.IO.File.ReadAllText(@"D:\Build\GitHub\DigitalMarketingPlatform\docs\emails\DownloadFile.html");
-            html = html.Replace("{FirstName}", touchPointEvent.FirstName)
-                       .Replace("{DownloadUrl}", downloadUrl);
+            //string html = System.IO.File.ReadAllText(@"D:\Build\GitHub\DigitalMarketingPlatform\docs\emails\DownloadFile.html");
+            //html = html.Replace("{FirstName}", touchPointEvent.FirstName)
+            //           .Replace("{DownloadUrl}", downloadUrl);
 
-            var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "this is your brochure", string.Empty, html);
+            var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "Tu brochure esta aqui!", @"descarga to brochure <a href=""#"">aqui</a>", @"descarga to brochure <a href=""#"">aqui</a>");
             msg.ReplyTo = new EmailAddress(touchPointEvent.Email);
             var emailResponse = await client.SendEmailAsync(msg);
 
