@@ -4538,8 +4538,7 @@ video {
 }
 
 .image-square {
-    height: 50vw;
-    max-height: 640px;
+    height: 30vw;
     overflow: hidden;
     padding: 0;
 }

@@ -12,73 +12,65 @@
 
 @if (Tenant != null && Section != null)
 {
-    if (!_isSuccessful)
-    {
-        <dialog class="bg-light" @ref="_element">
-            <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
-                <i class="ti-close close-modal" @onclick="CloseModal"></i>
-                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                    <input type="text" name="name" class="validate-required signup-name-field" placeholder="Primer Nombre" @bind="_touchPointEvent.FirstName">
-                    <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email" @bind="_touchPointEvent.Email">
-                    <a class="btn btn-lg" @onclick="ButtonClicked">@Section.ButtonText</a>
+    <div class="bg-light foundry_modal text-center" @ref="_element" modal-link="2" method="dialog">
+        @if (!_isSuccessful)
+        {
+            <i class="ti-close close-modal" @onclick="CloseModal"></i>
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                <input type="text" name="name" class="validate-required signup-name-field" placeholder="Primer Nombre" @bind="_touchPointEvent.FirstName">
+                <input type="text" name="email" class="validate-required validate-email signup-email-field" placeholder="Email" @bind="_touchPointEvent.Email">
+                <a class="btn btn-lg" @onclick="ButtonClicked">@Section.ButtonText</a>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="feature text-center">
+                    <h3 class="large">Gracias por descargar el brochure!</h3>
+                    <p class="mb40 mb-xs-24">
+                        En poco tiempo recibiras un email con el link de descarga.
+                        <a href="#" @onclick="CloseModal">Cerrar</a>
+                    </p>
+                    <ul class="list-inline social-list">
+                        @if (!string.IsNullOrEmpty(_configuration.Channels.Twitter))
+                        {
+                            <li>
+                                <a href="@_configuration.Channels.Twitter" target="_blank">
+                                    <i class="icon icon-sm ti-twitter-alt"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (!string.IsNullOrEmpty(_configuration.Channels.Facebook))
+                        {
+                            <li>
+                                <a href="@_configuration.Channels.Facebook" target="_blank">
+                                    <i class="icon icon-sm ti-facebook"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (!string.IsNullOrEmpty(_configuration.Channels.Instagram))
+                        {
+                            <li>
+                                <a href="@_configuration.Channels.Instagram" target="_blank">
+                                    <i class="icon icon-sm ti-instagram"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (!string.IsNullOrEmpty(_configuration.Channels.YouTube))
+                        {
+                            <li>
+                                <a href="@_configuration.Channels.YouTube" target="_blank">
+                                    <i class="icon icon-sm ti-youtube"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
-        </dialog>
-    }
-    else
-    {
-        <dialog class="bg-light" @ref="_element">
-            <div class="foundry_modal text-center reveal-modal" modal-link="2" method="dialog">
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <div class="feature text-center">
-                            <h3 class="large">Gracias por descargar el brochure!</h3>
-                            <p class="mb40 mb-xs-24">
-                                En poco tiempo recibiras un email con el link de descarga.
-                                <a href="#" @onclick="CloseModal">Cerrar</a>
-                            </p>
-                            <ul class="list-inline social-list">
-                                @if (!string.IsNullOrEmpty(_configuration.Channels.Twitter))
-                                {
-                                    <li>
-                                        <a href="@_configuration.Channels.Twitter" target="_blank">
-                                            <i class="icon icon-sm ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(_configuration.Channels.Facebook))
-                                {
-                                    <li>
-                                        <a href="@_configuration.Channels.Facebook" target="_blank">
-                                            <i class="icon icon-sm ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(_configuration.Channels.Instagram))
-                                {
-                                    <li>
-                                        <a href="@_configuration.Channels.Instagram" target="_blank">
-                                            <i class="icon icon-sm ti-instagram"></i>
-                                        </a>
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(_configuration.Channels.YouTube))
-                                {
-                                    <li>
-                                        <a href="@_configuration.Channels.YouTube" target="_blank">
-                                            <i class="icon icon-sm ti-youtube"></i>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--end of row-->
-            </div>
-            <!--end of container-->
-        </dialog>
-    }
+        </div>
+        }
+    </div>
 }
 
 
@@ -119,19 +111,16 @@
         {
             await JSRuntime.InvokeVoidAsync("blazorOpenModal", _element);
         }
-        else
-        {
-            await JSRuntime.InvokeVoidAsync("blazorCloseModal", _element);
-        }
-
-        await base.OnAfterRenderAsync(firstRender);
     }
 
     public async Task CloseModal()
     {
+        await JSRuntime.InvokeVoidAsync("blazorCloseModal", _element);
         if (Open == true)
         {
             Open = false;
+            _isSuccessful = false;
+            StateHasChanged();
             await OpenChanged.InvokeAsync(Open);
         }
     }

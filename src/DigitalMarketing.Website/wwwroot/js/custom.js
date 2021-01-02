@@ -201,13 +201,13 @@ function SetAccordion() {
 }
 
 function blazorOpenModal(dialog) {
-    if (!dialog.open) {
-        dialog.showModal();
-    }
+    var linkedModal = jQuery('.foundry_modal[modal-link="' + jQuery(dialog).attr('modal-link') + '"]');/*,*/
+    linkedModal.toggleClass('reveal-modal');
+    return true; 
 }
 
 function blazorCloseModal(dialog) {
-    if (dialog.open) {
-        dialog.close();
-    }
+    var linkedModal = jQuery('.foundry_modal[modal-link="' + jQuery(dialog).attr('modal-link') + '"]');
+    linkedModal.removeClass('reveal-modal');
+    return false; 
 }
