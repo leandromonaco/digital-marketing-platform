@@ -31,7 +31,7 @@
           "ButtonText": "Descargar Brochure",
           "Workflow": {
             "Type": "FileDownload",
-            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+            "Parameters": "http://arystec.com/tenants/arystec/download/arystec_brochure.pdf"
           }
         },
         {
@@ -75,7 +75,7 @@
           "ButtonText": "Descargar Brochure",
           "Workflow": {
             "Type": "FileDownload",
-            "Parameters": "tenants/arystec/download/Arystec_brochure.pdf"
+            "Parameters": "http://arystec.com/tenants/arystec/download/arystec_brochure.pdf"
           }
         },
         {

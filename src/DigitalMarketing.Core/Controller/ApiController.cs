@@ -50,7 +50,7 @@ namespace DigitalMarketing.Core.Controller
             //html = html.Replace("{FirstName}", touchPointEvent.FirstName)
             //           .Replace("{DownloadUrl}", downloadUrl);
 
-            var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "Tu brochure esta aqui!", @"descarga to brochure <a href=""#"">aqui</a>", @"descarga to brochure <a href=""#"">aqui</a>");
+            var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "¡Tu brochure está aquí!", $@"Puedes descargar tu brochure haciendo clic <a href=""{downloadUrl}"">aquí</a>", $@"Puedes descargar tu brochure haciendo clic <a href=""{downloadUrl}"">aquí</a>");
             msg.ReplyTo = new EmailAddress(touchPointEvent.Email);
             var emailResponse = await client.SendEmailAsync(msg);
 
