@@ -13,10 +13,6 @@
 @using Microsoft.AspNetCore.Components.Web.Extensions.Head
 @inject IJSRuntime JSRuntime
 
-<div class="nav-container">
-    <NavigationBar></NavigationBar>
-</div>
-
 
 @if (_tenant != null && _configuration != null)
 {
@@ -33,6 +29,9 @@
     {
         switch (s.Type)
         {
+            case "NavigationBar":
+                <NavigationBar Tenant="@_tenant" Section="@s"></NavigationBar>
+                break;
             case "Alert":
                 <Alert Tenant="@_tenant" Section="@s"></Alert>
                 break;
@@ -183,6 +182,8 @@
     {
         if (firstRender)
         {
+            await JSRuntime.InvokeVoidAsync("SetSmoothScroll");
+            await JSRuntime.InvokeVoidAsync("SetNavigationBar");
             await JSRuntime.InvokeVoidAsync("SetVideo");
             await JSRuntime.InvokeVoidAsync("SetColors", _colorVariables);
             await JSRuntime.InvokeVoidAsync("SetAccordion");

@@ -47,4 +47,6 @@ docker rm $(docker ps -a -q)
 
 
 Error response from daemon: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network
-Docker Desktop -> Troubleshoot -> Reset to factory defaults
+
+docker stop $(docker ps -a -q)
+docker network prune

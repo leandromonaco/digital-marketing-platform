@@ -31,7 +31,7 @@
           "SubTitle": "Estudia y Trabaja en Nueva Zelanda",
           "Paragraph": "Realizamos una gestión 100% personalizada. Tenemos programas para todas las edades.",
           "BackgroundImage": "cover.webp",
-          "BackgroundVideo": "cover.mp4",
+          "BackgroundVideo": "cover.webm",
           "ButtonText": "Descargar Brochure",
           "Workflow": {
             "Type": "FileDownload",
@@ -42,8 +42,8 @@
           "Type": "ContentVideo",
           "Layout": "VideoLeft",
           "Theme": "bg-light",
-          "Title": "Nueva Zelanda te espera",
-          "Paragraph": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
+          "Title": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
+          "Paragraph": "Somos una empresa con amplia experiencia. Contamos con distintos programas para todas las edades en países de habla inglesa, principalmente Nueva Zelanda. Cada viaje es único, por eso realizamos una gestión 100% personalizada. Brindamos asesoramiento en todas las áreas del viaje: pasajes, permisos, estudio, trabajo, recomendaciones para la vida diaria y más.",
           "BackgroundVideo": "tenants/aiswalker/intro.mp4",
           "ButtonText": "Descargar Brochure",
           "Workflow": {
@@ -53,8 +53,8 @@
         },
         {
           "Type": "Gallery",
-          "Title": "Galeria de Fotos",
-          "Paragraph": "En AIS Walker nos esforzamos para que cada proyecto de estudio sea una gran experiencia educacional, cultural, social y de inversión para el futuro.",
+          "Title": "Galería",
+          "Paragraph": "¡Nueva Zelanda te espera para vivir la mejor experiencia de tu vida!",
           "Images": [
             "tenants/aiswalker/galeria1.webp",
             "tenants/aiswalker/galeria2.webp",
@@ -121,10 +121,15 @@
           "Title": "Nuestras Instituciones",
           "Images": [
             "tenants/aiswalker/Instituciones_Kingston.webp",
-            "tenants/aiswalker/Instituciones_Kingston.webp",
-            "tenants/aiswalker/Instituciones_Kingston.webp",
-            "tenants/aiswalker/Instituciones_Kingston.webp",
-            "tenants/aiswalker/Instituciones_Kingston.webp"
+            "tenants/aiswalker/Instituciones_BeGroup.webp",
+            "tenants/aiswalker/Instituciones_FreemansBay.webp",
+            "tenants/aiswalker/Instituciones_Glendowie.webp",
+            "tenants/aiswalker/Instituciones_Seafield.webp",
+            "tenants/aiswalker/Instituciones_Takapuna.webp",
+            "tenants/aiswalker/Instituciones_MountAlbert.webp",
+            "tenants/aiswalker/Instituciones_Unitec.webp",
+            "tenants/aiswalker/Instituciones_UniversityAuckland.webp",
+            "tenants/aiswalker/Instituciones_WITT.webp"
           ]
         },
         {

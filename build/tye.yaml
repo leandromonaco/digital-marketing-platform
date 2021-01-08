@@ -25,6 +25,9 @@ services:
 
 - name: Templates
   project: ../libs/Templates/Templates.csproj
+  bindings:
+  - port: 51000
+    
 
 - name: DigitalMarketing-Database
   image: mcr.microsoft.com/mssql/server:2019-latest
