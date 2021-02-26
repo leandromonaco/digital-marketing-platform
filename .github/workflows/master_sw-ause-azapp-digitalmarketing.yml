@@ -30,6 +30,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'sw-ause-azapp-digitalmarketing'
-        slot-name: 'development'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fd0f1d20560b49b6834516f4d33b5e36 }}
+        slot-name: 'staging'
+        publish-profile: ${{ secrets.PUBLISH_PROFILE_STAGING }}
         package: ${{env.DOTNET_ROOT}}/myapp 
