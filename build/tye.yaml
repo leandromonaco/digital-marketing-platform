@@ -18,10 +18,12 @@ services:
     port: 52094
     host: arystec.local
 
-- name: DigitalMarketing-API
-  project: ../src/DigitalMarketing.API/DigitalMarketing.API.csproj
+- name: DigitalMarketing-Services-Content
+  project: ../src/DigitalMarketing.Services/DigitalMarketing.Services.CMS/DigitalMarketing.Services.CMS.csproj
   bindings:
-  - port: 52090
+  - name: Cms
+    port: 52090
+    host: localhost/swagger/index.html
 
 - name: Templates
   project: ../libs/Templates/Templates.csproj

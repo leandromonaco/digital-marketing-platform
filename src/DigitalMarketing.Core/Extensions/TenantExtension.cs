@@ -9,9 +9,9 @@ namespace DigitalMarketing.Model.Extensions
 {
     public static class ConfigurationExtensions
     {
-        public static TenantConfigurationModel LoadConfiguration(this Tenant tenant, string host)
+        public static TenantData LoadConfiguration(this Tenant tenant, string host)
         {
-            TenantConfigurationModel parsedConfig = null;
+            TenantData parsedConfig = null;
             string json = null;
 
             bool isTest = SiteHelper.IsTestUrl(host);
@@ -19,11 +19,11 @@ namespace DigitalMarketing.Model.Extensions
             if (isTest)
             {
                 json = tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.staging.json")).FirstOrDefault().Content;
-                parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(json);
+                parsedConfig = JsonSerializer.Deserialize<TenantData>(json);
             }
             else
             {
-                parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
+                parsedConfig = JsonSerializer.Deserialize<TenantData>(tenant.TenantConfiguration.Where(tc => tc.File.Filename.Equals("tenant.production.json")).FirstOrDefault().Content);
             }
 
             return parsedConfig;

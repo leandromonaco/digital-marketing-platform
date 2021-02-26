@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace DigitalMarketing.Test
 {
@@ -26,13 +27,17 @@ namespace DigitalMarketing.Test
         {
             //C:\Windows\System32\drivers\etc\hosts
             //Run as admin
-            using (StreamWriter w = File.AppendText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts")))
-            {
-                w.WriteLine("127.0.0.1 softwareworker.local");
-                w.WriteLine("127.0.0.1 aiswalker.local");
-                w.WriteLine("127.0.0.1 protechexteriors.local");
-                w.WriteLine("127.0.0.1 arystec.local");
-            }
+
+            var hostFileContent = File.ReadAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts"));
+            Regex rgx = new Regex("127.0.0.1 .*dev.softwareworker.com");
+            MatchCollection matches = rgx.Matches(hostFileContent);
+            //using (StreamWriter w = File.AppendText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts")))
+            //{
+            //    w.WriteLine("127.0.0.1 softwareworker.dev.softwareworker.com");
+            //    w.WriteLine("127.0.0.1 aiswalker.dev.softwareworker.com");
+            //    w.WriteLine("127.0.0.1 protechexteriors.dev.softwareworker.com");
+            //    w.WriteLine("127.0.0.1 arystec.dev.softwareworker.com");
+            //}
         }
 
         [TestMethod]
@@ -43,7 +48,7 @@ namespace DigitalMarketing.Test
             {
                 json = r.ReadToEnd();
             }
-            var parsedConfig = JsonSerializer.Deserialize<TenantConfigurationModel>(json);
+            var parsedConfig = JsonSerializer.Deserialize<TenantData>(json);
         }
 
         //TODO: Add script to setup dependencies

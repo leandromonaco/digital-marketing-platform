@@ -19,6 +19,6 @@ namespace DigitalMarketing.Model.Settings
         public List<Testimonial> Testimonials { get; set; }
         public List<AccordionItem> AccordionItems { get; set; }
         public List<string> Images { get; set; }
-        public Workflow Workflow { get; set; }
+        public string Workflow { get; set; }
     }
 }

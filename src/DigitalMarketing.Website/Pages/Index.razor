@@ -23,7 +23,7 @@
     {
         PageName = "home";
     }
-    var p = _configuration.Pages.Where(p => p.Name.Equals(PageName)).FirstOrDefault();
+    var p = _configuration.Website.Pages.Where(p => p.Name.Equals(PageName)).FirstOrDefault();
 
     foreach (var s in p.Sections)
     {
@@ -96,7 +96,7 @@
     public IHttpContextAccessor HttpContextAccessor { get; set; }
 
     Tenant _tenant;
-    TenantConfigurationModel _configuration;
+    TenantData _configuration;
     List<ColorVariable> _colorVariables;
 
     /// <summary>
@@ -140,7 +140,7 @@
             case "--bg-primary-button-color":
             case "--bg-primary-button-border-color":
 
-                return _configuration.Colors.Primary;
+                return _configuration.Website.Colors.Primary;
 
             case "--bg-secondary-background":
             case "--bg-primary-color":
@@ -150,7 +150,7 @@
             case "--bg-secondary-button-color":
             case "--bg-secondary-button-border-color":
 
-                return _configuration.Colors.Secondary;
+                return _configuration.Website.Colors.Secondary;
 
             case "--bg-light-background":
             case "--bg-dark-color":
@@ -160,7 +160,7 @@
             case "--bg-light-button-color":
             case "--bg-light-button-border-color":
 
-                return _configuration.Colors.Light;
+                return _configuration.Website.Colors.Light;
 
             case "--bg-dark-background":
             case "--bg-light-color":
@@ -170,7 +170,7 @@
             case "--bg-dark-button-color":
             case "--bg-dark-button-border-color":
 
-                return _configuration.Colors.Dark;
+                return _configuration.Website.Colors.Dark;
 
             default:
 

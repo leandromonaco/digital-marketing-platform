@@ -109,7 +109,7 @@
                 if (result.Success)
                 {
                     var configuration = Tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
-                    await ApiController.SendMessage(Tenant.Id, configuration.ThirdPartyConfiguration.SendGrid, _touchPointEvent);
+                    await ApiController.SendMessage(Tenant.Id, configuration.Services.SendGrid, _touchPointEvent);
                     _isSent = true;
                 }
                 else

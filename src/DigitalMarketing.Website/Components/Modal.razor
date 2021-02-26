@@ -33,34 +33,34 @@
                         <a href="#" @onclick="CloseModal">Cerrar</a>
                     </p>
                     <ul class="list-inline social-list">
-                        @if (!string.IsNullOrEmpty(_configuration.Channels.Twitter))
+                        @if (!string.IsNullOrEmpty(_tenantData.Website.Channels.Twitter))
                         {
                             <li>
-                                <a href="@_configuration.Channels.Twitter" target="_blank">
+                                <a href="@_tenantData.Website.Channels.Twitter" target="_blank">
                                     <i class="icon icon-sm ti-twitter-alt"></i>
                                 </a>
                             </li>
                         }
-                        @if (!string.IsNullOrEmpty(_configuration.Channels.Facebook))
+                        @if (!string.IsNullOrEmpty(_tenantData.Website.Channels.Facebook))
                         {
                             <li>
-                                <a href="@_configuration.Channels.Facebook" target="_blank">
+                                <a href="@_tenantData.Website.Channels.Facebook" target="_blank">
                                     <i class="icon icon-sm ti-facebook"></i>
                                 </a>
                             </li>
                         }
-                        @if (!string.IsNullOrEmpty(_configuration.Channels.Instagram))
+                        @if (!string.IsNullOrEmpty(_tenantData.Website.Channels.Instagram))
                         {
                             <li>
-                                <a href="@_configuration.Channels.Instagram" target="_blank">
+                                <a href="@_tenantData.Website.Channels.Instagram" target="_blank">
                                     <i class="icon icon-sm ti-instagram"></i>
                                 </a>
                             </li>
                         }
-                        @if (!string.IsNullOrEmpty(_configuration.Channels.YouTube))
+                        @if (!string.IsNullOrEmpty(_tenantData.Website.Channels.YouTube))
                         {
                             <li>
-                                <a href="@_configuration.Channels.YouTube" target="_blank">
+                                <a href="@_tenantData.Website.Channels.YouTube" target="_blank">
                                     <i class="icon icon-sm ti-youtube"></i>
                                 </a>
                             </li>
@@ -76,7 +76,7 @@
 
 @code {
     private bool _isSuccessful;
-    private TenantConfigurationModel _configuration;
+    private TenantData _tenantData;
     private DotNetObjectReference<Modal> _this;
     private ElementReference _element;
 
@@ -102,7 +102,7 @@
     // that triggered it is outside this component
     protected async override void OnInitialized()
     {
-        _configuration = Tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
+        _tenantData = Tenant.LoadConfiguration(HttpContextAccessor.HttpContext.Request.Host.Value);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -127,10 +127,10 @@
 
     async Task ButtonClicked()
     {
-        switch (Section.Workflow.Type)
+        switch (Section.Workflow)
         {
             case "FileDownload":
-                await ApiController.DownloadFile(Tenant.Id, _configuration.ThirdPartyConfiguration.SendGrid, _touchPointEvent, Section.Workflow.Parameters);
+                await ApiController.DownloadFile(Tenant.Id, _tenantData.Services.SendGrid, _touchPointEvent, _tenantData.Workflows.FileDownload.File);
                 _isSuccessful = true;
                 StateHasChanged();
                 break;

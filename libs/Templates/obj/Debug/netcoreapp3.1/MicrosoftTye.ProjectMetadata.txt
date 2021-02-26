@@ -2,9 +2,9 @@ AssemblyInformationalVersion:
 InformationalVersion: 1.0.0
 Version: 1.0.0
 TargetFrameworks:
-RunCommand: D:\Build\AgilityManager\DigitalMarketing\libs\Templates\bin\Debug\netcoreapp3.1\Templates.exe
+RunCommand: D:\Build\GitHub\DigitalMarketingPlatform\libs\Templates\bin\Debug\netcoreapp3.1\Templates.exe
 RunArguments:
-TargetPath: D:\Build\AgilityManager\DigitalMarketing\libs\Templates\bin\Debug\netcoreapp3.1\Templates.dll
+TargetPath: D:\Build\GitHub\DigitalMarketingPlatform\libs\Templates\bin\Debug\netcoreapp3.1\Templates.dll
 PublishDir: bin\Debug\netcoreapp3.1\publish\
 AssemblyName: Templates
 IntermediateOutputPath: obj\Debug\netcoreapp3.1\

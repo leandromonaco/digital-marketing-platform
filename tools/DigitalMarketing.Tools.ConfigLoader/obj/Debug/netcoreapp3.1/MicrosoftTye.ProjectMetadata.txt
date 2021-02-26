@@ -2,9 +2,9 @@ AssemblyInformationalVersion:
 InformationalVersion: 1.0.0
 Version: 1.0.0
 TargetFrameworks:
-RunCommand: D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.exe
+RunCommand: D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.exe
 RunArguments:
-TargetPath: D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.dll
+TargetPath: D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.dll
 PublishDir: bin\Debug\netcoreapp3.1\publish\
 AssemblyName: DigitalMarketing.Tools.ConfigLoader
 IntermediateOutputPath: obj\Debug\netcoreapp3.1\

@@ -11,3 +11,16 @@ D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoad
 D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.dll
 D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.pdb
 D:\Build\AgilityManager\DigitalMarketing\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.genruntimeconfig.cache
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.exe
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.deps.json
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.runtimeconfig.json
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.runtimeconfig.dev.json
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.dll
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\bin\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.pdb
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.csprojAssemblyReference.cache
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.AssemblyInfoInputs.cache
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.AssemblyInfo.cs
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.csproj.CoreCompileInputs.cache
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.dll
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.pdb
+D:\Build\GitHub\DigitalMarketingPlatform\tools\DigitalMarketing.Tools.ConfigLoader\obj\Debug\netcoreapp3.1\DigitalMarketing.Tools.ConfigLoader.genruntimeconfig.cache

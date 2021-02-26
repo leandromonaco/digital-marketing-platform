@@ -1,6 +1,6 @@
 ﻿namespace DigitalMarketing.Model.Settings
 {
-    public class ThirdPartyConfiguration
+    public class TenantServices
     {
         public SendGridConfiguration SendGrid { get; set; }
         public GoogleAnalyticsConfiguration GoogleAnalytics { get; set; }
