@@ -5,6 +5,7 @@ https://www.onlydomains.com/domain/index
 https://www.godaddy.com/en-au
 
 # Azure
+
 https://portal.azure.com/
 
 # Google reCaptcha
@@ -21,4 +22,6 @@ https://app.sendgrid.com/login/
 
 # Twilio
 
-still using support@softwareworker.com
+* https://www.twilio.com/console/admin
+
+
