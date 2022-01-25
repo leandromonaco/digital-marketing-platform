@@ -1,0 +1,3 @@
+You are required to include your contact information, including a physical mailing address, inside every promotional email you send in order to comply with the anti-spam 
+laws such as [CAN-SPAM](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) and [CASL](https://laws-lois.justice.gc.ca/eng/annualstatutes/2010_23/FullText.html). 
+You'll find [replacement tags](https://docs.sendgrid.com/ui/sending-email/editor#reserved-substitution-tags) for this information in the footer of all the email designs SendGrid provides. [Learn more](https://www.twilio.com/legal/aup)
